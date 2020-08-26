@@ -42,15 +42,15 @@ public class ComplexNumberDaoImpl implements ComplexNumberDao {
 
         private static ComplexNumber entity2model(hu.uni.eku.tzs.dao.entity.ComplexNumber entity){
             return new ComplexNumber(
-                    entity.getReal(),
-                    entity.getImaginary()
+                    entity.getRealPart(),
+                    entity.getImaginaryPart()
             );
         }
 
         private static hu.uni.eku.tzs.dao.entity.ComplexNumber model2entity(ComplexNumber model){
             return hu.uni.eku.tzs.dao.entity.ComplexNumber.builder()
-                    .real(model.getReal())
-                    .imaginary(model.getImaginary())
+                    .realPart(model.getReal())
+                    .imaginaryPart(model.getImaginary())
                     .build();
         }
 

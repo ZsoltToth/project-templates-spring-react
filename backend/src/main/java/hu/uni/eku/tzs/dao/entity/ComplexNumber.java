@@ -17,7 +17,7 @@ public class ComplexNumber {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
-    private double real;
+    private double realPart;
     @Column
-    private double imaginary;
+    private double imaginaryPart;
 }
