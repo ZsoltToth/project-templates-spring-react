@@ -20,11 +20,11 @@ public class ComplexNumberController {
 
     @GetMapping("/record")
     public void record(
-            @ApiParam(name = "real part", required =  true, example = "0.0")
-            @RequestParam(name = "real", required = true)
+            @ApiParam(name = "real", required =  true, defaultValue = "0.0")
+            @RequestParam(name = "real")
             double real,
-            @ApiParam(name = "imaginary part", required = true, example = "0.0")
-            @RequestParam(name = "imag", required = true)
+            @ApiParam(name = "imag",  required = true, defaultValue = "0.0")
+            @RequestParam(name = "imag")
             double imaginary
     ){
         service.record(new ComplexNumber(real,imaginary));
