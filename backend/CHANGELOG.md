@@ -16,4 +16,5 @@ Read [this](https://keepachangelog.com/en/1.0.0/) for more information about cha
  - Spring framework was added.
  - Swagger was configured.
  - Hibernate was added.
+ - ExceptionHandling example is added.
 
