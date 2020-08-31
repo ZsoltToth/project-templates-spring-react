@@ -77,3 +77,15 @@ __Update Maven Version in Commandline__
 ```bash
 mvn versions:set -DnewVersion=1.0.3-SNAPSHOT
 ```
+
+## Definition of Ready
+ - All Acceptance Criteria are met. 
+ - Current modifications are tested. At least least happy paths. 
+ - Tests were run on local and on CI. (Build Successful!)
+ - Feature branch has no conflict with master.
+ - CHANGELOG.md is extended, if necessary.
+
+## Definition of Done
+ - Pull Request is reviewed.
+ - All Change Requests are performed and comments are answered.
+ 
