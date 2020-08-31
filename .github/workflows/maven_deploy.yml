@@ -4,10 +4,8 @@
 name: Backend Build Process
 
 on:
-  push:
-    branches:
-      - master
-      - '*'
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -21,4 +19,4 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn -B package --file backend/pom.xml
+      run: mvn -B deploy --file backend/pom.xml -Dregistry=https://maven.pkg.github.com/phanatic -Dtoken=${{secrets.GITHUB_TOKEN}}
