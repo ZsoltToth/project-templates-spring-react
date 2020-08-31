@@ -96,6 +96,14 @@ __Run Backend Docker Image__
 docker run backend:1.0
 ```
 
+__Docker Compose__
+
+Docker Compose should be used via [Dockstation](https://dockstation.io/) because it is a way easier.
+
+_Note:_ 
+Docker Compose will run init script for db once. 
+If you modify the init SQL script then container has to be removed.
+
 ## Definition of Ready
  - All Acceptance Criteria are met. 
  - Current modifications are tested. At least least happy paths. 
