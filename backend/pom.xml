@@ -27,6 +27,14 @@
     <swagger.version>2.9.2</swagger.version>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/ZsoltToth</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <!-- Spring Framework 5 -->
     <dependency>
