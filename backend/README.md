@@ -68,3 +68,12 @@ Then you should add the implementation.
 ### DAO
 ### Controller
 ### Config 
+
+
+## Userful Commands
+
+__Update Maven Version in Commandline__
+
+```bash
+mvn versions:set -DnewVersion=1.0.3-SNAPSHOT
+```

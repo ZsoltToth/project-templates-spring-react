@@ -2,6 +2,7 @@ package hu.uni.eku.tzs.service;
 
 import hu.uni.eku.tzs.dao.ComplexNumberDao;
 import hu.uni.eku.tzs.model.ComplexNumber;
+import hu.uni.eku.tzs.service.exceptions.ComplexNumberAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,17 @@ public class ComplexNumberServiceImpl implements ComplexNumberService {
     private final ComplexNumberDao dao;
 
     @Override
-    public void record(ComplexNumber complexNumber) {
+    public void record(ComplexNumber complexNumber) throws ComplexNumberAlreadyExistsException {
+        final boolean isAlreadyRecorded = dao.readAll()
+                .stream()
+                .anyMatch( cn ->
+                                cn.getReal() == complexNumber.getReal()
+                                &&
+                                cn.getImaginary() == complexNumber.getImaginary());
+        if(isAlreadyRecorded){
+            log.info("Complex Number {} is already recorded!", complexNumber);
+            throw new ComplexNumberAlreadyExistsException("Complex Number (${complexNumber.toString()}) already exists!");
+        }
         dao.create(complexNumber);
     }
 
