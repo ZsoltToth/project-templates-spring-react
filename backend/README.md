@@ -69,6 +69,14 @@ Then you should add the implementation.
 ### Controller
 ### Config 
 
+```bash
+#Run -> Edit Configuration -> Environment -> VM Options
+-DDB_HOST=localhost
+-DDB_PORT=3306
+-DDB_NAME=complex
+-DDB_USER=root
+-DDB_PASSWORD=password
+```
 
 ## Userful Commands
 
@@ -76,6 +84,16 @@ __Update Maven Version in Commandline__
 
 ```bash
 mvn versions:set -DnewVersion=1.0.3-SNAPSHOT
+```
+
+__Build Backend Docker Image__
+```bash
+docker build --tag backend:1.0 .
+```
+
+__Run Backend Docker Image__
+```bash
+docker run backend:1.0
 ```
 
 ## Definition of Ready
