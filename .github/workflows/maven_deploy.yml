@@ -21,4 +21,7 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn -B deploy --file backend/pom.xml -Dregistry=https://maven.pkg.github.com/ZsoltToth -Dtoken=${{secrets.GITHUB_TOKEN}}
+      run: mvn -B deploy \
+      --file backend/pom.xml \
+      -Dregistry=https://maven.pkg.github.com/ZsoltToth/project-templates-spring-react \
+      -Dtoken=${{ secrets.GITHUB_TOKEN }}
