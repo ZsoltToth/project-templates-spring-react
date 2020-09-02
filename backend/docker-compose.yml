@@ -24,5 +24,7 @@ services:
       DB_NAME: complex
       DB_USER: root
       DB_PASSWORD: password
+    depends_on:
+      - "db"
 
 
