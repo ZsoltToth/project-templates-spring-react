@@ -1,9 +1,9 @@
 import React from "react";
-
+import * as actions from '../action/ComplexNumberActions';
 class ComplexNumberRecordingForm extends React.Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             real : 0,
             imag : 0
@@ -25,7 +25,7 @@ class ComplexNumberRecordingForm extends React.Component{
                     <label htmlFor={"imag"}>Real</label>
                     <input type={"number"} id={"imag"} name={"imag"} value={this.state.imag} onChange={this.formOnChange}/>
                     <br/>
-                    <button onClick={()=> console.log(this.state)}>Submit</button>
+                    <button onClick={()=> actions.recordComplexNumber(this.state)}>Submit</button>
             </div>
         );
     }
