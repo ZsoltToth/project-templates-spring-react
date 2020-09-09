@@ -12,11 +12,12 @@ export const recordComplexNumber = ({real,imag}) =>{
         })
         .then(() => {
             fetchComplexNumbers();
+            dispatcher.dispatch({action : actionConstants.clearError});
         })
         .catch((err) => {
             dispatcher.dispatch({
                 action : actionConstants.showError,
-                payload: err.response.data.message
+                payload: `${err.response.status}-${err.response.statusText}: ${err.response.data.message}`
             });
             fetchComplexNumbers();
         });
@@ -31,4 +32,3 @@ export const fetchComplexNumbers = () =>{
         });
     })
 }
-
