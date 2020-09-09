@@ -65,9 +65,49 @@ These services hide the functionality of the software, and they use the _model_ 
 The services are usually presented as Use-Cases in UML. 
 According to the Dependenci Inversion principle the interface should be defined first. 
 Then you should add the implementation. 
+
 ### DAO
+The _dao_ package separates storage from business logic. 
+DAO stands for Data Access Object so its sole purpose is data storage. 
+A DAO is usually an interface which defines the CRUD (_Create_, _Read_, _Update_, _Delete_) methods.
+Although usually relational database is used, the DAO does not depend on RDBMS or any other technology. 
+You can defined a general DAO and have an implementation for MySQL and another for MongoDB. 
+The interface hides these technical details. 
+
+Hiberante is used with MySQL in the current example. 
+Hibernate is an Object Relational Mapping tool which can handle Entities. 
+Model and Entity classes are separated in the current example in order to demonstrate their connection. 
+In practice, these classes may not be separated so they save time in development. 
+The Entities are stored via a CRUDRepository. 
+
+The MySQL database runs in a Docker container in order to facilitate the configuration.
+The init SQL script and Docker scripts can be found in the _src/main/resources_ directory.
+
+
 ### Controller
+
+The _controller_ package contains the Controllers and the DTOs (Data Transfer Object).
+Controller provides end points for services and it is liable for validation and data conversion.
+Controllers are documented with Swagger which provides a web interface on the /api/swagger-ui.html path.
+The Controller should validate its inputs because the user input cannot be trusted.
+Frontend validation is for the users but the endpoint can be called from anywhere.
+If the request is valid then the controller invokes the corresponding service.
+The response is also converted into DTO and sent back with the HTTP response.
+Exceptions are wrapped and handled by the controller as well.
+
+Data Transfer Objects are used to wrap model classes, hide sensitive information and decrease network traffic.
+DTO differs from model objects in several ways.
+DTO should have _no arg constructor_, public _getter/setter_ methods for serialization, while these would violate information hiding in the model.
+DTO is created to be used in HTTP Requests while model classes are designed according to OOP principles.
+DTOs are basicly data structures while _model_ classes have methods, behavior.
+DataTransferObjects often named as _Request_ and _Response_ based on their purpose.
+
 ### Config 
+Configuration contains the Spring Application Context related classes.
+Although many of the Beans are instantiated autmaticly by Spring Framework some Beans requires configuration.
+Your own Bean, Service, Controller etc. would not require configuartion probably. 
+On the other hand, some libraries and modules have to be configured such as Swagger or Spring Security.
+
 
 ```bash
 #Run -> Edit Configuration -> Environment -> VM Options
