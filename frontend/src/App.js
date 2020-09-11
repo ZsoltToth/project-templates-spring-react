@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import ComplexNumberRecordingForm from "./component/ComplexNumberRecordingForm";
+import ComplexNumberList from "./component/ComplexNumberList";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
             <div className={"col-md-3"}></div>
             <div className={"col-md-6"}>
                 <ComplexNumberRecordingForm/>
+                <ComplexNumberList/>
             </div>
             <div className={"col-md-3"}></div>
         </div>
