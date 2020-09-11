@@ -1,3 +1,57 @@
+# Frontend
+
+The client side (frontend) of the web application was implemented in React with Bootstrap. 
+
+##### Technologies
+ - node, npm - interpreter and package manager
+ - Bootstrap, node-sass - CSS generation, layout and design
+ - jest - testing
+ - eslint - syntax and style checker
+ - husky - pre-commit hook for code quality
+ - flux - unidirectional dataflow, state management
+ - axios - AJAX requests.
+
+## Architecture
+
+The architecture of the fronted can be seen the Figure below.
+This figure presents the Unidirectional Data Flow of Flux with extension of Axios. 
+
+![Frontend Architecture](./frontendArchitecture.png)
+
+The frontend provides user interface and communicates with the backend. 
+The browser is the user interface which renders everything and provides controller elements for the user. 
+The backend is accessed via HTTP. 
+
+Frontend distinguishes the components, actions and stores while uses the Dispatcher and Axios as 3rd party tools. 
+
+Components are the core elements of the React framework and they will be rendered in the browser. 
+In other words, the components are the view of the application. 
+
+Components can render visual control elements such as buttons and forms. 
+These elements can handle the user iteractions and forward these events to the corresponding actions.
+
+Actions separates the handling of the event from the visualization. 
+Actions also implements a Command Design Pattern and they are reusable. 
+Finally actions can perform AJAX requests with Axios. 
+The fetched data is forwarded to the dispatcher which is reliable for broadcasting events/actions. 
+AJAX requests should be performed in the Action. 
+
+Dispatcher is the central element of Flux.
+Actions produce events/actions for the Dispatcher which are consumed by the Stores. 
+Dispatcher broadcast all messages. 
+This messaging pattern can be compared to Message Queue and Publish/Subscribe Model. 
+
+_Note:_ 
+The term Actions is ambiguous. 
+It may refer to the Action which hanled user events due to the Command/Action Design Pattern.
+It can refer the the dispached actions of the Dispatcher of Flux.
+
+Stores are used to store the shared state of Components. 
+Stores implements event emitters and they implement the Observer Design Pattern. 
+Actions of Dispatcher are consumed by Stores. 
+
+---
+# Generated Readme for React Apps
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
