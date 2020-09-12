@@ -1,6 +1,7 @@
 package hu.uni.eku.tzs.controller;
 
 import hu.uni.eku.tzs.controller.dto.ComplexNumberDto;
+import hu.uni.eku.tzs.controller.dto.ComplexNumberRecordRequestDto;
 import hu.uni.eku.tzs.model.ComplexNumber;
 import hu.uni.eku.tzs.service.ComplexNumberService;
 import hu.uni.eku.tzs.service.exceptions.ComplexNumberAlreadyExistsException;
@@ -26,21 +27,17 @@ public class ComplexNumberController {
 
     private final ComplexNumberService service;
 
-    @GetMapping("/record")
+    @PostMapping("/record")
     @ApiOperation(value = "Record")
     public void record(
-            @ApiParam(name = "real", required =  true, defaultValue = "0", example = "0")
-            @RequestParam(name = "real")
-            double real,
-            @ApiParam(name = "imag",  required = true, defaultValue = "0", example = "0")
-            @RequestParam(name = "imag")
-            double imaginary
+            @RequestBody
+            ComplexNumberRecordRequestDto request
     ){
-        log.info("Recording of Complex Number ({},{})",real,imaginary);
+        log.info("Recording of Complex Number ({},{})",request.getReal(),request.getImag());
         try {
-            service.record(new ComplexNumber(real,imaginary));
+            service.record(new ComplexNumber(request.getReal(),request.getImag()));
         } catch (ComplexNumberAlreadyExistsException e) {
-            log.info("Complex number ({},{}) is already exists!", real,imaginary);
+            log.info("Complex number ({},{}) is already exists!", request.getReal(),request.getImag());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     e.getMessage()
