@@ -27,9 +27,9 @@ class ComplexNumberList extends React.Component{
     render() {
         return(
             <div>
-                {this.state.complexNumbers.map(({real,imaginary})=>{
+                {this.state.complexNumbers.map(({real,imaginary}, index)=>{
                     return(
-                        <ComplexNumberListItem real={real} imaginary={imaginary}/>
+                        <ComplexNumberListItem key={index} real={real} imaginary={imaginary}/>
                 );
                 })}
             </div>

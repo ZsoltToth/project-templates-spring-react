@@ -3,12 +3,10 @@ import dispatcher from '../dispatcher/Dispatcher';
 import * as actionConstants from '../dispatcher/ComplexNumberActionConstants'
 
 export const recordComplexNumber = ({real,imag}) =>{
-    axios.get('/complex-number/record',
+    axios.post('/complex-number/record',
         {
-            params : {
-                real : real,
-                imag : imag
-            }
+            real : real,
+            imag : imag
         })
         .then(() => {
             fetchComplexNumbers();
