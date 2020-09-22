@@ -37,7 +37,7 @@ public class ComplexNumberController {
         try {
             service.record(new ComplexNumber(request.getReal(),request.getImag()));
         } catch (ComplexNumberAlreadyExistsException e) {
-            log.info("Complex number ({},{}) is already exists!", request.getReal(),request.getImag());
+            log.info("Complex number ({},{}) is already exists! Message: {}", request.getReal(),request.getImag(), e.getMessage());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     e.getMessage()

@@ -1,5 +1,4 @@
 version: '3.3'
-
 services:
   db:
     image: 'mysql:8'
@@ -9,16 +8,15 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: complex
     volumes:
-      - "./src/main/resources/sql/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql"
+      - './src/main/resources/sql/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql'
     ports:
-    - 127.0.0.1:3306:3306
-
+      - '127.0.0.1:3306:3306'
   backend:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 127.0.0.1:8080:8080
+      - '127.0.0.1:8080:8080'
     environment:
       DB_HOST: db
       DB_PORT: 3306
@@ -26,6 +24,4 @@ services:
       DB_USER: root
       DB_PASSWORD: password
     depends_on:
-      - "db"
-
-
+      - db
