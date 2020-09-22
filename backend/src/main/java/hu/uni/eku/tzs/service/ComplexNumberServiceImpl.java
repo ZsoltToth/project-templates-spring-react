@@ -26,7 +26,8 @@ public class ComplexNumberServiceImpl implements ComplexNumberService {
                                 cn.getImaginary() == complexNumber.getImaginary());
         if(isAlreadyRecorded){
             log.info("Complex Number {} is already recorded!", complexNumber);
-            throw new ComplexNumberAlreadyExistsException("Complex Number (${complexNumber.toString()}) already exists!");
+            throw new ComplexNumberAlreadyExistsException(String.format("Complex Number (%s) already exists!", complexNumber.toString()));
+
         }
         dao.create(complexNumber);
     }

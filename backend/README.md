@@ -155,3 +155,19 @@ If you modify the init SQL script then container has to be removed.
  - Pull Request is reviewed.
  - All Change Requests are performed and comments are answered.
  
+ 
+ # Known Issues
+ 
+ ---
+ 
+__Problem:__
+ Backend commit fails with error caused by the pre-commit hook of husky. 
+ 
+ __Cause:__ 
+ The frontend and backend and placed into the same repository which is not a good practice, but it was necessary for the example. 
+ Modification of the frontend may cause errors in the validation of the JavaScript (eslint, jest). 
+ 
+ 
+ 
+ 
+ ---
