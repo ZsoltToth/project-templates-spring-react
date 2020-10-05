@@ -1,7 +1,7 @@
-package hu.uni.eku.tzs.service;
+package hu.uni.eku.camping.service;
 
-import hu.uni.eku.tzs.model.ComplexNumber;
-import hu.uni.eku.tzs.service.exceptions.ComplexNumberAlreadyExistsException;
+import hu.uni.eku.camping.model.ComplexNumber;
+import hu.uni.eku.camping.service.exceptions.ComplexNumberAlreadyExistsException;
 
 import java.util.Collection;
 

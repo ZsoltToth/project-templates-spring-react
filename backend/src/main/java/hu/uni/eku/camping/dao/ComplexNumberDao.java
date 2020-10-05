@@ -1,6 +1,6 @@
-package hu.uni.eku.tzs.dao;
+package hu.uni.eku.camping.dao;
 
-import hu.uni.eku.tzs.model.ComplexNumber;
+import hu.uni.eku.camping.model.ComplexNumber;
 
 import java.util.Collection;
 

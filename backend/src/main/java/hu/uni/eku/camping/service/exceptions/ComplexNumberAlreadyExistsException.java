@@ -1,8 +1,4 @@
-package hu.uni.eku.tzs.service.exceptions;
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+package hu.uni.eku.camping.service.exceptions;
 
 public class ComplexNumberAlreadyExistsException extends Exception {
 

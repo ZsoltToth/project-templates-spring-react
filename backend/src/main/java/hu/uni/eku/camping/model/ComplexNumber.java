@@ -1,16 +1,15 @@
-package hu.uni.eku.tzs.controller.dto;
+package hu.uni.eku.camping.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComplexNumberRecordRequestDto {
+public class ComplexNumber {
 
     private double real;
-    private double imag;
+    private double imaginary;
+
 }
