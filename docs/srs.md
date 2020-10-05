@@ -2,15 +2,11 @@
 
 ## 1. Áttekintés
 
-------
-
 Szoftverünk célja, hogy hatékonyan segítse az Aquapark modellváltását. Az új rendszerrel a látogatók egy egyedi azonosítót kapnak, és ennek segítségével csúszhatnak le csúszdákon, melyet a rendszer nyomonkövet, a távozáskor pedig összegzi a fizetendő összeget.
 
 Ezzel a módszerrel a csúszdák kihasználtsága is sokkal egyszerűbben lekövethető, ezáltal a vendégek igénye is felmérhető a statisztikák felhasználásával. Ezek mellett egyes esetekben növekedhet a cég profitja is.
 
 ## 2. Jelenlegi helyzet
-
-------
 
 Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlanul használható volt az Aquapark területén található összes eszköz.
 
@@ -20,8 +16,6 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 - túl sok dolgozó szükséges a csúszdák ellenőrzésére
 
 ## 3. Funkcionális követelmények
-
-------
 
 | ID   | Name            | Description                                                  |
 | ---- | --------------- | ------------------------------------------------------------ |
