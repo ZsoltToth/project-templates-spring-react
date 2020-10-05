@@ -27,3 +27,15 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 | F6   | Usage of slides | A management számára használható funkció. Adott napon a lekérdezésig eltelt időben a csúszdák kihasználtságáról szóló riportot kap. |
 | F7   | Daily report    | A management számára használható funkció. Adott napra vonatkozó csúszda kihasználtsági statisztikát kap. |
 
+## 4. Szükséges adatok
+
+| ID   | Data                                                         |
+| ---- | ------------------------------------------------------------ |
+| F1   | UUID generálás, majd lementése                               |
+| F2   | UUID és használt csúszda azonosítójának lekérése, ezek és a timestamp lementése |
+| F3   | UUID bekérése, hozzá tartozó használati adatok lekérése, majd összegzés |
+| F4   | UUID-hoz tartozó számla kiegyenlítése                        |
+| F5   | UUID leválasztása a látogatóról                              |
+| F6   | Csúszda azonosító (opcionális) bekérése, ha kapunk, akkor az adott csúszda használati adatainak lekérése (hány csúszás történt rajta), ha nem kapunk akkor ugyanez az összes csúszdára vonatkozóan |
+| F7   | Dátum bekérése, az adott napra vonatkozó adatok összegyűjtése (csúszda azonosító, hány csúszás, összes bevétel) |
+
