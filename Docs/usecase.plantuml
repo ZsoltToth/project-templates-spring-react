@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+
+actor Customer
+actor Receptionist
+
+
+rectangle Questions{
+
+Receptionist --> (Have a caravan or tent?) : asks
+Receptionist --> (Number of nights) : asks
+Receptionist --> (Need for electricity?) : asks
+Receptionist --> (ask customer's data) : asks
+
+(Have a caravan or tent?) <-- Customer : answers
+(Number of nights) <-- Customer : answers
+(Need for electricity?) <-- Customer : answers
+(ask customer's data) <-- Customer : answers
+
+}
+
+
+Receptionist --> (Database query) : 1 *
+Questions --> Receptionist : getting the answers
+
+(Database query) --> (free slots?) : are there?
+
+(free slots?) --> (which slot?) : yes
+(free slots?) --> (Customer) : no
+(which slot?) --> (slot booking) : books the slot
+Customer --> (which slot?) : chooses the slot
+(slot booking) --> (Bill)
+Customer --> (Bill) : pays
+Customer --> (Leaves) : maybe
+@enduml
