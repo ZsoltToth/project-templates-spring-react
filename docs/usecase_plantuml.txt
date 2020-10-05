@@ -1,0 +1,23 @@
+@startuml
+actor :User: as User
+actor :Management: as Management
+
+package Aquapark {
+ usecase "Enter Aquapark" as UC1
+ usecase "Use slide" as UC2
+ usecase "Get receipt" as UC3
+ usecase "Payment" as UC4
+ usecase "Leave Aquapark" as UC5
+ usecase "Usage of slides" as UC6
+ usecase "Daily report" as UC7
+}
+
+User --> UC1
+UC1 --|> UC2
+UC2 --|> UC3
+UC3 --|> UC4
+UC4 --|> UC5
+
+Management --> UC6
+Management --> UC7
+@enduml
