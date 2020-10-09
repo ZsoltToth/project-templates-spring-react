@@ -13,7 +13,7 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 - Nagyobb a hiba lehetőségek kockázata
 - Sok vendég esetén nehéz az áttekinthetőség
 
-## 3. Vágyálom rendszer
+## 3. Vízió
 
 - **3.1** Terjedés, az az kik fogják használni a rendszert
 
@@ -44,5 +44,33 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 > - Eltárolja a vendégek adatait.
  >- Mindezek alapján meghatározza azt az összeget, amit az elején kell fizetni.
  >- Kijelentkezéskor a hely felszabadul, automatikusan be állítja szabad helyként, de van lehetőség manuális beállításra is.
+ ## 6. Esetek és funkciók
+ > **Recepciós:**
+ > - A program felhasználója
+ > - Törölheti a foglalást
+ > - Kérdéseket tesz fel a vendég számára a hellyel kapcsolatban
+ > - Megkapja a vendég válaszait
+ > - Válaszoknak megfelelően tölti ki a formot és elindítja a lekérdezést
+ > - A lekérdezés alapján megmutatja a szabad helyeket a vendégnek, ha van ilyen
+ > - Vendég által kiválasztott helyet lefoglalja
+ > - Kiállítja a számlát
+ > 
+>**Recepciós-Vendég:**
+> - Alap kérdések a hellyel, illetve a Vendég igényeivel kapcsolatban:
+> >-Lakókocsija vagy sátra van-e?
+> -Hány éjszakát szeretne a kempingben tölteni?
+> -Szüksége van-e elektromosságra?
+> -Elkéri a Vendég adatait: név, személyi igazolvány szám, lakcím, telefonszám
+>- Recepciós megmutatja a lehetséges helyket
+>- Megkérdezi, hogy melyik helyet szeretné igénybe venni
+>
+> **Vendég:**
+> 
+> - Válaszol a Recepciós kérdéseire
+> - Lemondhatja foglalást
+> - Látja az igényelhető helyeket
+> - Kiválasztja a számára megfelelő helyet,ha van ilyen.
+> - Amenyiben nincs megfelelő hely a venég számára, nem történik foglalás
+> - A vendég bármikor lemondhatja a szolgáltatást vagy a foglalást
  
-`Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
+`Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert` 
