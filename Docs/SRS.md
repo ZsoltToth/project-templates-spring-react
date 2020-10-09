@@ -13,7 +13,7 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 - Nagyobb a hiba lehetőségek kockázata
 - Sok vendég esetén nehéz az áttekinthetőség
 
-## 3. Vágyálom rendszer
+## 3. Vízió
 
 - **3.1** Terjedés, az az kik fogják használni a rendszert
 
