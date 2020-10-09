@@ -13,7 +13,7 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 - Nagyobb a hiba lehetőségek kockázata
 - Sok vendég esetén nehéz az áttekinthetőség
 
-## 3. Vágyálom rendszer
+## 3. Vízió
 
 - **3.1** Terjedés, az az kik fogják használni a rendszert
 
@@ -29,6 +29,7 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 
  A program müködtetésére szolgáló eszközök az alábbiak lesznek: 
  A recepciósnak szüksége van egy főszámítógépre ami tartalmaz egy kisebb 30" monitort, illetve egy nagyobb Tv-t amin a látogató számára megmutatja a helyeket.
+ 
  ## 4. Funkcionális követelmény
  *A recepciós, mint felhasználó lehetőségei:*
  > - Lekérdezheti a szabad férőhelyeket egy adott időközre a vendég kérése szerint.
@@ -45,4 +46,65 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
  >- Mindezek alapján meghatározza azt az összeget, amit az elején kell fizetni.
  >- Kijelentkezéskor a hely felszabadul, automatikusan be állítja szabad helyként, de van lehetőség manuális beállításra is.
  
-`Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
+ `Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
+ 
+ ## 6.
+ 
+ `Készítették: Csattos Bence`
+ 
+ ## 7. Adatstruktúrák definiálása
+ 
+**Adatbázis:**
+
+- Recepciós Tábla: Id, Felhasználónév, Jelszó
+- Kemping Tábla: Id, Elektromosság, Típus(Karaván/Sátor)
+- Vendég Tábla: Id, Név, Személyi igazolvány szám, Lakcím, Telefonszám, KempingId
+- Foglalás Tábla: Id, VendégId, KempingId, Kezdet, Vég
+
+**Munkaprogram:**
+- Vendég Osztály: Név, Személyi igazolvány szám, Lakcím, Telefonszám, KempingId
+- Kemping Osztály: Id, Elektromosság, Típus
+- Recepciós Osztály: Felhasználónév, Titkosított Jelszó
+- Foglalás Osztály: VendégId, KempingId, Lemondás, Lefoglalás, Számla
+> -Számla Metódus: Kemping osztály aktuális példányának adatai alapján kiszámítja és megjeleníti az összeget. 
+
+*Felület:*
+>**Login rendszer:**
+>A recepciós bejelentkezése(Felhasználónév, Jelszó)
+>
+>**Kemping térkép, annak részei:**
+>-Férőhelyek száma
+>-Zöld/Piros jelzi a lekérdezésben meghatározott időközben szabad illetve foglalt helyet.
+>
+>**Lekérdezés formja, és részei:**
+>-Karaván vagy Sátor?
+>-Éjszakák száma?
+>-Szükséges-e elektromosság?
+>-Tovább
+>-Mégsem
+>
+>**Megfelelő hely kiválasztása:**
+>-Hely Id
+>-Tovább
+>-Vissza
+>
+>**A vendég adatai form:**
+>-Név
+>-Személyi igazolvány szám
+>-Lakcím
+>-Telefonszám
+>-Tovább
+>-Vissza
+>
+>**Számla:**
+>-Vendég adatai
+>-Kemping adatai
+>-Férőhely adatai
+>-Összeg
+>
+>**Férőhely lemondása form:**
+>-KempingId
+>-Lemondás
+>-Vissza
+>-Módosított összeg
+`Készítették: Katyina Brigitta, Guti Adrán, Majoros Norbert`
