@@ -1,4 +1,4 @@
-package hu.uni.eku.tzs.config;
+package hu.uni.eku.afp2020_team4.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

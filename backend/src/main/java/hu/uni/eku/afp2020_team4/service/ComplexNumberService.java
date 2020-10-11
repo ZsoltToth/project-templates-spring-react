@@ -1,7 +1,7 @@
-package hu.uni.eku.tzs.service;
+package hu.uni.eku.afp2020_team4.service;
 
-import hu.uni.eku.tzs.model.ComplexNumber;
-import hu.uni.eku.tzs.service.exceptions.ComplexNumberAlreadyExistsException;
+import hu.uni.eku.afp2020_team4.model.ComplexNumber;
+import hu.uni.eku.afp2020_team4.service.exceptions.ComplexNumberAlreadyExistsException;
 
 import java.util.Collection;
 

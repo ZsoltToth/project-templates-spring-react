@@ -1,4 +1,4 @@
-package hu.uni.eku.tzs.model;
+package hu.uni.eku.afp2020_team4.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

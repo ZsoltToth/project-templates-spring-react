@@ -1,6 +1,6 @@
-package hu.uni.eku.tzs.dao;
+package hu.uni.eku.afp2020_team4.dao;
 
-import hu.uni.eku.tzs.model.ComplexNumber;
+import hu.uni.eku.afp2020_team4.model.ComplexNumber;
 
 import java.util.Collection;
 

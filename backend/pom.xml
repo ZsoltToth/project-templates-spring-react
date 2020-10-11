@@ -168,7 +168,7 @@
                 <goal>repackage</goal>
               </goals>
               <configuration>
-                <mainClass>hu.uni.eku.tzs.App</mainClass>
+                <mainClass>hu.uni.eku.afp2020_team4.App</mainClass>
               </configuration>
             </execution>
           </executions>

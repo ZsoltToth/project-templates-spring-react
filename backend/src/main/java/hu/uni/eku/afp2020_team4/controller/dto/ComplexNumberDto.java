@@ -1,4 +1,4 @@
-package hu.uni.eku.tzs.controller.dto;
+package hu.uni.eku.afp2020_team4.controller.dto;
 
 import lombok.Builder;
 import lombok.Data;
