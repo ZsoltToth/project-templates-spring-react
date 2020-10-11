@@ -6,13 +6,14 @@ skinparam packageStyle rectangle
 actor Customer
 actor Receptionist
 
+Receptionist --> (Login)
 
 rectangle Questions{
 
-Receptionist --> (Have a caravan or tent?) : asks
 Receptionist --> (Number of nights) : asks
 Receptionist --> (Need for electricity?) : asks
 Receptionist --> (ask customer's data) : asks
+Receptionist --> (Have a caravan or tent?) : asks
 
 (Have a caravan or tent?) <-- Customer : answers
 (Number of nights) <-- Customer : answers
@@ -21,8 +22,7 @@ Receptionist --> (ask customer's data) : asks
 
 }
 
-
-Receptionist --> (Database query) : 1 *
+Receptionist --> (Database query) : makes
 Questions --> Receptionist : getting the answers
 
 (Database query) --> (free slots?) : are there?
