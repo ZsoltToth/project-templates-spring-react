@@ -17,7 +17,7 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 
 ## 3. Funkcionális követelmények
 
-| ID   | Name            | Description                                                  |
+| ID   | Megnevezés      | Leírás                                                       |
 | ---- | --------------- | ------------------------------------------------------------ |
 | F1   | Enter Aquapark  | Amikor a látogató bejelentkezik a rendszerbe egy egyedi azonosítót kap, mely minden egyes csúszásnál azonosítja őt. Egy azonosító naponta többször is kiadható. |
 | F2   | Use slide       | Azok a látogatók használhatják a csúszdákat, akik rendelkeznek azonosítóval. Minden egyes csúszáskor az azonosítóhoz tartozó számla az adott csúszda használati díjával kerül terhelésre. |
@@ -39,3 +39,14 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 | F6   | Csúszda azonosító (opcionális) bekérése, ha kapunk, akkor az adott csúszda használati adatainak lekérése (hány csúszás történt rajta), ha nem kapunk akkor ugyanez az összes csúszdára vonatkozóan |
 | F7   | Dátum bekérése, az adott napra vonatkozó adatok összegyűjtése (csúszda azonosító, hány csúszás, összes bevétel) |
 
+## 5. Response adatstruktúrák
+
+| ID   | Adatstruktúra                                                |
+| ---- | ------------------------------------------------------------ |
+| F1   | `{<br/>  user_id: int,<br/>  watch_id: int<br/>}`            |
+| F2   | `{<br/>  user_id: int,<br/>  watch_id: int,<br/>  slide_id: int,<br/>  timestamp: datetime<br/>}` |
+| F3   | `{<br/>  receipt_id: uuid,<br/>  transactions: [<br/>    {<br/>      user_id: int,<br/>      watch_id: int,<br/>      slide_id: int,<br/>      timestamp: datetime<br/>    }, ...<br/>  ],<br/>  total: int<br/>}` |
+| F4   | UUID-hoz tartozó számla kiegyenlítése                        |
+| F5   | UUID leválasztása a látogatóról                              |
+| F6   | `Ha kapunk ID-t:<br/>{<br/>  slide_id: int,<br/>  usages: [<br/>    {<br/>      user_id: int,<br/>      watch_id: int,<br/>      timestamp: datetime<br/>    }<br/>  ]<br/>}<br/>Ha nem kapunk ID-t:<br/>{<br/>  statistics: [<br/>    {<br/>      slide_id: int,<br/>      usages: [<br/>        {<br/>          user_id: int,<br/>          watch_id: int,<br/>          timestamp: datetime<br/>        } ...<br/>      ]<br/>    }, ...<br/>  ]<br/>}` |
+| F7   | Dátum bekérése, az adott napra vonatkozó adatok összegyűjtése (csúszda azonosító, hány csúszás, összes bevétel) |
