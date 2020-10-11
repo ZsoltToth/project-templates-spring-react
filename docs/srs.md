@@ -41,12 +41,93 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 
 ## 5. Response adatstruktúrák
 
-| ID   | Adatstruktúra                                                |
-| ---- | ------------------------------------------------------------ |
-| F1   | `{<br/>  user_id: int,<br/>  watch_id: int<br/>}`            |
-| F2   | `{<br/>  user_id: int,<br/>  watch_id: int,<br/>  slide_id: int,<br/>  timestamp: datetime<br/>}` |
-| F3   | `{<br/>  receipt_id: uuid,<br/>  transactions: [<br/>    {<br/>      user_id: int,<br/>      watch_id: int,<br/>      slide_id: int,<br/>      timestamp: datetime<br/>    }, ...<br/>  ],<br/>  total: int<br/>}` |
-| F4   | UUID-hoz tartozó számla kiegyenlítése                        |
-| F5   | UUID leválasztása a látogatóról                              |
-| F6   | `Ha kapunk ID-t:<br/>{<br/>  slide_id: int,<br/>  usages: [<br/>    {<br/>      user_id: int,<br/>      watch_id: int,<br/>      timestamp: datetime<br/>    }<br/>  ]<br/>}<br/>Ha nem kapunk ID-t:<br/>{<br/>  statistics: [<br/>    {<br/>      slide_id: int,<br/>      usages: [<br/>        {<br/>          user_id: int,<br/>          watch_id: int,<br/>          timestamp: datetime<br/>        } ...<br/>      ]<br/>    }, ...<br/>  ]<br/>}` |
-| F7   | Dátum bekérése, az adott napra vonatkozó adatok összegyűjtése (csúszda azonosító, hány csúszás, összes bevétel) |
+#### F1 - Enter Aquapark
+```
+{
+  user_id: int,
+  watch_id: int
+}
+```
+
+#### F2 - Use slide
+```
+{
+  user_id: int,
+  watch_id: int,
+  slide_id: int,
+  timestamp: datetime
+}
+```
+
+#### F3 - Get receipt
+```
+{
+  receipt_id: uuid,
+  transactions: [
+    {
+      user_id: int,
+      watch_id: int,
+      slide_id: int,
+      timestamp: datetime
+    }, ...
+  ],
+  total: int
+}
+```
+
+#### F4 - Payment
+
+
+#### F5 - Leave Aquapark
+
+
+### F6 - Usage of slides
+***Ha kapunk ID-t:***
+```
+{
+  slide_id: int,
+  usages: [
+    {
+      user_id: int,
+      watch_id: int,
+      timestamp: datetime
+    }
+  ]
+}
+```
+***Ha nem kapunk ID-t:***
+```
+{
+  statistics: [
+    {
+      slide_id: int,
+      usages: [
+        {
+          user_id: int,
+          watch_id: int,
+          timestamp: datetime
+        } ...
+      ]
+    }, ...
+  ]
+}
+```
+
+#### F7 - Daily report
+```
+{
+  statistics: [
+    {
+      slide_id: int,
+      usages: [
+        {
+          user_id: int,
+          watch_id: int,
+          timestamp: datetime
+        } ...
+      ]
+    }, ...
+  ],
+  total_income: int
+}
+```
