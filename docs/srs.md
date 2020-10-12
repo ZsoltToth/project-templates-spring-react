@@ -45,13 +45,15 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 ```
 {
   user_id: int,
-  watch_id: int
+  watch_id: int,
+  transaction_id: uuid
 }
 ```
 
 #### F2 - Use slide
 ```
 {
+  transaction_id: uuid,
   user_id: int,
   watch_id: int,
   slide_id: int,
@@ -63,6 +65,7 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 ```
 {
   receipt_id: uuid,
+  transaction_id: uuid,
   transactions: [
     {
       user_id: int,
@@ -91,7 +94,7 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
       user_id: int,
       watch_id: int,
       timestamp: datetime
-    }
+    }, ...
   ]
 }
 ```
