@@ -1,7 +1,6 @@
-package hu.uni.eku.tzs.dao.entity;
+package hu.uni.eku.camping.dao.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 

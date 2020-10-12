@@ -1,6 +1,6 @@
-package hu.uni.eku.tzs.dao;
+package hu.uni.eku.camping.dao;
 
-import hu.uni.eku.tzs.dao.entity.ComplexNumber;
+import hu.uni.eku.camping.dao.entity.ComplexNumber;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ComplexNumberRepository extends CrudRepository<ComplexNumber, Integer> {

@@ -1,8 +1,8 @@
-package hu.uni.eku.tzs.service;
+package hu.uni.eku.camping.service;
 
-import hu.uni.eku.tzs.dao.ComplexNumberDao;
-import hu.uni.eku.tzs.model.ComplexNumber;
-import hu.uni.eku.tzs.service.exceptions.ComplexNumberAlreadyExistsException;
+import hu.uni.eku.camping.dao.ComplexNumberDao;
+import hu.uni.eku.camping.model.ComplexNumber;
+import hu.uni.eku.camping.service.exceptions.ComplexNumberAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
