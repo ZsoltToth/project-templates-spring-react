@@ -8,8 +8,8 @@ usecase "Use slide" as UC2
 usecase "Get receipt" as UC3
 usecase "Pay" as UC4
 usecase "Leave Aquapark" as UC5
-usecase "Usage of slides" as UC6
-usecase "Daily report" as UC7
+usecase "Fetch slide usage" as UC6
+usecase "Get daily report" as UC7
 usecase "Make the visitor pay" as UC8
 
 
