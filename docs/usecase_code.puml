@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+actor :User: as User
+actor :Management: as Management
+
+usecase "Enter Aquapark" as UC1
+usecase "Use slide" as UC2
+usecase "Get receipt" as UC3
+usecase "Pay" as UC4
+usecase "Leave Aquapark" as UC5
+usecase "Fetch slide usage" as UC6
+usecase "Get daily report" as UC7
+usecase "Make the visitor pay" as UC8
+
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+
+Management --> UC6
+Management --> UC7
+Management --> UC8
+@enduml
