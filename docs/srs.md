@@ -46,53 +46,34 @@ Ezeken kívül tárolunk egy leírást melyben a slot jellegzetességeit írjuk 
 
 A login azért van bevezetve, hogy egyszerre több recepciós is tudjon dolgozni a rendszerben és hogy vissza lehessen követni, hogy melyik recepciós adta ki az adott slot-ot.
 
-##### Kérés
-
-Felhasználónév és jelszó párost kap.
-
-##### Válasz
-
-Visszajelzés a bejelentkezés sikerességéről.
+|Kérés|Válasz|
+|---|---|
+|Felhasználónév és jelszó párost kap.|Visszajelzés a bejelentkezés sikerességéről.|
 
 #### Foglalás
 
-##### Kérés
-
-Kap egy user-t, egy slot-ot és a foglalás időintervallumát.
-
-##### Válasz
-
-Visszajelzés a foglalás sikerességéről.
+|Kérés|Válasz|
+|---|---|
+|Kap egy user-t, egy slot-ot és a foglalás időintervallumát.|Visszajelzés a foglalás sikerességéről.|
 
 #### Áram bérlés
 
 Egy slot-hoz bérelhető áram egységes felárért.
 
-##### Kérés
-
-Egy user-t kap csak.
-
-##### Válasz
-
-Visszajelzés a sikerességről.
+|Kérés|Válasz|
+|---|---|
+|Egy user-t kap csak.|Visszajelzés a sikerességről.|
 
 #### Foglalás lemondása
 
-##### Kérés
-
-Kap egy foglalást.
-
-##### Válasz
-
-Válasz a lemondás sikerességéről.
+|Kérés|Válasz|
+|---|---|
+|Kap egy foglalást.|Válasz a lemondás sikerességéről.|
 
 #### Elérhetőség lekérdezése a slot-okról
-
-##### Kérés
-
-##### Válasz
-
-Vissza adja az összes slot-ot.
+|Kérés|Válasz|
+|---|---|
+||Vissza adja az összes slot-ot.|
 
 #### Adatok frissítése
 
@@ -101,20 +82,12 @@ Adott időközönként frissül, illetve egy foglalás indításakor, lemondás 
 
 #### Checkout
 
-##### Kérés
-
-Kap egy foglalást.
-
-##### Válasz
-
-Sikeres vagy sikertelen ki csekkolás.
+|Kérés|Válasz|
+|---|---|
+|Kap egy foglalást.|Sikeres vagy sikertelen ki csekkolás.|
 
 #### Nyugta generálása 
 
-##### Kérés
-
-Kap egy foglalást
-
-##### Válasz
-
-Vissza ad egy text fájlt.
+|Kérés|Válasz|
+|---|---|
+|Kap egy foglalást|Vissza ad egy text fájlt.|
