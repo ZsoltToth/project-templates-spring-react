@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor receptionist
+rectangle "Camping reservation system" {
+  customer <|-- (Generate invoice based on reservation details)
+  customer -- (Search availability)
+  customer -- (Book a camping)
+  (Book a camping) .> (Electricity) : <<include>>
+  (Manage reservations) -- receptionist
+  (Manage reservations) .> (Cancel reservation) : <<include>>
+  (Manage reservations) -up.> (Book a camping) : <<include>>
+  customer -- (Cancel reservation)
+  (See campsite layout) -- receptionist
+}
+@enduml
