@@ -25,8 +25,9 @@ A rendszer mindig a legfrissebb adatokat mutatja igényes, könnyen érthető ke
 |K4|Táborhely bérbeadás|A recepciós táborhelyeket kölcsönözhet ki a vásárlóknak|
 |K5|Áram bérbeadás|A recepciós áramot kölcsönözhet ki a vásárlóknak|
 |K6|Oldal adatainak frissítése|Bizonyos időintervallumonként a felületnek frissülnie kell|
-|K7|Számla|A rendszer számlát generál a vásárló távozásakor|
-|K8|Design|A recepciosnak látnia kell a táborhely alaprajzát az oldalon|
+|K7|Nyugta|A rendszer számlát generál a vásárló távozásakor|
+|K8|Design|A recepciósnak látnia kell a táborhely alaprajzát az oldalon|
+|K9|Login|A recepciósnak be kell tudnia jelentkezni|
 
 ## Adatszerkezetek körvonalazása
 
@@ -40,6 +41,18 @@ Az árát az alapárból és a területből számíthatjuk.
 Van egy bool mezője ami a foglaltságát jellemzi.
 Ezeken kívül tárolunk egy leírást melyben a slot jellegzetességeit írjuk le, mint például (van ott egy tűzrakóhely).
 
+### User leírása
+
+Egy usernek van id-ja, neve, címe, telefonszáma.
+
+### Recepciós leírása
+
+Egy recepciósnak van id-ja, felhasználó neve, jelszava, neve.
+
+### Foglalás leírása
+
+Egy foglalásnak van id-ja, érkezés és távozás dátuma, lefoglalt slot-ok id-ja, user id-ja és recepciós id-ja.
+
 ### Use case-ek leírása
 
 #### Login
@@ -48,13 +61,13 @@ A login azért van bevezetve, hogy egyszerre több recepciós is tudjon dolgozni
 
 |Kérés|Válasz|
 |---|---|
-|Felhasználónév és jelszó párost kap.|Visszajelzés a bejelentkezés sikerességéről.|
+|Felhasználónév (string) és jelszó (string) párost kap.|Visszajelzés a bejelentkezés sikerességéről.|
 
 #### Foglalás
 
 |Kérés|Válasz|
 |---|---|
-|Kap egy user-t, egy slot-ot és a foglalás időintervallumát.|Visszajelzés a foglalás sikerességéről.|
+|Kap egy user id-t (int), egy slot id-t (int) és a foglalás időintervallumát (dátum).|Visszajelzés a foglalás sikerességéről.|
 
 #### Áram bérlés
 
@@ -62,15 +75,16 @@ Egy slot-hoz bérelhető áram egységes felárért.
 
 |Kérés|Válasz|
 |---|---|
-|Egy user-t kap csak.|Visszajelzés a sikerességről.|
+|Egy user id-t kap csak.|Visszajelzés a sikerességről.|
 
 #### Foglalás lemondása
 
 |Kérés|Válasz|
 |---|---|
-|Kap egy foglalást.|Válasz a lemondás sikerességéről.|
+|Kap egy foglalás id-t.|Válasz a lemondás sikerességéről.|
 
 #### Elérhetőség lekérdezése a slot-okról
+
 |Kérés|Válasz|
 |---|---|
 ||Vissza adja az összes slot-ot.|
@@ -84,10 +98,10 @@ Adott időközönként frissül, illetve egy foglalás indításakor, lemondás 
 
 |Kérés|Válasz|
 |---|---|
-|Kap egy foglalást.|Sikeres vagy sikertelen ki csekkolás.|
+|Kap egy foglalás id-t.|Sikeres vagy sikertelen ki csekkolás.|
 
 #### Nyugta generálása 
 
 |Kérés|Válasz|
 |---|---|
-|Kap egy foglalást|Vissza ad egy text fájlt.|
+|Kap egy foglalás id-t|Vissza ad egy text fájlt.|
