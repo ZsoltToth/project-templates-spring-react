@@ -43,7 +43,10 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 > - A vendég álltal kiválasztott helyet lefoglalja az adott időközre.
 > - Eltárolja a vendégek adatait.
  >- Mindezek alapján meghatározza azt az összeget, amit az elején kell fizetni.
- >- Kijelentkezéskor a hely felszabadul, automatikusan be állítja szabad helyként, de van lehetőség manuális beállításra is.
+ >- Kijelentkezéskor a helyet automatikusan felszabadítja a rendszer. Korábbi távozás esetén van lehetőség manuális beállításra is – ekkor az összeg módosul: a vendég visszakapja a visszamondott éjszakák árát.
+ 
+ `Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
+ 
  ## 6. Esetek és funkciók
  > **Recepciós:**
  > - A program felhasználója
@@ -72,5 +75,61 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 > - Kiválasztja a számára megfelelő helyet,ha van ilyen.
 > - Amenyiben nincs megfelelő hely a venég számára, nem történik foglalás
 > - A vendég bármikor lemondhatja a szolgáltatást vagy a foglalást
+ `Készítették: Csattos Bence`
  
-`Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert` 
+ ## 7. Adatstruktúrák definiálása
+ 
+**Adatbázis:**
+
+- Recepciós Tábla: Id, Felhasználónév, Jelszó
+- Kemping Tábla: Id, Elektromosság, Típus(Karaván/Sátor)
+- Vendég Tábla: Id, Név, Személyi igazolvány szám, Lakcím, Telefonszám, KempingId
+- Foglalás Tábla: Id, VendégId, KempingId, Kezdet, Vég
+
+**Munkaprogram:**
+- Vendég Osztály: Név, Személyi igazolvány szám, Lakcím, Telefonszám, KempingId
+- Kemping Osztály: Id, Elektromosság, Típus
+- Recepciós Osztály: Felhasználónév, Titkosított Jelszó
+- Foglalás Osztály: VendégId, KempingId, Lemondás, Lefoglalás, Számla
+> -Számla Metódus: Kemping osztály aktuális példányának adatai alapján kiszámítja és megjeleníti az összeget. 
+
+*Felület:*
+>**Login rendszer:**
+>A recepciós bejelentkezése(Felhasználónév, Jelszó)
+>
+>**Kemping térkép, annak részei:**
+>-Férőhelyek száma
+>-Zöld/Piros jelzi a lekérdezésben meghatározott időközben szabad illetve foglalt helyet.
+>
+>**Lekérdezés formja, és részei:**
+>-Karaván vagy Sátor?
+>-Éjszakák száma?
+>-Szükséges-e elektromosság?
+>-Tovább
+>-Mégsem
+>
+>**Megfelelő hely kiválasztása:**
+>-Hely Id
+>-Tovább
+>-Vissza
+>
+>**A vendég adatai form:**
+>-Név
+>-Személyi igazolvány szám
+>-Lakcím
+>-Telefonszám
+>-Tovább
+>-Vissza
+>
+>**Számla:**
+>-Vendég adatai
+>-Kemping adatai
+>-Férőhely adatai
+>-Összeg
+>
+>**Férőhely lemondása form:**
+>-KempingId
+>-Lemondás
+>-Vissza
+>-Módosított összeg
+`Készítették: Katyina Brigitta, Guti Adrán, Majoros Norbert`
