@@ -38,12 +38,12 @@ Szeretnénk egy online kemping menedzser rendszert létrehozni, ami kezelni tudj
 
  ## 5. Követelmény lista
  *A rendszer fontos tulajdonságai:*
- >- Tartalmazza a férőhelyek információit: a lefoglalt illetve a szabad helyket térképszerűen jelzi.
+>- Tartalmazza a férőhelyek információit: a lefoglalt illetve a szabad helyket térképszerűen jelzi.
 > - Képes lekérdezni a vendég kérése alapján, a legmegfelelőbb helyeket.
 > - A vendég álltal kiválasztott helyet lefoglalja az adott időközre.
 > - Eltárolja a vendégek adatait.
- >- Mindezek alapján meghatározza azt az összeget, amit az elején kell fizetni.
- >- Kijelentkezéskor a helyet automatikusan felszabadítja a rendszer. Korábbi távozás esetén van lehetőség manuális beállításra is – ekkor az összeg módosul: a vendég visszakapja a visszamondott éjszakák árát.
+>- Mindezek alapján meghatározza azt az összeget, amit foglaláskor kell fizetni.
+>- Kijelentkezéskor a helyet automatikusan felszabadítja a rendszer. Korábbi távozás esetén van lehetőség manuális beállításra is – ekkor az összeg módosul: a vendég visszakapja a visszamondott éjszakák árát.
  
  `Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
  
