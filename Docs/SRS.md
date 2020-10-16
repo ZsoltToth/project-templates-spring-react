@@ -80,58 +80,28 @@ Természetesen fontos a naprakészség: a jövőben a rendszer követi fogja az 
  `Készítették: Csattos Bence`
  
  ## 7. Adatstruktúrák definiálása
- 
-**Adatbázis:**
 
-- Recepciós Tábla: Id, Felhasználónév, Jelszó
-- Kemping Tábla: Id, Elektromosság, Típus(Karaván/Sátor)
-- Vendég Tábla: Id, Név, Személyi igazolvány szám, Lakcím, Telefonszám, KempingId
-- Foglalás Tábla: Id, VendégId, KempingId, Kezdet, Vég
+**Kemping hely leírás:** 
+*Egy kemping helynek van ID-je ami a fix helyre utal. Az ID alapján megtudhatjuk , hogy milyen típusú az adott hely. Mint például egy lakókocsi elfér-e egy helyre vagy csak sátrazás lehetséges.*
 
-**Munkaprogram:**
-- Vendég Osztály: Név, Személyi igazolvány szám, Lakcím, Telefonszám, KempingId
-- Kemping Osztály: Id, Elektromosság, Típus
-- Recepciós Osztály: Felhasználónév, Titkosított Jelszó
-- Foglalás Osztály: VendégId, KempingId, Lemondás, Lefoglalás, Számla
-> -Számla Metódus: Kemping osztály aktuális példányának adatai alapján kiszámítja és megjeleníti az összeget. 
+![enter image description here](https://media.discordapp.net/attachments/760108206675460146/766589968603807754/camp-map-design.jpg)
 
-*Felület:*
->**Login rendszer:**
->A recepciós bejelentkezése(Felhasználónév, Jelszó)
->
->**Kemping térkép, annak részei:**
->-Férőhelyek száma
->-Zöld/Piros jelzi a lekérdezésben meghatározott időközben szabad illetve foglalt helyet.
->
->**Lekérdezés formja, és részei:**
->-Karaván vagy Sátor?
->-Éjszakák száma?
->-Szükséges-e elektromosság?
->-Tovább
->-Mégsem
->
->**Megfelelő hely kiválasztása:**
->-Hely Id
->-Tovább
->-Vissza
->
->**A vendég adatai form:**
->-Név
->-Személyi igazolvány szám
->-Lakcím
->-Telefonszám
->-Tovább
->-Vissza
->
->**Számla:**
->-Vendég adatai
->-Kemping adatai
->-Férőhely adatai
->-Összeg
->
->**Férőhely lemondása form:**
->-KempingId
->-Lemondás
->-Vissza
->-Módosított összeg
+>A kemping hely árát a szerint határozzuk meg, hogy hány éjszakát szeretne ott tartózkodni, lakókocsival jön-e vagy sátrazik illetve, hogy szeretne-e áramot a megadott helyre. 
+
+**Vendég:**
+>Egy vendégnek van neve, lakcíme, személyiszáma és telefonszáma
+
+**Foglalás:** 
+>Egy foglalásban található a hely száma, érkezési és távozási dátuma, illetve foglalt-e már az adott hely 
+
+**Usecase leírása:** 
+
+- *Foglalás:*
+ >A recepciós rögzíti a vendég nevét, a hely számát és az ott tartózkodás intervallumát (érkezési/távozási idő) és hogy szeretne -e áramot az adott helyhez. Ha kész a recepciós visszajelzést kap a foglalás sikeréről.
+
+- *Foglalás lemondása/megszakítása:*
+> Foglalás ID-t kap és ez alapján módosítja a foglalást
+
+- *Számla:*
+>Megkapja a foglalás ID-ját
 `Készítették: Katyina Brigitta, Guti Adrán, Majoros Norbert`
