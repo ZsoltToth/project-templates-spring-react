@@ -31,77 +31,71 @@ Természetesen fontos a naprakészség: a jövőben a rendszer követi fogja az 
  
  ## 4. Funkcionális követelmény
  *A recepciós, mint felhasználó lehetőségei:*
- > - Lekérdezheti a szabad férőhelyeket egy adott időközre a vendég kérése szerint.
- > - Betáplálhatja a rendszerbe a kérést miszerint a vendég sátorral, vagy karavánkocsival szeretne a kempingbe tartózkodni, szüksége van-e áramra, illetve mennyi vendégéjszakát marad a kempingben.
- > - Le tudja foglalni a vendég számára a megfelelő helyet.
- > - A rendszer segítségével ki tudja nyomtatni a bizonylatot.
+  - Lekérdezheti a szabad férőhelyeket egy adott időközre a vendég kérése szerint.
+  - Betáplálhatja a rendszerbe a kérést miszerint a vendég sátorral, vagy karavánkocsival szeretne a kempingbe tartózkodni, szüksége van-e áramra, illetve mennyi vendégéjszakát marad a kempingben.
+  - Le tudja foglalni a vendég számára a megfelelő helyet.
+  - A rendszer segítségével ki tudja nyomtatni a bizonylatot.
 
  ## 5. Követelmény lista
  *A rendszer fontos tulajdonságai:*
- >- Tartalmazza a férőhelyek információit: a lefoglalt illetve a szabad helyeket adatbázisban tárolja és vizuálisan is jelzi.
-> - Űrlap tölthető ki a vendég kérése alapján
-> - Képes lekérdezni a kitöltött űrlap szerint megfelelő helyeket.
-> - A vendég által kiválasztott helyet lefoglalja az adott időközre.
-> - Eltárolja a vendégek adatait.
- >- Mindezek alapján meghatározza azt az összeget, amit foglaláskor kell fizetni.
- >- Kijelentkezéskor a helyet automatikusan felszabadítja a rendszer. Korábbi távozás esetén van lehetőség manuális beállításra is – ekkor az összeg módosul: a vendég visszakapja a visszamondott éjszakák árát.
+ - Tartalmazza a férőhelyek információit: a lefoglalt illetve a szabad helyeket adatbázisban tárolja és vizuálisan is jelzi.
+ - Űrlap tölthető ki a vendég kérése alapján
+ - Képes lekérdezni a kitöltött űrlap szerint megfelelő helyeket.
+ - A vendég által kiválasztott helyet lefoglalja az adott időközre.
+ - Eltárolja a vendégek adatait.
+ - Mindezek alapján meghatározza azt az összeget, amit foglaláskor kell fizetni.
+ - Kijelentkezéskor a helyet automatikusan felszabadítja a rendszer. Korábbi távozás esetén van lehetőség manuális beállításra is – ekkor az összeg módosul: a vendég visszakapja a visszamondott éjszakák árát.
  
  `Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
  
  ## 6. Esetek és funkciók
- > **Recepciós:**
- > - A program felhasználója
- > - Törölheti a foglalást
- > - Kérdéseket tesz fel a vendég számára a hellyel kapcsolatban
- > - Megkapja a vendég válaszait
- > - Válaszoknak megfelelően tölti ki a formot és elindítja a lekérdezést
- > - A lekérdezés alapján megmutatja a szabad helyeket a vendégnek, ha van ilyen
- > - Vendég által kiválasztott helyet lefoglalja
- > - Kiállítja a számlát
- > 
->**Recepciós-Vendég:**
-> - Alap kérdések a hellyel, illetve a Vendég igényeivel kapcsolatban:
-> >-Lakókocsija vagy sátra van-e?
-> -Hány éjszakát szeretne a kempingben tölteni?
-> -Szüksége van-e elektromosságra?
-> -Elkéri a Vendég adatait: név, személyi igazolvány szám, lakcím, telefonszám
->- Recepciós megmutatja a lehetséges helyket
->- Megkérdezi, hogy melyik helyet szeretné igénybe venni
->
-> **Vendég:**
-> 
-> - Válaszol a Recepciós kérdéseire
-> - Lemondhatja foglalást
-> - Látja az igényelhető helyeket
-> - Kiválasztja a számára megfelelő helyet,ha van ilyen.
-> - Amenyiben nincs megfelelő hely a venég számára, nem történik foglalás
-> - A vendég bármikor lemondhatja a szolgáltatást vagy a foglalást
+  **Recepciós:**
+  - A program felhasználója
+  - Törölheti a foglalást
+  - Kérdéseket tesz fel a vendég számára a hellyel kapcsolatban
+  - Megkapja a vendég válaszait
+  - Válaszoknak megfelelően tölti ki a formot és elindítja a lekérdezést
+  - A lekérdezés alapján megmutatja a szabad helyeket a vendégnek, ha van ilyen
+  - Vendég által kiválasztott helyet lefoglalja
+  - Kiállítja a számlát
+  
+**Recepciós-Vendég:**
+ - Alap kérdések a hellyel, illetve a Vendég igényeivel kapcsolatban:
+ >-Lakókocsija vagy sátra van-e?
+ >-Hány éjszakát szeretne a kempingben tölteni?
+ >-Szüksége van-e elektromosságra?
+ >-Elkéri a Vendég adatait: név, személyi igazolvány szám, lakcím, telefonszám
+- Recepciós megmutatja a lehetséges helyket
+- Megkérdezi, hogy melyik helyet szeretné igénybe venni
+
+ **Vendég:**
+
+ - Válaszol a Recepciós kérdéseire
+ - Lemondhatja foglalást
+ - Látja az igényelhető helyeket
+ - Kiválasztja a számára megfelelő helyet,ha van ilyen.
+ - Amenyiben nincs megfelelő hely a venég számára, nem történik foglalás
+ - A vendég bármikor lemondhatja a szolgáltatást vagy a foglalást
  
  `Készítették: Csattos Bence`
  
  ## 7. Adatstruktúrák definiálása
 
 **Kemping hely leírás:** 
-*Egy kemping helynek van ID-je ami a fix helyre utal. Az ID alapján megtudhatjuk , hogy milyen típusú az adott hely. Mint például egy lakókocsi elfér-e egy helyre vagy csak sátrazás lehetséges.*
+*Egy kemping helynek van ID-je ami a fix helyre utal. Az ID alapján megtudhatjuk , hogy milyen típusú az adott hely. Mint például egy lakókocsi elfér-e egy helyre vagy csak sátrazás lehetséges. A kemping hely lehet szabad illetve foglalt.*
 
 ![enter image description here](https://media.discordapp.net/attachments/760108206675460146/766589968603807754/camp-map-design.jpg)
 
->A kemping hely árát a szerint határozzuk meg, hogy hány éjszakát szeretne ott tartózkodni, lakókocsival jön-e vagy sátrazik illetve, hogy szeretne-e áramot a megadott helyre. 
-
 **Vendég:**
->Egy vendégnek van neve, lakcíme, személyiszáma és telefonszáma
+>Egy vendégnek van neve, lakcíme, személyi száma és telefonszáma.
 
 **Foglalás:** 
->Egy foglalásban található a hely száma, érkezési és távozási dátuma, illetve foglalt-e már az adott hely 
+>Egy foglalásban található a hely száma, érkezési és távozási dátuma, illetve melyik vendég foglalta le.
 
-**Usecase leírása:** 
+**Foglalás lemondása/megszakítása:**
+> Foglalás ID-t kap és ez alapján módosítja a foglalást.
 
-- *Foglalás:*
- >A recepciós rögzíti a vendég nevét, a hely számát és az ott tartózkodás intervallumát (érkezési/távozási idő) és hogy szeretne -e áramot az adott helyhez. Ha kész a recepciós visszajelzést kap a foglalás sikeréről.
+**Számla:**
+>A kemping hely árát a foglalás adatai alapján határozzuk meg és így kerül előállításra.
 
-- *Foglalás lemondása/megszakítása:*
-> Foglalás ID-t kap és ez alapján módosítja a foglalást
-
-- *Számla:*
->Megkapja a foglalás ID-ját
 `Készítették: Katyina Brigitta, Guti Adrán, Majoros Norbert`
