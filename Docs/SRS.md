@@ -48,34 +48,7 @@ Természetesen fontos a naprakészség: a jövőben a rendszer követi fogja az 
  
  `Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
  
- ## 6. Esetek és funkciók
- > **Recepciós:**
- > - A program felhasználója
- > - Törölheti a foglalást
- > - Kérdéseket tesz fel a vendég számára a hellyel kapcsolatban
- > - Megkapja a vendég válaszait
- > - Válaszoknak megfelelően tölti ki a formot és elindítja a lekérdezést
- > - A lekérdezés alapján megmutatja a szabad helyeket a vendégnek, ha van ilyen
- > - Vendég által kiválasztott helyet lefoglalja
- > - Kiállítja a számlát
- > 
->**Recepciós-Vendég:**
-> - Alap kérdések a hellyel, illetve a Vendég igényeivel kapcsolatban:
-> >-Lakókocsija vagy sátra van-e?
-> -Hány éjszakát szeretne a kempingben tölteni?
-> -Szüksége van-e elektromosságra?
-> -Elkéri a Vendég adatait: név, személyi igazolvány szám, lakcím, telefonszám
->- Recepciós megmutatja a lehetséges helyket
->- Megkérdezi, hogy melyik helyet szeretné igénybe venni
->
-> **Vendég:**
-> 
-> - Válaszol a Recepciós kérdéseire
-> - Lemondhatja foglalást
-> - Látja az igényelhető helyeket
-> - Kiválasztja a számára megfelelő helyet,ha van ilyen.
-> - Amenyiben nincs megfelelő hely a venég számára, nem történik foglalás
-> - A vendég bármikor lemondhatja a szolgáltatást vagy a foglalást
+ ## 6.
  
  `Készítették: Csattos Bence`
  
