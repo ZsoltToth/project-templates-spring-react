@@ -17,7 +17,7 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 
 ## 3. Funkcionális követelmények
 
-| ID   | Name            | Description                                                  |
+| ID   | Megnevezés      | Leírás                                                       |
 | ---- | --------------- | ------------------------------------------------------------ |
 | F1   | Enter Aquapark  | Amikor a látogató bejelentkezik a rendszerbe egy egyedi azonosítót kap, mely minden egyes csúszásnál azonosítja őt. Egy azonosító naponta többször is kiadható. |
 | F2   | Use slide       | Azok a látogatók használhatják a csúszdákat, akik rendelkeznek azonosítóval. Minden egyes csúszáskor az azonosítóhoz tartozó számla az adott csúszda használati díjával kerül terhelésre. |
@@ -39,3 +39,98 @@ Az eddigi modell alapján a látogatók napi jegyet vehettek, mellyel korlátlan
 | F6   | Csúszda azonosító (opcionális) bekérése, ha kapunk, akkor az adott csúszda használati adatainak lekérése (hány csúszás történt rajta), ha nem kapunk akkor ugyanez az összes csúszdára vonatkozóan |
 | F7   | Dátum bekérése, az adott napra vonatkozó adatok összegyűjtése (csúszda azonosító, hány csúszás, összes bevétel) |
 
+## 5. Response adatstruktúrák
+
+#### F1 - Enter Aquapark
+```
+{
+  user_id: int,
+  watch_id: int,
+  transaction_id: uuid
+}
+```
+
+#### F2 - Use slide
+```
+{
+  transaction_id: uuid,
+  user_id: int,
+  watch_id: int,
+  slide_id: int,
+  timestamp: datetime
+}
+```
+
+#### F3 - Get receipt
+```
+{
+  receipt_id: uuid,
+  transaction_id: uuid,
+  transactions: [
+    {
+      user_id: int,
+      watch_id: int,
+      slide_id: int,
+      timestamp: datetime
+    }, ...
+  ],
+  total: int
+}
+```
+
+#### F4 - Payment
+
+
+#### F5 - Leave Aquapark
+
+
+### F6 - Usage of slides
+***Ha kapunk ID-t:***
+```
+{
+  slide_id: int,
+  usages: [
+    {
+      user_id: int,
+      watch_id: int,
+      timestamp: datetime
+    }, ...
+  ]
+}
+```
+***Ha nem kapunk ID-t:***
+```
+{
+  statistics: [
+    {
+      slide_id: int,
+      usages: [
+        {
+          user_id: int,
+          watch_id: int,
+          timestamp: datetime
+        } ...
+      ]
+    }, ...
+  ]
+}
+```
+
+#### F7 - Daily report
+```
+{
+  statistics: [
+    {
+      slide_id: int,
+      usages: [
+        {
+          user_id: int,
+          watch_id: int,
+          timestamp: datetime
+        } ...
+      ]
+    }, ...
+  ],
+  total_income: int
+}
+```
