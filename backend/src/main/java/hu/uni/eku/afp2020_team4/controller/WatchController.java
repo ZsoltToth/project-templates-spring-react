@@ -64,6 +64,18 @@ public class WatchController {
         watches.add(newWatch);
     }
 
+    @PutMapping(value = {"/{id}"})
+    @ApiOperation(value = "Update a watch")
+    public void update(@PathVariable String id, @RequestBody WatchCreateRequestDto request) {
+        watches = watches.stream().map(
+                watch -> watch.getWatchId().equals(id)
+                        ? WatchDto.builder()
+                            .watchId(request.getWatchId())
+                            .build()
+                        : watch
+                ).collect(Collectors.toList());
+    }
+
     @DeleteMapping(value = {"/{id}"})
     @ApiOperation(value = "Delete a watch")
     public void delete(@PathVariable String id) {
