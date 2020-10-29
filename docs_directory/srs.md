@@ -96,13 +96,47 @@ ___
    #### 3.8.3 Software Interfaces 
      * Web application, online interfaces
  ####Datebase Plan
+    
     Guest
         * Name
         * Identity Number
         * Date of Birth
-        * Address
         * Arrival Date
         * Departure Date
-        * Services
-        * Admin / Employee
+        
+    Employee
+        * ID
+        * Name
+        * Password
+        * Position ID
+        
+    Positions
+        * ID
+        * Position's name
+        
+    Procuts
+        * Name
+        * Price
+        * Bar Code
+        * OnlyForAdults
+    
+    Service
+        * ID
+        * Employee's ID
+        * Guest's Identity Number
+        * Date
+        * OnlyForAdults
+    
+    Services 
+        * ID
+        * Name
+        
+    Summary
+        * ID
+        * Guest's Identity Number
+        * Service's ID
+        * Product's Bar Code
+        
+    
+        
  
