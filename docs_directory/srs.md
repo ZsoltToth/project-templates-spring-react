@@ -122,14 +122,8 @@ ___
     
     Service
         * ID
-        * Employee's ID
-        * Guest's Identity Number
-        * Date
-        * OnlyForAdults
-    
-    Services 
-        * ID
         * Name
+        * Price
         
     Summary
         * ID
