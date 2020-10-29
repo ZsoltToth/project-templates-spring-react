@@ -95,3 +95,42 @@ ___
      * Watches,readers
    #### 3.8.3 Software Interfaces 
      * Web application, online interfaces
+ ####Datebase Plan
+    
+    Guest
+        * Name
+        * Identity Number
+        * Date of Birth
+        * Arrival Date
+        * Departure Date
+        
+    Employee
+        * ID
+        * Name
+        * Password
+        * Position ID
+        
+    Positions
+        * ID
+        * Position's name
+        
+    Procuts
+        * Name
+        * Price
+        * Bar Code
+        * OnlyForAdults
+    
+    Service
+        * ID
+        * Name
+        * Price
+        
+    Summary
+        * ID
+        * Guest's Identity Number
+        * Service's ID
+        * Product's Bar Code
+        
+    
+        
+ 
