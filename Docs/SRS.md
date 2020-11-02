@@ -146,13 +146,11 @@ A recepciósnak szüksége van egy fő számítógépre, melyhez két monitor ta
 
 | id | név | kifejtés | 
 | ---: | --- | --- |
-| 
 | K1 | Férőhely-lekérdezés | A recepciós lekérdezi a kemping férőhelyek adatait a megadott időre vonatkozóan. |
 | K2| Foglalás | Amikor a Recepciós lefoglalja a Vendégnek az adott kempinghelyet, a foglalás saját azonosítót kap.|
 | K3| Számla generálása | A vendég foglaláskor számlát kap.| 
 | K4| Lemondás | A foglalás időtartama és a számla módosul. |
-| K5| Távozás | A kemping rendszer kilépteti a vendéget távozáskor. | 
-|
+| K5| Távozás | A kemping rendszer kilépteti a vendéget távozáskor. |
 
 `Készítette: Katyina Brigitta`
 
