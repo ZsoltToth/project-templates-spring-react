@@ -88,14 +88,14 @@ ___
  ### 3.7 Purchased Components
      * n/a
 
- ###3.8 Interfaces
+ ### 3.8 Interfaces
    #### 3.8.1 User Interfaces
      * The guests could not see the interface of the server. Functionality is described in Functionality.
    #### 3.8.2 Hardware Interfaces
      * Watches,readers
    #### 3.8.3 Software Interfaces 
      * Web application, online interfaces
- ####Datebase Plan
+ #### Datebase Plan
     
     Guest
         * Name
