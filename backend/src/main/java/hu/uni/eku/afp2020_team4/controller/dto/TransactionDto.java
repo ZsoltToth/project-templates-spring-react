@@ -8,6 +8,7 @@ import java.util.Date;
 @Data
 @Builder
 public class TransactionDto {
+    private String id;
     private int userId;
     private int watchId;
     private int slideId;
