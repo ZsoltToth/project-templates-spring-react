@@ -31,13 +31,13 @@
                     <div class="col">
                         <h4>Sátor / karaván?</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="tent" value="option1" checked>
+                            <input class="form-check-input" type="radio" name="tent" id="tent" value="tent" checked>
                             <label class="form-check-label" for="tent">
                                 Sátor
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="caravan" value="option2">
+                            <input class="form-check-input" type="radio" name="caravan" id="caravan" value="caravan">
                             <label class="form-check-label" for="caravan">
                                 Karaván
                             </label>
@@ -52,7 +52,7 @@
                     <div class="col">
                         <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
                         <label for="start">Kezdés dátuma:</label><br>
-                        <input type="date" id="from1" name="from"
+                        <input type="date" id="from" name="from"
                         value="2021-05-01"
                         min="2020-01-01">
                         <br>
@@ -60,7 +60,7 @@
 
                     <div class="col">
                         <label for="start">Befejezés dátuma:</label><br>
-                        <input type="date" id="to1" name="to"
+                        <input type="date" id="to" name="to"
                         value="2021-05-01"
                         min="2020-01-01">
                         <br>
@@ -73,8 +73,17 @@
             <button type="submit" class="btn btn-primary">Elküld</button>
         </form>
     </div>
+
+
+
+
+
+
+
     <!--============== megjelenik a térkép ===============-->
-    <!--============== az előző form adatai maradjanak meg plusz a hely plusz a most következő adatok: ===============-->
+
+
+
     <hr>
     <hr>
     <div class="container, container-fluid">
@@ -85,7 +94,7 @@
                 <div class="row">
                     <div class="col">  
                         <h4>Férőhely száma:</h4>
-                        <input type="id_card" class="form-control" id="id_card">
+                        <input type="number" class="form-control" name="slot-id" id="slot-id">
                     </div>
                     <div class="col">                      
                     </div>
@@ -97,14 +106,14 @@
                     <div class="col">
                         <h4>Szükséges elektromosság?</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="elektr-i" value="option1" checked>
-                            <label class="form-check-label" for="elektr-i">
+                            <input class="form-check-input" type="radio" name="el-y" id="el-y" value="yes" checked>
+                            <label class="form-check-label" for="el-y">
                                 Igen
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="elektr-n" value="option2">
-                            <label class="form-check-label" for="elektr-n">
+                            <input class="form-check-input" type="radio" name="el-n" id="el-n" value="no">
+                            <label class="form-check-label" for="el-n">
                                 Nem
                             </label>
                         </div>
@@ -119,11 +128,11 @@
                 <div class="row">
                     <div class="col">                    
                         <label for="exampleInputName">Név</label>
-                        <input type="name" class="form-control" id="name">
+                        <input type="text" class="form-control" name="name" id="name">
                     </div>
                     <div class="col">
                         <label for="exampleInputName">Lakcím</label>
-                        <input type="address" class="form-control" id="address">
+                        <input type="text" class="form-control" name="address" id="address">
                     </div>
                 </div>
             </div> 
@@ -131,11 +140,11 @@
                 <div class="row">
                     <div class="col">                    
                         <label for="exampleInputName">Személyi szám</label>
-                        <input type="id_card" class="form-control" id="id_card">
+                        <input type="text" class="form-control" name="id-card" id="id-card">
                     </div>
                     <div class="col">
                         <label for="exampleInputName">Telefonszám</label>
-                        <input type="phone" class="form-control" id="phone">
+                        <input type="text" class="form-control" name="phone" id="phone">
                     </div>
                 </div>
             </div> 
@@ -154,6 +163,25 @@
 
 
 
+        <hr><hr>
+        <form class="myform">
+            <h3>Foglalás lemondása</h3><br>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">  
+                        <h4>Férőhely száma:</h4>
+                        <input type="number" class="form-control" name="slot-id-x" id="slot-id-x">
+                    </div>
+                    <div class="col">                      
+                    </div>
+                </div>
+            </div> 
+            <br>
+                        
+
+            <button type="submit" class="btn btn-primary">Lemond</button>
+        </form>
+
 
 
 
@@ -165,33 +193,95 @@
 
         <hr><hr>
         <form class="myform">
-            <h3>Foglalás lemondása / megszakítása</h3><br>
+            <h3>Foglalás módosítása</h3><br>
+
             <div class="form-group">
                 <div class="row">
                     <div class="col">  
                         <h4>Férőhely száma:</h4>
-                        <input type="id_card" class="form-control" id="ferohely-lemond">
+                        <input type="number" class="form-control" name="slot-id-m" id="slot-id-m"> <!--slot-if-modify rövidítése-->
                     </div>
                     <div class="col">                      
                     </div>
                 </div>
             </div> 
             <br>
-                        
+
             <div class="form-group">
-                <div class="row">                    
-                    <div class="col">  
-                    <h4>Lemondás napja:</h4>                     
-                        <input type="date" id="to2" name="end"
+                <div class="row">
+                    <div class="col">
+                        <h4>Szükséges elektromosság?</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="m-el-y" id="m-el-y" value="yes" checked>
+                            <label class="form-check-label" for="m-el-y">
+                                Igen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="m-el-n" id="el-n" value="no">
+                            <label class="form-check-label" for="m-el-n">
+                                Nem
+                            </label>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+
+            <h4>Kempingezés ideje:</h4>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
+                        <label for="m-from">Kezdés dátuma:</label><br>
+                        <input type="date" name="m-from" id="m-from"
+                        value="2021-05-01"
+                        min="2020-01-01">
+                        <br>
+                    </div>
+
+                    <div class="col">
+                        <label for="m-to">Befejezés dátuma:</label><br>
+                        <input type="date" name="m-to" id="m-to"
                         value="2021-05-01"
                         min="2020-01-01">
                         <br>
                     </div>
                 </div> 
-            </div>
+            </div>   
+            <br>
+            <h4>Vendég adatai:</h4>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">                    
+                        <label for="exampleInputName">Név</label>
+                        <input type="text" class="form-control" name="m-name" id="m-name">
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputName">Lakcím</label>
+                        <input type="text" class="form-control" name="m-address" id="m-address">
+                    </div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">                    
+                        <label for="exampleInputName">Személyi szám</label>
+                        <input type="text" class="form-control" name="m-id-card" id="m-id-card">
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputName">Telefonszám</label>
+                        <input type="text" class="form-control" name="m-phone" id="m-phone">
+                    </div>
+                </div>
+            </div> 
+                        
+            
+
 
             <br>
-            <button type="submit" class="btn btn-primary">Lemond</button>
+            <button type="submit" class="btn btn-primary">Módosít</button>
         </form>
 
 
