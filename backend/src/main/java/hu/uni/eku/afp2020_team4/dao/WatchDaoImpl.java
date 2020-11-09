@@ -1,11 +1,15 @@
 package hu.uni.eku.afp2020_team4.dao;
 
 import hu.uni.eku.afp2020_team4.model.Watch;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@RequiredArgsConstructor
+@Service
 public class WatchDaoImpl implements WatchDao {
 
     private final WatchRepository repository;
@@ -23,15 +27,17 @@ public class WatchDaoImpl implements WatchDao {
     }
 
     @Override
-    public void update(Watch oldWatch, Watch newWatch) {
-        hu.uni.eku.afp2020_team4.dao.entity.Watch toUpdate = repository.findById(oldWatch.getId());
+    public void update(String watchId, Watch newWatch) {
+        hu.uni.eku.afp2020_team4.dao.entity.Watch toUpdate = repository.findByWatchId(watchId);
         toUpdate.setWatchId(newWatch.getWatchId());
         repository.save(toUpdate);
     }
 
     @Override
-    public void delete(Watch watchToDelete) {
-        repository.deleteById(watchToDelete.getId());
+    public void delete(String watchId) {
+        hu.uni.eku.afp2020_team4.dao.entity.Watch result = repository.findByWatchId(watchId);
+        if(result != null)
+            repository.delete(result);
     }
 
     private static class WatchEntityModelConverter {
