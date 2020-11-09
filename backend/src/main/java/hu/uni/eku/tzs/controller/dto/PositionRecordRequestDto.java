@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class PositionRecortRequestDto {
+public class PositionRecordRequestDto {
     private String id;
     private String name;
 }
