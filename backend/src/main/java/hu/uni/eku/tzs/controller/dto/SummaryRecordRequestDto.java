@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class SummaryRecordRequestDto{
 
     private int summaryID;
-    private String identityNumber;
+    private int identityNumber;
     private int servicesID;
     private int barCode;
 }
