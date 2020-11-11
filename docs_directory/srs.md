@@ -107,6 +107,7 @@ ___
     Employee
         * ID
         * Name
+        * E-mail
         * Password
         * Position ID
         
