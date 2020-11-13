@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class SlideDto {
-    private String slideId;
+    private Integer slideId;
     private String name;
     private double price;
 }
