@@ -24,7 +24,7 @@ public class WatchServiceImpl implements WatchService {
     public void create(Watch watchToCreate) throws WatchAlreadyExistsException {
         final boolean alreadyExists = dao.fetchAll()
                 .stream()
-                .anyMatch(watch -> watch.getWatchId() == watchToCreate.getWatchId());
+                .anyMatch(watch -> watch.getWatchId().equals(watchToCreate.getWatchId()));
         if(alreadyExists){
             throw new WatchAlreadyExistsException(String.format("Watch (%s) already exists!", watchToCreate.toString()));
         }
