@@ -3,7 +3,7 @@ import dispatcher from '../dispatcher/Dispatcher';
 import * as actionConstants from '../dispatcher/SlideActionConstants'
 
 export const recordSlide = ({slideId,name,price}) =>{
-    axios.post('/slide/record',
+    axios.post('/slide/create',
         {
             slideId : slideId,
             name : name,
