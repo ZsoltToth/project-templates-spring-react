@@ -1,6 +1,6 @@
 import React from 'react';
 import {default as store} from '../store/SlideStore'
-import SlideListItem from "./WatchListItem";
+import SlideListItem from "./SlideListItem";
 
 class SlideList extends React.Component{
 

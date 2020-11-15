@@ -24,6 +24,6 @@ export default store;
 
 dispatcher.register(({action,payload})=>{
     if(action !== refresh ) return;
-    store._watches = payload;
+    store._slides = payload;
     store.emitChange();
 })

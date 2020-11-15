@@ -33,7 +33,7 @@ class SlideRecordingForm extends React.Component{
                 <br/>
                 <button onClick={()=> slideActions.recordSlide(this.state)}>Felvétel</button>
                 <button onClick={()=> slideActions.fetchSlides()}>Kilistázás</button>
-                <button onClick={()=> slideActions.deleteSlide()}>Törlés</button>
+                <button onClick={()=> slideActions.deleteSlide(this.state.slideId)}>Törlés</button>
             </div>
         );
     }
