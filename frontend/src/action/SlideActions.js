@@ -31,3 +31,22 @@ export const fetchSlides = () =>{
         });
     })
 }
+
+export const deleteSlide = (slideId) =>
+{
+    axios.delete(`/slide/${slideId}`)
+        .then(() =>
+         {
+            fetchSlides();
+            dispatcher.dispatch({action: actionConstants.clearError});
+        })
+        .catch((err) =>
+        {
+            dispatcher.dispatch
+            ({
+                action: actionConstants.showError,
+                payload: `${err.response.status}-${err.response.statusText}: ${err.response.data.message}`
+            });
+            fetchSlides();
+        });
+}
