@@ -2,6 +2,9 @@ package hu.uni.eku.tzs.controller;
 
 import hu.uni.eku.tzs.controller.dto.CustomerDto;
 import hu.uni.eku.tzs.controller.dto.CustomerRecordRequestDto;
+import hu.uni.eku.tzs.model.Customer;
+import hu.uni.eku.tzs.service.CustomerService;
+import hu.uni.eku.tzs.service.exceptions.CustomerAlreadyExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
