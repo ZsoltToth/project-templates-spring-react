@@ -6,7 +6,8 @@ import hu.uni.eku.tzs.service.exceptions.CustomerAlreadyExistsException;
 import java.util.Collection;
 
 public interface CustomerService {
-    public void record(Customer customer) throws CustomerAlreadyExistsException, CustomerAlreadyExistsException;
 
-    public Collection<Customer> readAll();
+    void record(Customer customer) throws  CustomerAlreadyExistsException;
+
+    Collection<Customer> readAll();
 }

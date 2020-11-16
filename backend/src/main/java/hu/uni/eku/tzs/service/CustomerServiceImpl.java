@@ -1,5 +1,6 @@
 package hu.uni.eku.tzs.service;
 
+import hu.uni.eku.tzs.dao.CustomerDao;
 import hu.uni.eku.tzs.model.Customer;
 import hu.uni.eku.tzs.service.exceptions.CustomerAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
@@ -7,9 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-@Service
+
 @Slf4j
 @RequiredArgsConstructor
+@Service
 public class CustomerServiceImpl implements CustomerService{
 
     private final CustomerDao dao;
@@ -20,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService{
                 .anyMatch(c ->
                         c.getId() == customer.getId()
                         &&
-                                c.getName == customer.getName()
+                                c.getName() == customer.getName()
                 );
         if(isAlreadyRecorded){
             log.info("Customer {} is already recorded",customer);

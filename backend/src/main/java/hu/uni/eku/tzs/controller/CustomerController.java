@@ -7,6 +7,7 @@ import hu.uni.eku.tzs.service.CustomerService;
 import hu.uni.eku.tzs.service.exceptions.CustomerAlreadyExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,14 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collection;
-import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping
+@RequestMapping(value = "/customer")
+@RequiredArgsConstructor
 @Api(tags = "Customer")
 @Slf4j
 public class CustomerController {
-    
+
     private final CustomerService service;
     
     @PostMapping("/record")
@@ -44,15 +46,15 @@ public class CustomerController {
     @GetMapping(value = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ApiOperation(value = "Query customer")
-    public Collection<Customer>query(){
+    public Collection<CustomerDto>query(){
         return service.readAll().stream().map(model ->
                 CustomerDto.builder()
-                .id(model.getId())
-                .name(model.getName())
-                .address(model.getAddress())
-                .phoneNumber(model.getPhoneNumber())
+                        .id(model.getId())
+                        .name(model.getName())
+                        .address(model.getAddress())
+                        .phoneNumber(model.getPhoneNumber())
                         .email(model.getEmail())
-                .build()
-        ).collect(Collector.toList());
+                        .build()
+        ).collect(Collectors.toList());
     }
 }
