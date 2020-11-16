@@ -1,5 +1,7 @@
 package hu.uni.eku.tzs.controller;
 
+import hu.uni.eku.tzs.controller.dto.CustomerDto;
+import hu.uni.eku.tzs.controller.dto.CustomerRecordRequestDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +48,7 @@ public class CustomerController {
                 .name(model.getName())
                 .address(model.getAddress())
                 .phoneNumber(model.getPhoneNumber())
+                        .email(model.getEmail())
                 .build()
         ).collect(Collector.toList());
     }
