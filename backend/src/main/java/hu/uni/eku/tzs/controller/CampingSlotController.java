@@ -2,6 +2,9 @@ package hu.uni.eku.tzs.controller;
 
 import hu.uni.eku.tzs.controller.dto.CampingSlotDto;
 import hu.uni.eku.tzs.controller.dto.CampingSlotRecordRequestDto;
+import hu.uni.eku.tzs.model.CampingSlot;
+import hu.uni.eku.tzs.service.CampingSlotService;
+import hu.uni.eku.tzs.service.exceptions.CampingSlotAlreadyExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
