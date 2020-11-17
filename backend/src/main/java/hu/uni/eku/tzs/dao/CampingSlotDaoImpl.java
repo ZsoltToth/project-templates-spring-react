@@ -13,7 +13,7 @@ import java.util.stream.StreamSupport;
 @Service
 public class CampingSlotDaoImpl implements CampingSlotDao{
 
-    private CampingSlotRepository repository;
+    private final CampingSlotRepository repository;
 
     @Override
     public void create(CampingSlot campingSlot) {
