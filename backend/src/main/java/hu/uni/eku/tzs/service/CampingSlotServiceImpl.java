@@ -1,5 +1,6 @@
 package hu.uni.eku.tzs.service;
 
+import hu.uni.eku.tzs.dao.CampingSlotDao;
 import hu.uni.eku.tzs.model.CampingSlot;
 import hu.uni.eku.tzs.service.exceptions.CampingSlotAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class CampingSlotServiceImpl implements CampingSlotService {
     @Override
     public void record(CampingSlot campingSlot) throws CampingSlotAlreadyExistsException{
         final boolean isAlreadyRecorded =
-                dao.readAll().stream.anyMatch(c ->
+                dao.readAll().stream().anyMatch(c ->
                                 c.getId() == campingSlot.getId()
                         &&
                                 c.getCoordinateX() == campingSlot.getCoordinateX()
@@ -31,10 +32,10 @@ public class CampingSlotServiceImpl implements CampingSlotService {
             throw new CampingSlotAlreadyExistsException(String.format("Camping slot (%s) already exists! ",campingSlot.toString()));
 
         }
-        dao.save(campingSlot);
+        dao.create(campingSlot);
     }
     @Override
     public Collection<CampingSlot>readAll(){
-        return dao.findAll();
+        return dao.readAll();
     }
 }
