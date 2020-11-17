@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class EmployeeRecordRequestDto {
     private int employeeID;
     private String employeeName;
+    private String employeeEmail;
     private String pwd;
     private int positionID;
 }
