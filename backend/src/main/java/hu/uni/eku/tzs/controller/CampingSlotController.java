@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class CampingSlotController {
 
-    private CampingSlotService service;
+    private final CampingSlotService service;
 
     @PostMapping(value="/record")
     public void record(@RequestBody CampingSlotRecordRequestDto request){

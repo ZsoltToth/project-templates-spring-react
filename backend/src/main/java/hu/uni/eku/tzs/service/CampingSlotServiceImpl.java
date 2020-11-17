@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
-@Service
+
 @RequiredArgsConstructor
 @Slf4j
+@Service
 public class CampingSlotServiceImpl implements CampingSlotService {
 
-    private CampingSlotDao dao;
+    private final CampingSlotDao dao;
 
     @Override
     public void record(CampingSlot campingSlot) throws CampingSlotAlreadyExistsException{
