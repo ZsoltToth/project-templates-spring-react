@@ -1,13 +1,12 @@
-package hu.uni.eku.tzs.controller;
+package hu.uni.eku.team3.controller;
 
-import hu.uni.eku.tzs.controller.dto.ComplexNumberDto;
-import hu.uni.eku.tzs.controller.dto.ComplexNumberRecordRequestDto;
-import hu.uni.eku.tzs.model.ComplexNumber;
-import hu.uni.eku.tzs.service.ComplexNumberService;
-import hu.uni.eku.tzs.service.exceptions.ComplexNumberAlreadyExistsException;
+import hu.uni.eku.team3.controller.dto.ComplexNumberDto;
+import hu.uni.eku.team3.controller.dto.ComplexNumberRecordRequestDto;
+import hu.uni.eku.team3.model.ComplexNumber;
+import hu.uni.eku.team3.service.ComplexNumberService;
+import hu.uni.eku.team3.service.exceptions.ComplexNumberAlreadyExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

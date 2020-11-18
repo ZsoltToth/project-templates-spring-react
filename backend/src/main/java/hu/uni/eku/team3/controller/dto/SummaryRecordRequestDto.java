@@ -1,4 +1,4 @@
-package hu.uni.eku.tzs.controller.dto;
+package hu.uni.eku.team3.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductsRecordRequestDto{
-    private String productName;
-    private int productPrice;
+public class SummaryRecordRequestDto{
+    private int id;
+    private int identityNumber;
+    private int servicesID;
     private int barCode;
-    private boolean Adult;
 }
 
