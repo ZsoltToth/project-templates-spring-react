@@ -1,12 +1,12 @@
-package hu.uni.eku.tzs.controller.dto;
-
+package hu.uni.eku.team3.controller.dto;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class PositionRecordRequestDto {
+public class ServiceRecordRequestDto {
     private String id;
     private String name;
+    private int price;
 }
