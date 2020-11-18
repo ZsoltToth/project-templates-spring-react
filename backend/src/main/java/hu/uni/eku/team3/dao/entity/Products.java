@@ -1,7 +1,6 @@
-package hu.uni.eku.tzs.dao.entity;
+package hu.uni.eku.team3.dao.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 
@@ -11,13 +10,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ComplexNumber {
-
+public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
-    private double realPart;
+    private int productPrice;
     @Column
-    private double imaginaryPart;
+    private String productName;
+    @Column
+    private int Adult;
 }
