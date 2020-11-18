@@ -1,12 +1,10 @@
-package hu.uni.eku.tzs.dao;
+package hu.uni.eku.team3.dao;
 
-import hu.uni.eku.tzs.model.ComplexNumber;
+import hu.uni.eku.team3.model.ComplexNumber;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.Spliterator;
-import java.util.Spliterators;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -40,15 +38,15 @@ public class ComplexNumberDaoImpl implements ComplexNumberDao {
 
     private static class ComplexNumberEntityModelConverter{
 
-        private static ComplexNumber entity2model(hu.uni.eku.tzs.dao.entity.ComplexNumber entity){
+        private static ComplexNumber entity2model(hu.uni.eku.team3.dao.entity.ComplexNumber entity){
             return new ComplexNumber(
                     entity.getRealPart(),
                     entity.getImaginaryPart()
             );
         }
 
-        private static hu.uni.eku.tzs.dao.entity.ComplexNumber model2entity(ComplexNumber model){
-            return hu.uni.eku.tzs.dao.entity.ComplexNumber.builder()
+        private static hu.uni.eku.team3.dao.entity.ComplexNumber model2entity(ComplexNumber model){
+            return hu.uni.eku.team3.dao.entity.ComplexNumber.builder()
                     .realPart(model.getReal())
                     .imaginaryPart(model.getImaginary())
                     .build();
