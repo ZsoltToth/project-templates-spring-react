@@ -1,4 +1,4 @@
-package hu.uni.eku.tzs.model;
+package hu.uni.eku.team3.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Products{
+    private int id;
     private String productName;
     private int productPrice;
-    private int barCode;
-    private boolean Adult;
+    private int Adult;
 }
