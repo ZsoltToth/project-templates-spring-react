@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.Date;
-import org.joda.time.DateTime;
 
 @Data
 @Builder
@@ -17,6 +15,6 @@ public class GuestRecordRequestDto {
     private String name;
     private String identityNumber;
     private Date dateOfBirth;
-    private DateTime arrivalDate;
-    private DateTime departureDate;
+    private Date arrivalDate;
+    private Date departureDate;
 }
