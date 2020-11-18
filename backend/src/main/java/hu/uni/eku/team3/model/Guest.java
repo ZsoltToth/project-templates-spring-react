@@ -1,4 +1,4 @@
-package hu.uni.eku.tzs.model;
+package hu.uni.eku.team3.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +10,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Guest {
-    private String name;
     private String identityNumber;
+    private String name;
     private Date dateOfBirth;
     private Date arrivalDate;
     private Date departureDate;

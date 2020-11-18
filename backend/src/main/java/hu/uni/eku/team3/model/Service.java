@@ -1,4 +1,4 @@
-package hu.uni.eku.tzs.model;
+package hu.uni.eku.team3.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
