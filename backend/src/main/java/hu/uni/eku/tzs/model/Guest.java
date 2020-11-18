@@ -3,6 +3,7 @@ package hu.uni.eku.tzs.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -11,6 +12,6 @@ public class Guest {
     private String name;
     private String identityNumber;
     private Date dateOfBirth;
-    private LocalDateTime arrivalDate;
-    private LocalDateTime departureDate;
+    private DateTime arrivalDate;
+    private DateTime departureDate;
 }

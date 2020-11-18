@@ -16,6 +16,6 @@ public class GuestRecordRequestDto {
     private String name;
     private String identityNumber;
     private Date dateOfBirth;
-    private LocalDateTime arrivalDate;
-    private LocalDateTime departureDate;
+    private DateTime arrivalDate;
+    private DateTime departureDate;
 }

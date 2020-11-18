@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ComplexNumber {
-
     private double real;
     private double imaginary;
-
 }

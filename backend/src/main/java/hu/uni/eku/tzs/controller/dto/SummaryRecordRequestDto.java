@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-
 public class SummaryRecordRequestDto{
-
     private int summaryID;
     private int identityNumber;
     private int servicesID;

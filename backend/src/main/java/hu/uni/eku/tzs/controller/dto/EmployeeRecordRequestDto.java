@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class EmployeeRecordRequestDto {
     private int employeeID;
     private String employeeName;
