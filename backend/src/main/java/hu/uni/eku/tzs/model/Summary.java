@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComplexNumber {
-    private double real;
-    private double imaginary;
+public class Summary {
+    private int summaryID;
+    private int identityNumber;
+    private int servicesID;
+    private int barCode;
 }

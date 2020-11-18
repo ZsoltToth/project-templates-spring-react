@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComplexNumber {
-    private double real;
-    private double imaginary;
+public class Products{
+    private String productName;
+    private int productPrice;
+    private int barCode;
+    private boolean Adult;
 }

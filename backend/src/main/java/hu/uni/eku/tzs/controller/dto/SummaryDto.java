@@ -7,10 +7,9 @@ import lombok.Data;
 @Builder
 
 public class SummaryDto {
-
-private int summaryID;
-private int identityNumber;
-private int servicesID;
-private int barCode;
+    private int summaryID;
+    private int identityNumber;
+    private int servicesID;
+    private int barCode;
 }
 

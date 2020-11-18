@@ -9,13 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
-
 public class ProductsRecordRequestDto{
-
-private String productName;
-private int productPrice;
-private int barCode;
-private boolean Adult;
+    private String productName;
+    private int productPrice;
+    private int barCode;
+    private boolean Adult;
 }
 
