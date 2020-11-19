@@ -98,8 +98,8 @@ ___
  ### 3.9 Datebase Plan
     
     Guest
+        * Identity Number(watch id/id)
         * Name
-        * Identity Number
         * Date of Birth
         * Arrival Date
         * Departure Date
@@ -116,9 +116,9 @@ ___
         * Position's name
         
     Procuts
+        * ID
         * Name
         * Price
-        * Bar Code
         * OnlyForAdults
     
     Service
@@ -130,7 +130,7 @@ ___
         * ID
         * Guest's Identity Number
         * Service's ID
-        * Product's Bar Code
+        * Product's ID
         
     
         

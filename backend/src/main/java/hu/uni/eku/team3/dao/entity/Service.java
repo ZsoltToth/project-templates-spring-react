@@ -11,7 +11,11 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Service {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
+    @Column
     private String name;
+    @Column
     private int price;
 }
