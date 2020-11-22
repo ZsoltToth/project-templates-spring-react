@@ -16,6 +16,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
     private final CustomerRepository customerRepository;
 
+    @Override
     public void create(Customer customer){
         customerRepository.save(CustomerEntityModelConverter.model2entity(customer));
     }
@@ -25,6 +26,15 @@ public class CustomerDaoImpl implements CustomerDao{
         return StreamSupport.stream(customerRepository.findAll().spliterator(),false)
                 .map(entity -> CustomerEntityModelConverter.entity2model(entity))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Customer readByEmail(String email){
+        return CustomerEntityModelConverter.entity2model(customerRepository.findByEmail(email));
+    }
+
+    public boolean CustomerExists(String email){
+        return customerRepository.existsByEmail(email);
     }
 
     private static class CustomerEntityModelConverter{

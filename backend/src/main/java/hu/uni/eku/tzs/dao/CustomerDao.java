@@ -9,4 +9,8 @@ public interface CustomerDao {
     void create(Customer customer);
 
     Collection<Customer> readAll();
+
+    Customer readByEmail(String email);
+
+    boolean CustomerExists(String email);
 }
