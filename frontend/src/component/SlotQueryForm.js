@@ -6,8 +6,9 @@ class SlotQueryForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            startDate: 0,
-            endDate: 0
+            tent_caravan: "option1",
+            startDate: "2021-05-01",
+            endDate: "2021-05-07"
         };
         this.formOnChange = this.formOnChange.bind(this);
     }
@@ -16,7 +17,7 @@ class SlotQueryForm extends React.Component {
         const {name, value} = event.target;
         this.setState({[name]: value}, () => {
             if (this.state.startDate !== 0 && this.state.endDate !== 0) {
-               // actions.fetchFreeSlotsBetweenInterval(this.state) //TODO - ez az action nekünk még nincs
+               // actions.fetchFreeSlots(this.state) //TODO - ez az action nekünk még nincs
             }
         });
     }
@@ -31,14 +32,14 @@ class SlotQueryForm extends React.Component {
                             <div className="col">
                                 <h4>Sátor / karaván?</h4>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name={"exampleRadios"} id={"tent"}
+                                    <input className="form-check-input" type="radio" name={"tent_caravan"} id={"tent"}
                                            value={"option1"} checked onChange={this.formOnChange}/>
                                     <label className="form-check-label" htmlFor="tent">
                                         Sátor
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name={"exampleRadios"} id={"caravan"}
+                                    <input className="form-check-input" type="radio" name={"tent_caravan"} id={"caravan"}
                                            value={"option2"} onChange={this.formOnChange}/>
                                     <label className="form-check-label" htmlFor="caravan">
                                         Karaván
@@ -74,7 +75,10 @@ class SlotQueryForm extends React.Component {
 
                     <br/>
 
-                    <button type="submit" className="btn btn-primary">Elküld</button>
+                    <button type="submit" className="btn btn-primary" onClick={() => {
+                        // TODO
+                    }}>Elküld
+                    </button>
                 </form>
             </div>
 
