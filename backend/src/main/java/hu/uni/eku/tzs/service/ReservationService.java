@@ -6,9 +6,13 @@ import hu.uni.eku.tzs.service.exceptions.CampingSlotALreadyReservedException;
 import hu.uni.eku.tzs.service.exceptions.CustomerNotExistsException;
 import hu.uni.eku.tzs.service.exceptions.ReservationAlreadyExistsException;
 
+import java.util.Collection;
+
 public interface ReservationService {
 
-    public void record(TryReservation tryReservation) throws CustomerNotExistsException, ReservationAlreadyExistsException, CampingSlotALreadyReservedException;
+    void record(TryReservation tryReservation) throws CustomerNotExistsException, ReservationAlreadyExistsException, CampingSlotALreadyReservedException;
 
     Reservation readById(int id);
+
+    Collection<Reservation> readAll();
 }

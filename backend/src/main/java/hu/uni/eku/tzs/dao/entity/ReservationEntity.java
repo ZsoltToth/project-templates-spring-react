@@ -3,9 +3,7 @@ package hu.uni.eku.tzs.dao.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,6 +14,7 @@ import java.util.Date;
 @Setter
 public class ReservationEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private String customerEmail;

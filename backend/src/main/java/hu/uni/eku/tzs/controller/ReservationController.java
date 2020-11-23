@@ -1,5 +1,6 @@
 package hu.uni.eku.tzs.controller;
 
+import hu.uni.eku.tzs.controller.dto.CustomerDto;
 import hu.uni.eku.tzs.controller.dto.ReservationDto;
 import hu.uni.eku.tzs.controller.dto.ReservationRecordRequestDto;
 import hu.uni.eku.tzs.model.Reservation;
@@ -13,8 +14,12 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -57,7 +62,7 @@ public class ReservationController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    @ApiOperation(value = "Reservation query")
+    @ApiOperation(value = "Reservation query by id")
     public ReservationDto reservationDto(@PathVariable int id){
         Reservation reservation = service.readById(id);
 
@@ -71,12 +76,25 @@ public class ReservationController {
                         .start(reservation.getStart())
                         .end(reservation.getEnd())
                         .build();
-
-
     }
 
-
-
+    @GetMapping(value = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ApiOperation(value = "All Reservation query")
+    public Collection<ReservationDto> query() {
+        return service.readAll().stream().map(reservation ->
+                ReservationDto.builder()
+                        .id(reservation.getId())
+                        .customerEmail(reservation.getCustomerEmail())
+                        .customerName(reservation.getCustomerName())
+                        .phoneNumber(reservation.getPhoneNumber())
+                        .customerAddress(reservation.getCustomerAddress())
+                        .slotId(reservation.getSlotId())
+                        .start(reservation.getStart())
+                        .end(reservation.getEnd())
+                        .build()
+        ).collect(Collectors.toList());
+    }
 
 
 }

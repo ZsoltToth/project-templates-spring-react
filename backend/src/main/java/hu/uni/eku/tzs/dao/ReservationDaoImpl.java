@@ -1,6 +1,5 @@
 package hu.uni.eku.tzs.dao;
 
-import com.sun.xml.bind.v2.model.core.ID;
 import hu.uni.eku.tzs.model.Customer;
 import hu.uni.eku.tzs.model.Reservation;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +12,9 @@ import java.util.stream.StreamSupport;
 @RequiredArgsConstructor
 @Service
 public class ReservationDaoImpl implements ReservationDao {
-    private final CustomerRepository customerRepository;
+
     private final ReservationRepository reservationRepository;
-    private ReservationRepository reservationRepository1;
+
 
     public void create(Reservation reservation){
         reservationRepository.save(ReservationEntityModelConverter.model2entity(reservation));
@@ -30,8 +29,6 @@ public class ReservationDaoImpl implements ReservationDao {
     public Reservation readById(int resId){
        return ReservationEntityModelConverter.entity2model(reservationRepository.findById(resId));
     }
-
-
 
     private static class ReservationEntityModelConverter {
         private static Reservation entity2model(hu.uni.eku.tzs.dao.entity.ReservationEntity entity) {

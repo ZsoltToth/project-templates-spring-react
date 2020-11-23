@@ -26,6 +26,22 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
                 .map(entity -> CampingSlotModelEntityConverter.entity2model(entity))
                 .collect(Collectors.toList());
     }
+    @Override
+    public boolean campingSlotAvailable(int id){
+        return repository.existsByIdAndAndStatusIsTrue(id);
+    }
+
+    @Override
+    public CampingSlot readById(int id){
+        return CampingSlotModelEntityConverter.entity2model(repository.getById(id));
+    }
+
+    @Override
+    public void reserveCampingslot(CampingSlot campingSlot){
+        repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
+    }
+
+
 
     private static class CampingSlotModelEntityConverter{
 
