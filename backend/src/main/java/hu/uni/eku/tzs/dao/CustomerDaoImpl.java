@@ -16,6 +16,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
     private final CustomerRepository customerRepository;
 
+    @Override
     public void create(Customer customer){
         customerRepository.save(CustomerEntityModelConverter.model2entity(customer));
     }
@@ -27,10 +28,19 @@ public class CustomerDaoImpl implements CustomerDao{
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public Customer readByEmail(String email){
+        return CustomerEntityModelConverter.entity2model(customerRepository.findByEmail(email));
+    }
+
+    @Override
+    public boolean CustomerExists(String email){
+        return customerRepository.existsByEmail(email);
+    }
+
     private static class CustomerEntityModelConverter{
         private static Customer entity2model(hu.uni.eku.tzs.dao.entity.CustomerEntity entity){
             return new Customer(
-                    entity.getId(),
                     entity.getName(),
                     entity.getAddress(),
                     entity.getPhoneNumber(),
@@ -40,7 +50,6 @@ public class CustomerDaoImpl implements CustomerDao{
 
         private static hu.uni.eku.tzs.dao.entity.CustomerEntity model2entity(Customer customer){
             return hu.uni.eku.tzs.dao.entity.CustomerEntity.builder()
-                    .id(customer.getId())
                     .name(customer.getName())
                     .address(customer.getAddress())
                     .phoneNumber(customer.getPhoneNumber())

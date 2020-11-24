@@ -1,8 +1,10 @@
 package hu.uni.eku.tzs.dao.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Builder
@@ -10,18 +12,24 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CampingSlotEntity {
+public class ReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
-    private int coordinateX;
+    private String customerEmail;
     @Column
-    private int coordinateY;
+    private String customerName;
     @Column
-    private int price;
+    private String phoneNumber;
     @Column
-    private Boolean status;
+    private String customerAddress;
     @Column
-    private String description;
+    private int slotId;
+    @Column
+    private Date start;
+    @Column
+    private Date end;
+
+
 }

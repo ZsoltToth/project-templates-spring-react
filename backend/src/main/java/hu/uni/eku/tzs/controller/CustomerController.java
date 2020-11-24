@@ -29,12 +29,12 @@ public class CustomerController {
     @PostMapping("/record")
     @ApiOperation(value = "Record")
     public void record(@RequestBody CustomerRecordRequestDto request){
-        log.info("Recording of customer ({},{})",request.getId(),request.getName());
+        log.info("Recording of customer ({},{})",request.getEmail(),request.getName());
         try {
-            service.record(new Customer(request.getId(),request.getName(),
+            service.record(new Customer(request.getName(),
                     request.getAddress(),request.getPhoneNumber(),request.getEmail()));
         }catch (CustomerAlreadyExistsException exception){
-            log.info("Customer ({},{}) is already exists! Message: {}",request.getId(),request.getName(),exception.getMessage());
+            log.info("Customer ({},{}) is already exists! Message: {}",request.getEmail(),request.getName(),exception.getMessage());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     exception.getMessage()
@@ -49,7 +49,6 @@ public class CustomerController {
     public Collection<CustomerDto>query(){
         return service.readAll().stream().map(model ->
                 CustomerDto.builder()
-                        .id(model.getId())
                         .name(model.getName())
                         .address(model.getAddress())
                         .phoneNumber(model.getPhoneNumber())

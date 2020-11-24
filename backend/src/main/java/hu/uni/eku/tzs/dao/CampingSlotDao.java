@@ -10,4 +10,10 @@ public interface CampingSlotDao {
 
     Collection<CampingSlot>readAll();
 
+    boolean campingSlotAvailable(int id);
+
+    CampingSlot readById(int id);
+
+    void reserveCampingslot(CampingSlot campingSlot);
+
 }

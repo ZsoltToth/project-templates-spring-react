@@ -5,14 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerRecordRequestDto {
-    private String name;
-    private String address;
-    private String phoneNumber;
-    private String email;
+public class ReservationRecordRequestDto {
+
+    private int id;
+    private String customerEmail;
+    private int slotId;
+    private Date start;
+    private Date end;
 
 }

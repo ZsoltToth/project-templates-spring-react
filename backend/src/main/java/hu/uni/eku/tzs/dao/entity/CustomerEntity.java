@@ -2,9 +2,7 @@ package hu.uni.eku.tzs.dao.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Builder
@@ -14,6 +12,7 @@ import javax.persistence.Id;
 @Setter
 public class CustomerEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private String name;
