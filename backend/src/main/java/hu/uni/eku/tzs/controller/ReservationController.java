@@ -63,9 +63,8 @@ public class ReservationController {
     @GetMapping("/{id}")
     @ResponseBody
     @ApiOperation(value = "Reservation query by id")
-    public ReservationDto reservationDto(@PathVariable int id){
+    public ReservationDto queryById(@PathVariable int id){
         Reservation reservation = service.readById(id);
-
         return ReservationDto.builder()
                         .id(reservation.getId())
                         .customerEmail(reservation.getCustomerEmail())
@@ -81,7 +80,7 @@ public class ReservationController {
     @GetMapping(value = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ApiOperation(value = "All Reservation query")
-    public Collection<ReservationDto> query() {
+    public Collection<ReservationDto> queryAll() {
         return service.readAll().stream().map(reservation ->
                 ReservationDto.builder()
                         .id(reservation.getId())
@@ -95,6 +94,16 @@ public class ReservationController {
                         .build()
         ).collect(Collectors.toList());
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable int id){
+        service.delete(id);
+    }
+
+
+
+
+
 
 
 }

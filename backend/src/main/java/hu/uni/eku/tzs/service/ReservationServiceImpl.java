@@ -25,6 +25,7 @@ public class ReservationServiceImpl implements ReservationService{
 
     private Customer customerInfo;
     private CampingSlot campingslotInfo;
+    private int reservedSlot;
 
 
 
@@ -62,6 +63,16 @@ public class ReservationServiceImpl implements ReservationService{
 
     public Collection<Reservation> readAll() {
         return reservationDao.readAll();
+    }
+
+    public void delete(int id){
+
+        reservedSlot = reservationDao.readById(id).getSlotId();
+        campingslotInfo = campingSlotDao.readById(reservedSlot);
+        campingslotInfo.setStatus(true);
+        campingSlotDao.reserveCampingslot(campingslotInfo);
+        reservationDao.deleteById(id);
+
     }
 
 

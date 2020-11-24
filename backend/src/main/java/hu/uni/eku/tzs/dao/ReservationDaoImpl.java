@@ -30,6 +30,10 @@ public class ReservationDaoImpl implements ReservationDao {
        return ReservationEntityModelConverter.entity2model(reservationRepository.findById(resId));
     }
 
+    public void deleteById(int id){
+        reservationRepository.deleteById(id);
+    }
+
     private static class ReservationEntityModelConverter {
         private static Reservation entity2model(hu.uni.eku.tzs.dao.entity.ReservationEntity entity) {
             return new Reservation(

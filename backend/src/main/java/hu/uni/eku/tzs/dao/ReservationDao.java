@@ -11,4 +11,6 @@ public interface ReservationDao {
     public Collection<Reservation> readAll();
 
     Reservation readById(int id);
+
+    void deleteById(int id);
 }
