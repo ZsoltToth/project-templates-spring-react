@@ -17,13 +17,8 @@ public class CustomerServiceImpl implements CustomerService{
     private final CustomerDao dao;
     @Override
     public void record(Customer customer) throws CustomerAlreadyExistsException {
-        final boolean isAlreadyRecorded = dao.readAll()
-                .stream()
-                .anyMatch(c ->
-                        c.getId() == customer.getId()
-                        &&
-                                c.getName() == customer.getName()
-                );
+        final boolean isAlreadyRecorded = dao.CustomerExists(customer.getEmail());
+
         if(isAlreadyRecorded){
             log.info("Customer {} is already recorded",customer);
             throw new CustomerAlreadyExistsException(String.format("Customer (%s) already exits!",customer.toString()));

@@ -10,15 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerRecordRequestDto {
-
-    private int id;
-
     private String name;
-
     private String address;
-
     private String phoneNumber;
-
     private String email;
 
 }
