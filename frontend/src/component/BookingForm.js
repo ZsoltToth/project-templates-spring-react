@@ -1,9 +1,7 @@
 import React from "react";
 import ErrorMessageWell from "./ErrorMessageWell";
-//import * as actions from "../action/ReservationAction";
-//import {withRouter} from "react-router-dom";
 
-class ReservationRecordingForm extends React.Component {
+class BookingForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,12 +10,8 @@ class ReservationRecordingForm extends React.Component {
             name: "",
             address: "",
             id_card: "",
-            phone:"",
+            phone:""
 
-            end: this.props.location.state.end,
-            paymentStatus: "NOT_PAID",
-            slotId: this.props.location.state.id,
-            start: this.props.location.state.start,
         };
         this.formOnChange = this.formOnChange.bind(this);
     }
@@ -55,13 +49,13 @@ class ReservationRecordingForm extends React.Component {
                                         <h4>Szükséges elektromosság?</h4>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name={"elektricity"} id={"elektr-i"} value={"option1"} checked onChange={this.formOnChange}/>
-                                                <label class="form-check-label" for="elektr-i">
+                                                <label class="form-check-label">
                                                     Igen
                                                 </label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name={"elektricity"} id={"elektr-n"} value={"option2"} onChange={this.formOnChange}/>
-                                                <label class="form-check-label" for="elektr-n">
+                                                <label class="form-check-label">
                                                     Nem
                                                 </label>
                                         </div>
@@ -75,11 +69,11 @@ class ReservationRecordingForm extends React.Component {
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col">
-                                        <label for="exampleInputName">Név</label>
+                                        <label>Név</label>
                                         <input type="name" class="form-control" name={"name"} id={"name"} onChange={this.formOnChange}/>
                                     </div>
                                     <div class="col">
-                                        <label for="exampleInputName">Lakcím</label>
+                                        <label>Lakcím</label>
                                         <input type="address" class="form-control" name={"address"} id={"address"} onChange={this.formOnChange}/>
                                     </div>
                                 </div>
@@ -87,11 +81,11 @@ class ReservationRecordingForm extends React.Component {
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col">
-                                        <label for="exampleInputName">Személyi szám</label>
+                                        <label>Személyi szám</label>
                                         <input type="id_card" class="form-control" name={"id_card"} id={"id_card"} onChange={this.formOnChange}/>
                                     </div>
                                     <div class="col">
-                                        <label for="exampleInputName">Telefonszám</label>
+                                        <label>Telefonszám</label>
                                         <input type="phone" class="form-control" name={"phone"} id={"phone"} onChange={this.formOnChange}/>
                                     </div>
                                 </div>
@@ -101,6 +95,7 @@ class ReservationRecordingForm extends React.Component {
                                 <button type="submit" class="btn btn-primary" onClick={() =>{
                                     // TODO
                                 }}>Foglal</button>
+                        <br/><hr/><br/>
                     </form>
             </div>
         );

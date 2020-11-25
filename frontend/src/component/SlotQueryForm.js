@@ -25,6 +25,7 @@ class SlotQueryForm extends React.Component {
     render() {
         return (
             <div>
+                <ErrorMessageWell/>
             <h3>Férőhelyek lekérdezése</h3><br/>
                 <form className="myform">
                     <div className="form-group">
