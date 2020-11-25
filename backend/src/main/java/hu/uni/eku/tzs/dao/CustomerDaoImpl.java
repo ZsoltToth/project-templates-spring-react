@@ -1,6 +1,7 @@
 package hu.uni.eku.tzs.dao;
 
 
+import hu.uni.eku.tzs.model.AddCustomer;
 import hu.uni.eku.tzs.model.Customer;
 import hu.uni.eku.tzs.dao.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +18,8 @@ public class CustomerDaoImpl implements CustomerDao{
     private final CustomerRepository customerRepository;
 
     @Override
-    public void create(Customer customer){
-        customerRepository.save(CustomerEntityModelConverter.model2entity(customer));
+    public void create(AddCustomer customer){
+        customerRepository.save(CustomerEntityModelConverter.addModel2entity(customer));
     }
 
     @Override
@@ -41,6 +42,7 @@ public class CustomerDaoImpl implements CustomerDao{
     public static class CustomerEntityModelConverter{
         public static Customer entity2model(hu.uni.eku.tzs.dao.entity.CustomerEntity entity){
             return new Customer(
+                    entity.getId(),
                     entity.getName(),
                     entity.getAddress(),
                     entity.getPhoneNumber(),
@@ -49,6 +51,24 @@ public class CustomerDaoImpl implements CustomerDao{
         }
 
         public static hu.uni.eku.tzs.dao.entity.CustomerEntity model2entity(Customer customer){
+            return hu.uni.eku.tzs.dao.entity.CustomerEntity.builder()
+                    .id(customer.getId())
+                    .name(customer.getName())
+                    .address(customer.getAddress())
+                    .phoneNumber(customer.getPhoneNumber())
+                    .email(customer.getEmail())
+                    .build();
+        }
+
+        public static hu.uni.eku.tzs.dao.entity.CustomerEntity model2entity(AddCustomer customer){
+            return hu.uni.eku.tzs.dao.entity.CustomerEntity.builder()
+                    .name(customer.getName())
+                    .address(customer.getAddress())
+                    .phoneNumber(customer.getPhoneNumber())
+                    .email(customer.getEmail())
+                    .build();
+        }
+        public static hu.uni.eku.tzs.dao.entity.CustomerEntity addModel2entity(AddCustomer customer){
             return hu.uni.eku.tzs.dao.entity.CustomerEntity.builder()
                     .name(customer.getName())
                     .address(customer.getAddress())

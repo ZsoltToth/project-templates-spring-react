@@ -14,6 +14,8 @@ public interface CampingSlotDao {
 
     CampingSlot readById(int id);
 
-    void reserveCampingslot(CampingSlot campingSlot);
+    void reserveCampingSlot(int id);
+
+    void freeCampingSlot(int id);
 
 }

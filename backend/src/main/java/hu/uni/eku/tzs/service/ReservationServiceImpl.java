@@ -25,7 +25,6 @@ public class ReservationServiceImpl implements ReservationService{
 
     private Customer customer;
     private CampingSlot campingSlot;
-    private int reservedSlot;
 
 
 
@@ -40,8 +39,7 @@ public class ReservationServiceImpl implements ReservationService{
             if (campingSlotAvailable){
                 customer = customerDao.readByEmail(tryReservation.getCustomerEmail());
                 campingSlot = campingSlotDao.readById(tryReservation.getSlotId());
-                //campingSlot.setStatus(false);
-                campingSlotDao.reserveCampingslot(campingSlot);
+                campingSlotDao.reserveCampingSlot(tryReservation.getSlotId());
 
                 reservationDao.create(tryReservation,campingSlot,customer);
             }

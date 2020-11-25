@@ -25,6 +25,8 @@ public class CustomerEntity {
     @Column
     private String email;
 
-    @OneToOne(mappedBy = "customer")
-    private ReservationEntity reservation;
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    private Collection<ReservationEntity> reservations;
 }

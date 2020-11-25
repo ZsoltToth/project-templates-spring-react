@@ -19,7 +19,7 @@ public class ReservationEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private CustomerEntity customer;
 

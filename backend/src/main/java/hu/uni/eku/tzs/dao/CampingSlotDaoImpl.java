@@ -15,6 +15,8 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
 
     private final CampingSlotRepository repository;
 
+    private CampingSlot campingSlot;
+
     @Override
     public void create(CampingSlot campingSlot) {
         repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
@@ -37,7 +39,15 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
     }
 
     @Override
-    public void reserveCampingslot(CampingSlot campingSlot){
+    public void reserveCampingSlot(int id){
+        campingSlot = readById(id);
+        campingSlot.setStatus(false);
+        repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
+    }
+    @Override
+    public void freeCampingSlot(int id){
+        campingSlot = readById(id);
+        campingSlot.setStatus(true);
         repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
     }
 

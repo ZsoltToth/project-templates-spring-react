@@ -1,6 +1,7 @@
 package hu.uni.eku.tzs.service;
 
 import hu.uni.eku.tzs.dao.CustomerDao;
+import hu.uni.eku.tzs.model.AddCustomer;
 import hu.uni.eku.tzs.model.Customer;
 import hu.uni.eku.tzs.service.exceptions.CustomerAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     private final CustomerDao dao;
     @Override
-    public void record(Customer customer) throws CustomerAlreadyExistsException {
+    public void record(AddCustomer customer) throws CustomerAlreadyExistsException {
         final boolean isAlreadyRecorded = dao.CustomerExists(customer.getEmail());
 
         if(isAlreadyRecorded){
