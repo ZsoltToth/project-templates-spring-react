@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ReservationRepository extends CrudRepository<ReservationEntity,Integer> {
     ReservationEntity findById(int id);
+
+    boolean existsById(int id);
 }

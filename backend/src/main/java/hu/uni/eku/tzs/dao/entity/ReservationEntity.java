@@ -4,6 +4,7 @@ package hu.uni.eku.tzs.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -28,9 +29,9 @@ public class ReservationEntity {
     @Column
     private boolean caravan;
     @Column
-    private Date start;
+    private LocalDate start;
     @Column
-    private Date end;
+    private LocalDate end;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")

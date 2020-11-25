@@ -1,10 +1,7 @@
 package hu.uni.eku.tzs.dao;
 
 import hu.uni.eku.tzs.dao.entity.ReservationEntity;
-import hu.uni.eku.tzs.model.CampingSlot;
-import hu.uni.eku.tzs.model.Customer;
-import hu.uni.eku.tzs.model.Reservation;
-import hu.uni.eku.tzs.model.TryReservation;
+import hu.uni.eku.tzs.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +17,6 @@ public class ReservationDaoImpl implements ReservationDao {
 
     private ReservationEntity reservation;
 
-
     public void create(TryReservation tryReservation, CampingSlot campingSlot, Customer customer) {
         reservation = ReservationEntityModelConverter.model2entity(tryReservation);
         reservation.setCustomer(CustomerDaoImpl.CustomerEntityModelConverter.model2entity(customer));
@@ -33,8 +29,15 @@ public class ReservationDaoImpl implements ReservationDao {
                 .map(entity -> ReservationEntityModelConverter.entity2model(entity)).collect(Collectors.toList());
     }
 
+    public boolean existsById(int id){
+        return reservationRepository.existsById(id);
+    }
+
     public Reservation readById(int resId){
        return ReservationEntityModelConverter.entity2model(reservationRepository.findById(resId));
+    }
+    public Expenses queryExpenses(int id){
+        return ReservationEntityModelConverter.reservationEntity2expenses(reservationRepository.findById(id));
     }
 
     public void deleteById(int id){
@@ -42,6 +45,20 @@ public class ReservationDaoImpl implements ReservationDao {
     }
 
     private static class ReservationEntityModelConverter {
+
+        private static Expenses reservationEntity2expenses(hu.uni.eku.tzs.dao.entity.ReservationEntity entity){
+            return new Expenses(
+                    entity.getId(),
+                    entity.getCustomer().getEmail(),
+                    entity.getCampingSlot().getId(),
+                    entity.getStart(),
+                    entity.getEnd(),
+                    entity.getCampingSlot().getPrice(),
+                    entity.isElectricity(),
+                    entity.isCaravan()
+                    );
+        }
+
         private static Reservation entity2model(hu.uni.eku.tzs.dao.entity.ReservationEntity entity) {
             return new Reservation(
                     entity.getId(),
