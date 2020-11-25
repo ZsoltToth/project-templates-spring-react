@@ -3,8 +3,10 @@ package hu.uni.eku.tzs.controller;
 import hu.uni.eku.tzs.controller.dto.CustomerDto;
 import hu.uni.eku.tzs.controller.dto.ReservationDto;
 import hu.uni.eku.tzs.controller.dto.ReservationRecordRequestDto;
+import hu.uni.eku.tzs.model.Customer;
 import hu.uni.eku.tzs.model.Reservation;
 import hu.uni.eku.tzs.model.TryReservation;
+import hu.uni.eku.tzs.service.CustomerService;
 import hu.uni.eku.tzs.service.ReservationService;
 import hu.uni.eku.tzs.service.exceptions.CampingSlotALreadyReservedException;
 import hu.uni.eku.tzs.service.exceptions.CustomerNotExistsException;
@@ -29,17 +31,18 @@ import java.util.stream.Collectors;
 public class ReservationController {
 
     private final ReservationService service;
+    private final CustomerService customerService;
 
     @PostMapping("/record")
     @ApiOperation(value = "Record")
     public void record(@RequestBody ReservationRecordRequestDto request){
-        log.info("Recording of Reservation ({},{})",request.getId(),request);
+        log.info("Recording of Reservation ({})",request);
         try {
-            service.record(new TryReservation(request.getId(),request.getCustomerEmail()
-                            ,request.getSlotId(),request.getStart(),request.getEnd()
+            service.record(new TryReservation(request.getCustomerEmail()
+                            ,request.getSlotId(),request.getStart(),request.getEnd(),request.isElectiricty(),request.isCaravan()
                             ));
         }catch (ReservationAlreadyExistsException exception) {
-            log.info("Reservation:({},{},{}) already exists!",request.getId(),request.getStart(),request.getEnd());
+            log.info("Reservation:({},{}) already exists!",request.getStart(),request.getEnd());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     exception.getMessage()
@@ -52,7 +55,7 @@ public class ReservationController {
                     exception.getMessage()
             );
         }catch (CampingSlotALreadyReservedException exception){
-            log.info("This camping slot is already reserved:{}",request.getId());
+            log.info("This camping slot is already reserved:{}",request.getSlotId());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     exception.getMessage()
@@ -67,13 +70,12 @@ public class ReservationController {
         Reservation reservation = service.readById(id);
         return ReservationDto.builder()
                         .id(reservation.getId())
-                        .customerEmail(reservation.getCustomerEmail())
-                        .customerName(reservation.getCustomerName())
-                        .phoneNumber(reservation.getPhoneNumber())
-                        .customerAddress(reservation.getCustomerAddress())
                         .slotId(reservation.getSlotId())
                         .start(reservation.getStart())
                         .end(reservation.getEnd())
+                        .electricity(reservation.isElectricity())
+                        .caravan(reservation.isCaravan())
+                        .customer(customerService.readByEmail(reservation.getCustomerEmail()))
                         .build();
     }
 
@@ -84,25 +86,15 @@ public class ReservationController {
         return service.readAll().stream().map(reservation ->
                 ReservationDto.builder()
                         .id(reservation.getId())
-                        .customerEmail(reservation.getCustomerEmail())
-                        .customerName(reservation.getCustomerName())
-                        .phoneNumber(reservation.getPhoneNumber())
-                        .customerAddress(reservation.getCustomerAddress())
                         .slotId(reservation.getSlotId())
                         .start(reservation.getStart())
                         .end(reservation.getEnd())
+                        .electricity(reservation.isElectricity())
+                        .caravan(reservation.isCaravan())
+                        .customer(customerService.readByEmail(reservation.getCustomerEmail()))
                         .build()
         ).collect(Collectors.toList());
     }
-
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable int id){
-        service.delete(id);
-    }
-
-
-
-
 
 
 

@@ -1,7 +1,10 @@
 package hu.uni.eku.tzs.dao;
 
+import hu.uni.eku.tzs.dao.entity.ReservationEntity;
+import hu.uni.eku.tzs.model.CampingSlot;
 import hu.uni.eku.tzs.model.Customer;
 import hu.uni.eku.tzs.model.Reservation;
+import hu.uni.eku.tzs.model.TryReservation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +17,15 @@ import java.util.stream.StreamSupport;
 public class ReservationDaoImpl implements ReservationDao {
 
     private final ReservationRepository reservationRepository;
+    private ReservationEntity reservation;
 
 
-    public void create(Reservation reservation){
-        reservationRepository.save(ReservationEntityModelConverter.model2entity(reservation));
+    public void create(TryReservation tryReservation, CampingSlot campingSlot, Customer customer) {
+        reservation = ReservationEntityModelConverter.model2entity(tryReservation);
+        reservation.setCustomer(CustomerDaoImpl.CustomerEntityModelConverter.model2entity(customer));
+        reservation.setCampingSlot(CampingSlotDaoImpl.CampingSlotModelEntityConverter.model2Entity(campingSlot));
+        reservationRepository.save(reservation);
     }
-
 
     public Collection<Reservation>readAll(){
         return StreamSupport.stream(reservationRepository.findAll().spliterator(),false)
@@ -38,27 +44,21 @@ public class ReservationDaoImpl implements ReservationDao {
         private static Reservation entity2model(hu.uni.eku.tzs.dao.entity.ReservationEntity entity) {
             return new Reservation(
                     entity.getId(),
-                    entity.getCustomerEmail(),
-                    entity.getCustomerName(),
-                    entity.getPhoneNumber(),
-                    entity.getCustomerAddress(),
-                    entity.getSlotId(),
+                    entity.getCampingSlot().getId(),
                     entity.getStart(),
-                    entity.getEnd()
-
+                    entity.getEnd(),
+                    entity.isElectricity(),
+                    entity.isCaravan(),
+                    entity.getCustomer().getEmail()
             );
         }
 
-        private static hu.uni.eku.tzs.dao.entity.ReservationEntity model2entity(Reservation reservation) {
+        private static hu.uni.eku.tzs.dao.entity.ReservationEntity model2entity(TryReservation reservation) {
             return hu.uni.eku.tzs.dao.entity.ReservationEntity.builder()
-                    .id(reservation.getId())
-                    .customerEmail(reservation.getCustomerEmail())
-                    .customerName(reservation.getCustomerName())
-                    .phoneNumber(reservation.getPhoneNumber())
-                    .customerAddress(reservation.getCustomerAddress())
-                    .slotId(reservation.getSlotId())
                     .start(reservation.getStart())
                     .end(reservation.getEnd())
+                    .electricity(reservation.isElectricity())
+                    .caravan(reservation.isCaravan())
                     .build();
 
         }

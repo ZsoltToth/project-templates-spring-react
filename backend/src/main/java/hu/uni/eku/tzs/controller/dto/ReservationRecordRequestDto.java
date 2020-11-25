@@ -12,11 +12,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReservationRecordRequestDto {
-
-    private int id;
     private String customerEmail;
     private int slotId;
     private Date start;
     private Date end;
+    private boolean electiricty;
+    private boolean caravan;
+
 
 }

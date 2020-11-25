@@ -9,5 +9,7 @@ public interface CustomerService {
 
     void record(Customer customer) throws  CustomerAlreadyExistsException;
 
+    Customer readByEmail(String email);
+
     Collection<Customer> readAll();
 }

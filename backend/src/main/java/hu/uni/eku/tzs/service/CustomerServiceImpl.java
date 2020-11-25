@@ -26,7 +26,9 @@ public class CustomerServiceImpl implements CustomerService{
         dao.create(customer);
     }
 
-
+    public Customer readByEmail(String email){
+        return dao.readByEmail(email);
+    }
 
     @Override
     public Collection<Customer>readAll(){

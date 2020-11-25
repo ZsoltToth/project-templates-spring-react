@@ -38,8 +38,8 @@ public class CustomerDaoImpl implements CustomerDao{
         return customerRepository.existsByEmail(email);
     }
 
-    private static class CustomerEntityModelConverter{
-        private static Customer entity2model(hu.uni.eku.tzs.dao.entity.CustomerEntity entity){
+    public static class CustomerEntityModelConverter{
+        public static Customer entity2model(hu.uni.eku.tzs.dao.entity.CustomerEntity entity){
             return new Customer(
                     entity.getName(),
                     entity.getAddress(),
@@ -48,7 +48,7 @@ public class CustomerDaoImpl implements CustomerDao{
             );
         }
 
-        private static hu.uni.eku.tzs.dao.entity.CustomerEntity model2entity(Customer customer){
+        public static hu.uni.eku.tzs.dao.entity.CustomerEntity model2entity(Customer customer){
             return hu.uni.eku.tzs.dao.entity.CustomerEntity.builder()
                     .name(customer.getName())
                     .address(customer.getAddress())

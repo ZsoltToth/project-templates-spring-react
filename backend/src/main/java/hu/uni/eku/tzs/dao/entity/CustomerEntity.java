@@ -3,6 +3,7 @@ package hu.uni.eku.tzs.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Builder
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name="customer")
 public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,4 +24,7 @@ public class CustomerEntity {
     private String phoneNumber;
     @Column
     private String email;
+
+    @OneToOne(mappedBy = "customer")
+    private ReservationEntity reservation;
 }

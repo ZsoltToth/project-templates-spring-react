@@ -12,13 +12,12 @@ import java.util.Date;
 public class Reservation {
 
     private int id;
-    private String customerEmail;
-    private String customerName;
-    private String phoneNumber;
-    private String customerAddress;
     private int slotId;
     private Date start;
     private Date end;
+    private boolean electricity;
+    private boolean caravan;
+    private String customerEmail;
 
 
 }

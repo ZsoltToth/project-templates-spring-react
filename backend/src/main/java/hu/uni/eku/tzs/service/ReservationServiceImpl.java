@@ -23,8 +23,8 @@ public class ReservationServiceImpl implements ReservationService{
     private final CampingSlotDao campingSlotDao;
     private final ReservationDao reservationDao;
 
-    private Customer customerInfo;
-    private CampingSlot campingslotInfo;
+    private Customer customer;
+    private CampingSlot campingSlot;
     private int reservedSlot;
 
 
@@ -38,15 +38,12 @@ public class ReservationServiceImpl implements ReservationService{
 
         if(customerExists) {
             if (campingSlotAvailable){
-                customerInfo = customerDao.readByEmail(tryReservation.getCustomerEmail());
-                campingslotInfo = campingSlotDao.readById(tryReservation.getSlotId());
-                campingslotInfo.setStatus(false);
+                customer = customerDao.readByEmail(tryReservation.getCustomerEmail());
+                campingSlot = campingSlotDao.readById(tryReservation.getSlotId());
+                //campingSlot.setStatus(false);
+                campingSlotDao.reserveCampingslot(campingSlot);
 
-                campingSlotDao.reserveCampingslot(campingslotInfo);
-
-                reservationDao.create(new Reservation(tryReservation.getId(), tryReservation.getCustomerEmail(),
-                        customerInfo.getName(), customerInfo.getPhoneNumber(), customerInfo.getAddress(),
-                        tryReservation.getSlotId(), tryReservation.getStart(), tryReservation.getEnd()));
+                reservationDao.create(tryReservation,campingSlot,customer);
             }
             else{
                 throw new CampingSlotALreadyReservedException();
@@ -64,17 +61,6 @@ public class ReservationServiceImpl implements ReservationService{
     public Collection<Reservation> readAll() {
         return reservationDao.readAll();
     }
-
-    public void delete(int id){
-
-        reservedSlot = reservationDao.readById(id).getSlotId();
-        campingslotInfo = campingSlotDao.readById(reservedSlot);
-        campingslotInfo.setStatus(true);
-        campingSlotDao.reserveCampingslot(campingslotInfo);
-        reservationDao.deleteById(id);
-
-    }
-
 
 }
 

@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Builder
@@ -12,24 +13,28 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name="reservation")
 public class ReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "id")
+    private CustomerEntity customer;
+
     @Column
-    private String customerEmail;
+    private boolean electricity;
     @Column
-    private String customerName;
-    @Column
-    private String phoneNumber;
-    @Column
-    private String customerAddress;
-    @Column
-    private int slotId;
+    private boolean caravan;
     @Column
     private Date start;
     @Column
     private Date end;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private CampingSlotEntity campingSlot;
 
 
 }

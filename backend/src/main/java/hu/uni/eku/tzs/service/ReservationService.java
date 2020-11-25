@@ -16,5 +16,4 @@ public interface ReservationService {
 
     Collection<Reservation> readAll();
 
-    void delete(int id);
 }

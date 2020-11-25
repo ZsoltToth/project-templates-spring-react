@@ -43,9 +43,9 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
 
 
 
-    private static class CampingSlotModelEntityConverter{
+    public static class CampingSlotModelEntityConverter{
 
-        private static hu.uni.eku.tzs.dao.entity.CampingSlotEntity model2Entity(CampingSlot campingSlot){
+        public static hu.uni.eku.tzs.dao.entity.CampingSlotEntity model2Entity(CampingSlot campingSlot){
             return hu.uni.eku.tzs.dao.entity.CampingSlotEntity.builder()
                     .id(campingSlot.getId())
                     .coordinateX(campingSlot.getCoordinateX())
@@ -57,7 +57,7 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
 
         }
 
-        private static CampingSlot entity2model(hu.uni.eku.tzs.dao.entity.CampingSlotEntity entity){
+        public static CampingSlot entity2model(hu.uni.eku.tzs.dao.entity.CampingSlotEntity entity){
             return new CampingSlot(
                     entity.getId(),
                     entity.getCoordinateX(),
