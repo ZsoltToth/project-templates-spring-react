@@ -19,6 +19,7 @@ public class Reservation {
     private boolean electricity;
     private boolean caravan;
     private String customerEmail;
+    private boolean paid;
 
 
 }

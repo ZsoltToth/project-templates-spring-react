@@ -67,6 +67,7 @@ public class ReservationController {
                         .electricity(reservation.isElectricity())
                         .caravan(reservation.isCaravan())
                         .customer(customerService.readByEmail(reservation.getCustomerEmail()))
+                        .paid(reservation.isPaid())
                         .build();
     }
 
@@ -83,6 +84,7 @@ public class ReservationController {
                         .electricity(reservation.isElectricity())
                         .caravan(reservation.isCaravan())
                         .customer(customerService.readByEmail(reservation.getCustomerEmail()))
+                        .paid(reservation.isPaid())
                         .build()
         ).collect(Collectors.toList());
     }
@@ -110,4 +112,7 @@ public class ReservationController {
             );
         }
     }
+    @PutMapping("/pay/{id}")
+    public void reservationPay(@ResponseBody ReservationPay reservationPay)
+
 }

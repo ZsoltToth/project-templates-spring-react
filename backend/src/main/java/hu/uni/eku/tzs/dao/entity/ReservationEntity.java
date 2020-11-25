@@ -32,7 +32,8 @@ public class ReservationEntity {
     private LocalDate start;
     @Column
     private LocalDate end;
-
+    @Column(columnDefinition = "boolean default false")
+    private boolean paid;
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private CampingSlotEntity campingSlot;

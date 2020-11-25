@@ -67,7 +67,8 @@ public class ReservationDaoImpl implements ReservationDao {
                     entity.getEnd(),
                     entity.isElectricity(),
                     entity.isCaravan(),
-                    entity.getCustomer().getEmail()
+                    entity.getCustomer().getEmail(),
+                    entity.isPaid()
             );
         }
 
