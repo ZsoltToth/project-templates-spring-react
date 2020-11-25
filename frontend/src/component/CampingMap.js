@@ -11,7 +11,7 @@ class CampingMap extends React.Component {
         return (
             <div>
                 <ErrorMessageWell/>
-                <h3>Kemping térkép</h3><br/>
+                <h2>Kemping térkép</h2><br/><br/>
                 <table>
                     <tr className="myrow row1">
                         <td className="cell" id="1">1</td>

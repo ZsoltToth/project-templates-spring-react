@@ -26,7 +26,7 @@ class SlotQueryForm extends React.Component {
         return (
             <div>
                 <ErrorMessageWell/>
-            <h3>Férőhelyek lekérdezése</h3><br/>
+            <h2>Férőhelyek lekérdezése</h2><hr/>
                 <form className="myform">
                     <div className="form-group">
                         <div className="row">
@@ -50,21 +50,19 @@ class SlotQueryForm extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <h4>Kempingezés ideje:</h4>
+                    <h4>Kempingezés ideje:</h4><br/>
                     <div className="form-group">
                         <div className="row">
                             <div className="col">
 
-                                <label htmlFor="start">Kezdés dátuma:</label><br/>
+                                <h4>Kezdés dátuma:</h4><br/>
                                 <input type="date" id={"from1"} name={"from"}
                                        value={this.state.startDate}
                                        min="2020-01-01"
                                        onChange={this.formOnChange}/>
-                                <br/>
-                            </div>
+                                <br/><br/><br/>
 
-                            <div className="col">
-                                <label htmlFor="start">Befejezés dátuma:</label><br/>
+                                <h4>Befejezés dátuma:</h4><br/>
                                 <input type="date" id={"to1"} name={"to"}
                                        value={this.state.endDate}
                                        min="2020-01-01"
@@ -74,7 +72,7 @@ class SlotQueryForm extends React.Component {
                         </div>
                     </div>
 
-                    <br/>
+                    <br/><br/><br/><br/>
 
                     <button type="submit" className="btn btn-primary" onClick={() => {
                         // TODO

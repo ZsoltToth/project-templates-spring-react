@@ -31,7 +31,7 @@ class BookingForm extends React.Component {
                 <ErrorMessageWell/>
 
                     <form class="myform">
-                        <h3>Foglalás</h3><br/>
+                        <h2>Foglalás</h2><hr/>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col">
@@ -68,7 +68,7 @@ class BookingForm extends React.Component {
                             <h4>Vendég adatai:</h4>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col col-min">
                                         <label>Név</label>
                                         <input type="name" class="form-control" name={"name"} id={"name"} onChange={this.formOnChange}/>
                                     </div>
@@ -80,7 +80,7 @@ class BookingForm extends React.Component {
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col col-min">
                                         <label>Személyi szám</label>
                                         <input type="id_card" class="form-control" name={"id_card"} id={"id_card"} onChange={this.formOnChange}/>
                                     </div>
@@ -94,8 +94,7 @@ class BookingForm extends React.Component {
                             <br/>
                                 <button type="submit" class="btn btn-primary" onClick={() =>{
                                     // TODO
-                                }}>Foglal</button>
-                        <br/><hr/><br/>
+                                }}>Foglal</button><br/><br/><br/>
                     </form>
             </div>
         );
