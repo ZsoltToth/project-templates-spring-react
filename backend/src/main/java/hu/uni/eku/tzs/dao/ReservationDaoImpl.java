@@ -36,6 +36,13 @@ public class ReservationDaoImpl implements ReservationDao {
     public Reservation readById(int resId){
        return ReservationEntityModelConverter.entity2model(reservationRepository.findById(resId));
     }
+
+    public void payReservation(int id){
+        hu.uni.eku.tzs.dao.entity.ReservationEntity reservation = reservationRepository.findById(id);
+        reservation.setPaid(true);
+        reservationRepository.save(reservation);
+    }
+
     public Expenses queryExpenses(int id){
         return ReservationEntityModelConverter.reservationEntity2expenses(reservationRepository.findById(id));
     }
@@ -81,6 +88,7 @@ public class ReservationDaoImpl implements ReservationDao {
                     .build();
 
         }
+
     }
 
 
