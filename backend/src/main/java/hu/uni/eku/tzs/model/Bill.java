@@ -4,19 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import java.time.LocalDate;
-import java.util.Date;
-
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TryReservation {
+@Data
+public class Bill {
+    private int reservationId;
+    private int campingSlotId;
     private String customerEmail;
-    private int slotId;
-    private LocalDate start;
-    private LocalDate end;
+    private int nights;
     private boolean electricity;
     private boolean caravan;
+    private float totalPrice;
 
 }

@@ -4,7 +4,9 @@ package hu.uni.eku.tzs.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Builder
@@ -12,24 +14,29 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name="reservation")
 public class ReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private CustomerEntity customer;
+
     @Column
-    private String customerEmail;
+    private boolean electricity;
     @Column
-    private String customerName;
+    private boolean caravan;
     @Column
-    private String phoneNumber;
+    private LocalDate start;
     @Column
-    private String customerAddress;
-    @Column
-    private int slotId;
-    @Column
-    private Date start;
-    @Column
-    private Date end;
+    private LocalDate end;
+    @Column(columnDefinition = "boolean default false")
+    private boolean paid;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private CampingSlotEntity campingSlot;
 
 
 }

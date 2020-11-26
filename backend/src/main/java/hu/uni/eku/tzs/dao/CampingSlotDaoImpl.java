@@ -15,6 +15,8 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
 
     private final CampingSlotRepository repository;
 
+    private CampingSlot campingSlot;
+
     @Override
     public void create(CampingSlot campingSlot) {
         repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
@@ -37,15 +39,23 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
     }
 
     @Override
-    public void reserveCampingslot(CampingSlot campingSlot){
+    public void reserveCampingSlot(int id){
+        campingSlot = readById(id);
+        campingSlot.setStatus(false);
+        repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
+    }
+    @Override
+    public void freeCampingSlot(int id){
+        campingSlot = readById(id);
+        campingSlot.setStatus(true);
         repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
     }
 
 
 
-    private static class CampingSlotModelEntityConverter{
+    public static class CampingSlotModelEntityConverter{
 
-        private static hu.uni.eku.tzs.dao.entity.CampingSlotEntity model2Entity(CampingSlot campingSlot){
+        public static hu.uni.eku.tzs.dao.entity.CampingSlotEntity model2Entity(CampingSlot campingSlot){
             return hu.uni.eku.tzs.dao.entity.CampingSlotEntity.builder()
                     .id(campingSlot.getId())
                     .coordinateX(campingSlot.getCoordinateX())
@@ -57,7 +67,7 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
 
         }
 
-        private static CampingSlot entity2model(hu.uni.eku.tzs.dao.entity.CampingSlotEntity entity){
+        public static CampingSlot entity2model(hu.uni.eku.tzs.dao.entity.CampingSlotEntity entity){
             return new CampingSlot(
                     entity.getId(),
                     entity.getCoordinateX(),

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -12,13 +13,13 @@ import java.util.Date;
 public class Reservation {
 
     private int id;
-    private String customerEmail;
-    private String customerName;
-    private String phoneNumber;
-    private String customerAddress;
     private int slotId;
-    private Date start;
-    private Date end;
+    private LocalDate start;
+    private LocalDate end;
+    private boolean electricity;
+    private boolean caravan;
+    private String customerEmail;
+    private boolean paid;
 
 
 }

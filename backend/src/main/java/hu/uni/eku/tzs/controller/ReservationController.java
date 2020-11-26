@@ -1,14 +1,15 @@
 package hu.uni.eku.tzs.controller;
 
-import hu.uni.eku.tzs.controller.dto.CustomerDto;
+import hu.uni.eku.tzs.controller.dto.BillDto;
 import hu.uni.eku.tzs.controller.dto.ReservationDto;
+import hu.uni.eku.tzs.controller.dto.ReservationPayRequestDto;
 import hu.uni.eku.tzs.controller.dto.ReservationRecordRequestDto;
-import hu.uni.eku.tzs.model.Reservation;
-import hu.uni.eku.tzs.model.TryReservation;
+import hu.uni.eku.tzs.model.*;
+import hu.uni.eku.tzs.service.CustomerService;
 import hu.uni.eku.tzs.service.ReservationService;
 import hu.uni.eku.tzs.service.exceptions.CampingSlotALreadyReservedException;
 import hu.uni.eku.tzs.service.exceptions.CustomerNotExistsException;
-import hu.uni.eku.tzs.service.exceptions.ReservationAlreadyExistsException;
+import hu.uni.eku.tzs.service.exceptions.ReservationNotExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -29,22 +30,16 @@ import java.util.stream.Collectors;
 public class ReservationController {
 
     private final ReservationService service;
+    private final CustomerService customerService;
 
     @PostMapping("/record")
     @ApiOperation(value = "Record")
     public void record(@RequestBody ReservationRecordRequestDto request){
-        log.info("Recording of Reservation ({},{})",request.getId(),request);
+        log.info("Recording of Reservation ({})",request);
         try {
-            service.record(new TryReservation(request.getId(),request.getCustomerEmail()
-                            ,request.getSlotId(),request.getStart(),request.getEnd()
+            service.record(new TryReservation(request.getCustomerEmail()
+                            ,request.getSlotId(),request.getStart(),request.getEnd(),request.isElectricity(),request.isCaravan()
                             ));
-        }catch (ReservationAlreadyExistsException exception) {
-            log.info("Reservation:({},{},{}) already exists!",request.getId(),request.getStart(),request.getEnd());
-            throw new ResponseStatusException(
-                    HttpStatus.CONFLICT,
-                    exception.getMessage()
-                    );
-
         }catch (CustomerNotExistsException exception){
             log.info("Customer does not exists with this email:{}",request.getCustomerEmail());
             throw new ResponseStatusException(
@@ -52,7 +47,7 @@ public class ReservationController {
                     exception.getMessage()
             );
         }catch (CampingSlotALreadyReservedException exception){
-            log.info("This camping slot is already reserved:{}",request.getId());
+            log.info("This camping slot is already reserved:{}",request.getSlotId());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     exception.getMessage()
@@ -67,13 +62,13 @@ public class ReservationController {
         Reservation reservation = service.readById(id);
         return ReservationDto.builder()
                         .id(reservation.getId())
-                        .customerEmail(reservation.getCustomerEmail())
-                        .customerName(reservation.getCustomerName())
-                        .phoneNumber(reservation.getPhoneNumber())
-                        .customerAddress(reservation.getCustomerAddress())
                         .slotId(reservation.getSlotId())
                         .start(reservation.getStart())
                         .end(reservation.getEnd())
+                        .electricity(reservation.isElectricity())
+                        .caravan(reservation.isCaravan())
+                        .customer(customerService.readByEmail(reservation.getCustomerEmail()))
+                        .paid(reservation.isPaid())
                         .build();
     }
 
@@ -84,26 +79,43 @@ public class ReservationController {
         return service.readAll().stream().map(reservation ->
                 ReservationDto.builder()
                         .id(reservation.getId())
-                        .customerEmail(reservation.getCustomerEmail())
-                        .customerName(reservation.getCustomerName())
-                        .phoneNumber(reservation.getPhoneNumber())
-                        .customerAddress(reservation.getCustomerAddress())
                         .slotId(reservation.getSlotId())
                         .start(reservation.getStart())
                         .end(reservation.getEnd())
+                        .electricity(reservation.isElectricity())
+                        .caravan(reservation.isCaravan())
+                        .customer(customerService.readByEmail(reservation.getCustomerEmail()))
+                        .paid(reservation.isPaid())
                         .build()
         ).collect(Collectors.toList());
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable int id){
-        service.delete(id);
+    @GetMapping("/expenses/{id}")
+    @ResponseBody
+    @ApiOperation(value = "Reservation expenses query by reservation id")
+    public BillDto queryExpenses(@PathVariable int id) throws ReservationNotExistsException {
+        try {
+            Bill bill = service.queryExpenses(id);
+            return BillDto.builder()
+                    .reservationId(bill.getReservationId())
+                    .campingSlotId(bill.getCampingSlotId())
+                    .customerEmail(bill.getCustomerEmail())
+                    .nights(bill.getNights())
+                    .electricity(bill.isElectricity())
+                    .caravan(bill.isCaravan())
+                    .totalPrice(bill.getTotalPrice())
+                    .build();
+        }catch (ReservationNotExistsException exception){
+            log.info("Reservation with this id:{} does not exists",id);
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    exception.getMessage()
+            );
+        }
     }
-
-
-
-
-
-
+    @PutMapping("/pay")
+    public void reservationPay(@RequestBody ReservationPayRequestDto reservationPayRequestDto){
+        service.payReservation(new ReservationPay(reservationPayRequestDto.getReservationId()));
+    }
 
 }

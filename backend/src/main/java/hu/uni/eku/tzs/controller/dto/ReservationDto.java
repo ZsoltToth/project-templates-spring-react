@@ -1,8 +1,10 @@
 package hu.uni.eku.tzs.controller.dto;
 
+import hu.uni.eku.tzs.model.Customer;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -10,12 +12,12 @@ import java.util.Date;
 public class ReservationDto {
 
     private int id;
-    private String customerEmail;
-    private String customerName;
-    private String phoneNumber;
-    private String customerAddress;
     private int slotId;
-    private Date start;
-    private Date end;
+    private LocalDate start;
+    private LocalDate end;
+    private boolean electricity;
+    private boolean caravan;
+    private Customer customer;
+    private boolean paid;
 
 }

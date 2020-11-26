@@ -3,6 +3,7 @@ package hu.uni.eku.tzs.dao.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Builder
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name="camping_slot")
 public class CampingSlotEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +26,10 @@ public class CampingSlotEntity {
     private Boolean status;
     @Column
     private String description;
+
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    private Collection<ReservationEntity> reservations;
+
 }

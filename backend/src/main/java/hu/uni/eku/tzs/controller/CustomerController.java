@@ -2,6 +2,7 @@ package hu.uni.eku.tzs.controller;
 
 import hu.uni.eku.tzs.controller.dto.CustomerDto;
 import hu.uni.eku.tzs.controller.dto.CustomerRecordRequestDto;
+import hu.uni.eku.tzs.model.AddCustomer;
 import hu.uni.eku.tzs.model.Customer;
 import hu.uni.eku.tzs.service.CustomerService;
 import hu.uni.eku.tzs.service.exceptions.CustomerAlreadyExistsException;
@@ -31,7 +32,7 @@ public class CustomerController {
     public void record(@RequestBody CustomerRecordRequestDto request){
         log.info("Recording of customer ({},{})",request.getEmail(),request.getName());
         try {
-            service.record(new Customer(request.getName(),
+            service.record(new AddCustomer(request.getName(),
                     request.getAddress(),request.getPhoneNumber(),request.getEmail()));
         }catch (CustomerAlreadyExistsException exception){
             log.info("Customer ({},{}) is already exists! Message: {}",request.getEmail(),request.getName(),exception.getMessage());
