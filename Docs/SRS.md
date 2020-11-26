@@ -10,7 +10,7 @@ Ennek a dokumentumnak célja, hogy részletes leírást adjon a Kemping menedzse
 
 *Egy parcellázott kemping számára foglalós rendszert készítünk.*
 
-Az online kemping menedzser rendszer segítségével a recepciós lebonyolítja a helyfoglalás menetét. A rendszer számontartja a szabad, illetve a foglalt férőhelyeket – parcellákat. A vendég kérése alapján a recepciós űrlapot tölt ki. Az űrlap eredményeképp a férőhelyek vizuálisan megjelennek, ennek segítségével a recepciós lefoglalja a vendég számára megfelelő szabad helyet. Adatbázis rögzíti a vendégek és foglalások adatait. A helyek a vendég távozásakor felszabadulnak. A rendszer jelzi amikor a foglalás ideje lejár, a vendégéjszakáknak és egyéb opcióknak megfelelően kiszámolja a fizetendő összeget.
+Az online kemping menedzser rendszer segítségével a recepciós lebonyolítja a helyfoglalás menetét. A rendszer számontartja a szabad, illetve a foglalt férőhelyeket – parcellákat. A vendég kérése alapján a recepciós űrlapot tölt ki. Az űrlap eredményeképp a férőhelyek vizuálisan megjelennek, ennek segítségével a recepciós lefoglalja a vendég számára megfelelő szabad helyet. Adatbázis rögzíti a vendégek és foglalások adatait. A foglalás lemondható illetve módosítható. A rendszer jelzi amikor a foglalás ideje lejár, a vendégéjszakáknak és egyéb opcióknak megfelelően kiszámolja a fizetendő összeget. A helyek a vendég távozásakor felszabadulnak.
 
 ## 2. Jelenlegi helyzet
 
@@ -34,15 +34,11 @@ A program a kemping recepciósának készül. Az interaktív, vizuális felület
 
 **3.3 Foglalás menete**
 
-A recepciós a vendég kérése alapján űrlapot tölt ki, majd foglal.
-
-A recepciós kérdéseket tesz fel a vendégnek: Sátorral vagy gépkocsi-karavánnal szeretne kempingezni? Szüksége van-e áram-szolgáltatásra? Hány vendégéjszakát szeretne a kempingben tölteni? A vendég megválaszol ezekre a kérdésekre, mely válaszokat a recepciós betáplál az űrlapba. Az űrlap eredményeképp a szoftver megmutatja, melyik kempinghelyek felelnek meg a vendég kérésének. A vendég választ, majd a recepciós a vendég számára legjobb helyet lefoglalja.
+A recepciós kérdéseket tesz fel a vendégnek: Sátorral vagy gépkocsi-karavánnal szeretne kempingezni? Mettől meddig szeretné a kempinghelyet bérelni? A vendég megválaszol ezekre a kérdésekre, mely válaszokat a recepciós betáplálja az űrlapba. Az űrlap eredményeképp a szoftver megmutatja, melyik kempinghelyek felelnek meg a vendég kérésének. A vendég kiválasztja a számára legjobb helyet, melyet a recepciót betáplál a foglalás űrlapjába. A vendég választhat, kér-e elektromosságot. A recepciós bekéri a vendég adatait, megtörténik a foglalás.
 
 **3.4 Továbbfejlesztési lehetőségek**
 
-A későbbiekben maga a kemping funkcionalitása is fejlődik.
-
-Új épületek, új szolgáltatások, bővülő kemping hely fogadja a látogatókat.
+A későbbiekben maga a kemping funkcionalitása is fejlődik. Új épületek, új szolgáltatások, bővülő kemping hely fogadja a látogatókat.
 
 Természetesen fontos a naprakészség: a jövőben a rendszer követi fogja az építkezést, terjedést: felkerülnek térképére és adatbázisába az új parcellák, épületek.
 
@@ -50,46 +46,44 @@ Természetesen fontos a naprakészség: a jövőben a rendszer követi fogja az 
 
 Az alábbi hardvereszközök szükségesek a program működtetéséhez:
 
-A recepciósnak szüksége van egy fő számítógépre, melyhez két monitor tartozik. A recepciós egy kisebb 30" monitorral dolgozik. A másik, nagyméretű fali monitor, a látogató számára mutatja a térképet, szabad és foglalt helyeket. Az adatbázis a kemping szervergépén fut.
+A recepciósnak szüksége van egy számítógépre, melyhez két monitor tartozik. A recepciós egy kisebb 30" monitorral dolgozik. A másik, nagyméretű fali monitor a látogató számára mutatja a térképet, a szabad és foglalt helyeket. Az adatbázis a kemping szervergépén fut.
 
 ## 4. Funkcionális követelmény
 
 **4.1 A recepciós, mint felhasználó lehetőségei:**
 
 - Lekérdezheti a szabad férőhelyeket egy adott időközre a vendég kérése szerint.
-
-- Betáplálhatja a rendszerbe a kérést miszerint a vendég sátorral, vagy karavánkocsival szeretne a kempingbe tartózkodni, szüksége van-e áramra, illetve mennyi vendégéjszakát marad a kempingben.
-
+- Betáplálhatja a rendszerbe a kérést miszerint a vendég sátorral, vagy karavánkocsival szeretne a kempingbe tartózkodni, szüksége van-e áramra, illetve mettől meddig marad a kempingben.
+- Betáplálhatja a vendég adatait a rendszerbe a foglaláshoz.
 - Le tudja foglalni a vendég számára a megfelelő helyet.
-
+- A vendég kérésére megszüntetheti illetve módosíthatja a foglalást.
 - A rendszer segítségével ki tudja nyomtatni a bizonylatot.
 
 ## 5. Követelmény lista
 
 **5.1 A rendszer fontos tulajdonságai:**
 
+- Tartalmaznia kell a férőhelyek információit. Minden férőhelynek egyedi azonosítója van. Adatbázisban tárolja, hogy az adott helyek foglaltak, vagy szabadak-e, illetve karaván-kocsi elfér-e az adott helyen. A helyek elhelyezkedése, azonosítója, foglaltsága a felhasználói felületen vizuálisan megjelenik.
 
-- Tartalmaznia kell a férőhelyek információit. Minden férőhelynek egyedi azonosítója van. Adatbázisban tárolja, hogy az adott helyek lefoglaltak, vagy szabadak-e, illetve karaván-kocsi elfér-e az adott helyen. A helyek elhelyezkedése, azonosítója, foglaltsága a felhasználói felületen vizuálisan megjelenik.
-
-- Űrlap tölthető ki: megadott kérdések tölthetők ki a vendég kérése alapján
-![Férőhelyek lekérdező űrlapja](https://media.discordapp.net/attachments/757619777828159620/772635835031879700/ferohely-lekerdezes.png)
-
-
+- Űrlap tölthető ki: megadott kérdések tölthetők ki a vendég kérése alapján.
 - A rendszer képes lekérdezni a kitöltött űrlap szerint megfelelő helyeket.
+![Férőhelyek lekérdező űrlapja](https://media.discordapp.net/attachments/757619777828159620/775164040338472970/ferohely-lekerdezes.png)
 
-- A vendég által kiválasztott helyet lefoglalja az adott időközre.
-
-- Eltárolja a vendégek adatait.
-
-![Foglalás űrlapja](https://media.discordapp.net/attachments/757619777828159620/772635863833772052/foglalas.png)
-
+- A vendég által kiválasztott hely lefoglalható az adott időközre.
+- Foglaláshoz a rendszer eltárolja a vendégek adatait, illetve az opcionális elektromosság igénybevételét.
 - Mindezek alapján meghatározza azt az összeget, amit foglaláskor kell fizetni.
+
+![Foglalás űrlapja](https://media.discordapp.net/attachments/757619777828159620/775164045178830898/foglalas.png)
+
 
 - Kijelentkezéskor a helyet automatikusan felszabadítja a rendszer. Korábbi távozás esetén van lehetőség manuális beállításra is – ekkor az összeg módosul: a vendég visszakapja a visszamondott éjszakák árát.
 
-![Férőhely lemondása](https://cdn.discordapp.com/attachments/757619777828159620/772635885471924274/foglalas-lemondasa.png)
+![Férőhely lemondása](https://media.discordapp.net/attachments/757619777828159620/775164048135684177/foglalas-lemondasa.png)
 
+- Lehetőség van adott id-jű férőhely foglalásának módosítására - amennyiben az újonnan beállított kezdő és befejező dátum között más vendég nem foglalja az adott helyet. Módosítható az elektromosság igénylése, és a vendég adatai is. 
+	Ha azonban a vendég másik férőhelyre szeretne "átköltözni", ahhoz először le kell mondania előző férőhelyét és egy újat igényelni - hiszen a foglalás módosítása a vendég által jelenleg foglalt id-jű férőhelyhez szól. 
 
+![Foglalás módosítása](https://media.discordapp.net/attachments/757619777828159620/775168174093500416/unknown.png?width=422&height=671)
 
 `Készítették: Katyina Brigitta, Guti Adrián, Csattos Bence, Majoros Norbert`
 
@@ -99,15 +93,18 @@ A recepciósnak szüksége van egy fő számítógépre, melyhez két monitor ta
 
 - A rendszer felhasználója kizárólag a recepciós, aki kérdéseket tesz fel a vendég számára a hellyel kapcsolatban.
 
-- A recepciós a vendég válaszainak megfelelően kitölti a szabad helyek űrlapját,
+- A recepciós a vendég válaszainak megfelelően kitölti a férőhely-lekérdező űrlapot
 
-- Lekérdezi a szabad helyeket a kitöltött űrlapba táplált adatoknak megfelelően. A lekérdezés alapján megmutatja a szabad helyeket a vendégnek, ha vannak.
+- Lekérdezi a szabad helyeket a kitöltött űrlapba táplált adatoknak megfelelően. A lekérdezés alapján megmutatja a szabad helyeket a vendégnek.
 
-- A recepciós lefoglalja a vendég által kiválasztott helyet a megadott időközre.
+- A recepciós jelzi a rendszerben, hogy szükséges-e elektromosság,  bekéri a vendég adatait.
+- A recepciós lefoglalja a vendég által kiválasztott helyet a férőhelyek lekérdezésekor  megadott időközre.
 
-- A recepciós bekéri a vendég adatait a számla kiállításához, majd kiállítja a számlát.
+- A recepciós a foglalás adatai alapján kiállítja a számlát.
 
-- A recepciós bármikor törölheti a foglalást. Jövőbeli vagy jelenleg lefoglalt helyet is felszabadíthat.
+- A recepciós bármikor törölheti a foglalást. 
+
+- A recepciós módosíthatja az adott férőhely foglalási adatait.
 
 **6.2 Recepciós-Vendég:**
 
@@ -129,17 +126,17 @@ A recepciósnak szüksége van egy fő számítógépre, melyhez két monitor ta
 
 - Válaszol a Recepciós kérdéseire
 
-- Lemondhatja foglalást
-
 - Látja az igényelhető helyeket
 
 - Kiválasztja a számára megfelelő helyet, ha van ilyen.
 
 - Amenyiben nincs megfelelő hely a vendég számára, nem történik foglalás
 
+-  Módosíttathatja a foglalást
+
 - A vendég bármikor lemondhatja a foglalást
 
-`Készítették: Csattos Bence`
+`Készítette: Csattos Bence`
 
 ## 7. Szükséges adatok
 **7.1 Szükséges adatok táblázatos formában:**
@@ -149,8 +146,9 @@ A recepciósnak szüksége van egy fő számítógépre, melyhez két monitor ta
 | K1 | Férőhely-lekérdezés | A recepciós lekérdezi a kemping férőhelyek adatait a megadott időre vonatkozóan. |
 | K2| Foglalás | Amikor a Recepciós lefoglalja a Vendégnek az adott kempinghelyet, a foglalás saját azonosítót kap.|
 | K3| Számla generálása | A vendég foglaláskor számlát kap.| 
-| K4| Lemondás | A foglalás időtartama és a számla módosul. |
+| K4| Módosítás | A foglalás időtartama és a számla módosul. |
 | K5| Távozás | A kemping rendszer kilépteti a vendéget távozáskor. |
+| K6| Lemondás| A vendég bármikor lemondhatja a foglalást jelen időpontra vonatkozólag. |
 
 `Készítette: Katyina Brigitta`
 
@@ -195,29 +193,34 @@ A recepciósnak szüksége van egy fő számítógépre, melyhez két monitor ta
     {
       book_id: uuid,
       electricity: bool,
-      time: datetime
+      from: datetime,
+      to: datetime
     }, ...
   ],
   price: int
 }
 ```
 
-***K4: Lemondás:***
+***K4: Módosítás:***
 ```
 {
-  bill_id: uuid,
-  transaction_id: uuid,
-  transactions: [
+
+  book_id: uuid,
+  slot_id: id,
+  electricity: bool,
+  from: datetime,
+  to: datetime
+  guest_data: [
     {
-      book_id: uuid,
-      electricity: bool,
-      time: datetime
+      id_card: string,
+      name: string,
+      address: string,
+      phone: int      
     }, ...
   ],
-  price: int
 }
 ```
-
+`Készítette: Katyina Brigitta`
 
 ***Férőhelyek:***
 
@@ -237,14 +240,14 @@ A recepciósnak szüksége van egy fő számítógépre, melyhez két monitor ta
 
 ***Foglalás:***
 
-- Egy foglalásban található a hely száma, érkezési és távozási dátuma, illetve a vendég személyi száma jelzi, a helyet melyik vendég foglalta le.
+- Egy foglalásban található a hely száma, a kempingezés kezdetének illetve befejezésének dátuma, az elektromosság igénybevétele. A vendég személyi száma jelzi, a helyet melyik vendég foglalta le.
 
 ***Foglalás lemondása/megszakítása:***
 
-- Minden foglalásnak generált id-je van. A recepciós ez alapján törölheti a foglalást.
+- Minden foglalásnak generált id-je van. A recepciós ez alapján törölheti, vagy módosíthatja a foglalást.
 
 **Számla:**
 
-- A kemping hely árát a foglalás adatai - vagyis a szabad helyek űrlapjába felvitt adatok - alapján határozzuk meg és így kerül előállításra.
+- A kemping hely árát a foglalás adatai alapján határozzuk meg és így kerül előállításra a számla.
 
 `Készítették: Katyina Brigitta, Guti Adrán, Majoros Norbert`
