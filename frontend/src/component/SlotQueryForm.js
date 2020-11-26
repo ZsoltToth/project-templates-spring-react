@@ -1,6 +1,7 @@
 import React from "react";
 //import * as actions from "../action/SlotActions"; //TODO
 import ErrorMessageWell from "./ErrorMessageWell";
+import CampingMap from "./CampingMap"; //campingmap mert ebben a mappában van
 
 class SlotQueryForm extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class SlotQueryForm extends React.Component {
         this.setState({[name]: value}, () => {
             if (this.state.startDate !== 0 && this.state.endDate !== 0) {
                // actions.fetchFreeSlots(this.state) //TODO - ez az action nekünk még nincs
+
             }
         });
     }
@@ -31,22 +33,7 @@ class SlotQueryForm extends React.Component {
                     <div className="form-group">
                         <div className="row">
                             <div className="col">
-                                <h4>Sátor / karaván?</h4>
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name={"tent_caravan"} id={"tent"}
-                                           value={"option1"} checked onChange={this.formOnChange}/>
-                                    <label className="form-check-label" htmlFor="tent">
-                                        Sátor
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input className="form-check-input" type="radio" name={"tent_caravan"} id={"caravan"}
-                                           value={"option2"} onChange={this.formOnChange}/>
-                                    <label className="form-check-label" htmlFor="caravan">
-                                        Karaván
-                                    </label>
-                                </div>
-                                <br/>
+
                             </div>
                         </div>
                     </div>
@@ -75,7 +62,8 @@ class SlotQueryForm extends React.Component {
                     <br/><br/><br/><br/>
 
                     <button type="submit" className="btn btn-primary" onClick={() => {
-                        // TODO
+                        CampingMap.getIds();
+
                     }}>Elküld
                     </button>
                 </form>

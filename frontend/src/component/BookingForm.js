@@ -30,32 +30,50 @@ class BookingForm extends React.Component {
             <div>
                 <ErrorMessageWell/>
 
-                    <form class="myform">
+                    <form className={"myform"}>
                         <h2>Foglalás</h2><hr/>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col">
+                        <div className={"form-group"}>
+                            <div className={"row"}>
+                                <div className={"col"}>
                                     <h4>Férőhely száma:</h4>
-                                    <input type="id_card" class="form-control" name={"slot"} id={"slot"} onChange={this.formOnChange}/>
+                                    <input type="id_card" className={"form-control"} name={"slot"} id={"slot"} onChange={this.formOnChange}/>
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                 </div>
                             </div>
                         </div>
                         <br/>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col">
+                        <div>
+                            <h4>Sátor / karaván?</h4>
+                            <div className="form-check">
+                                <input className="form-check-input" type="radio" name={"tent_caravan"} id={"tent"}
+                                       value={"option1"} checked onChange={this.formOnChange}/>
+                                <label className="form-check-label" htmlFor="tent">
+                                    Sátor
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <input className="form-check-input" type="radio" name={"tent_caravan"} id={"caravan"}
+                                       value={"option2"} onChange={this.formOnChange}/>
+                                <label className="form-check-label" htmlFor="caravan">
+                                    Karaván
+                                </label>
+                            </div>
+                            <br/>
+                        </div>
+                            <div className="form-group">
+                                <div className="row">
+                                    <div className="col">
                                         <h4>Szükséges elektromosság?</h4>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name={"elektricity"} id={"elektr-i"} value={"option1"} checked onChange={this.formOnChange}/>
-                                                <label class="form-check-label">
+                                        <div className="form-check">
+                                            <input className="form-check-input" type="radio" name={"elektricity"} id={"elektr-i"} value={"option1"} checked onChange={this.formOnChange}/>
+                                                <label className="form-check-label">
                                                     Igen
                                                 </label>
                                         </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name={"elektricity"} id={"elektr-n"} value={"option2"} onChange={this.formOnChange}/>
-                                                <label class="form-check-label">
+                                        <div className="form-check">
+                                            <input className="form-check-input" type="radio" name={"elektricity"} id={"elektr-n"} value={"option2"} onChange={this.formOnChange}/>
+                                                <label className="form-check-label">
                                                     Nem
                                                 </label>
                                         </div>
@@ -65,34 +83,19 @@ class BookingForm extends React.Component {
                             </div>
 
 
-                            <h4>Vendég adatai:</h4>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col col-min">
-                                        <label>Név</label>
-                                        <input type="name" class="form-control" name={"name"} id={"name"} onChange={this.formOnChange}/>
-                                    </div>
-                                    <div class="col">
-                                        <label>Lakcím</label>
-                                        <input type="address" class="form-control" name={"address"} id={"address"} onChange={this.formOnChange}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col col-min">
-                                        <label>Személyi szám</label>
-                                        <input type="id_card" class="form-control" name={"id_card"} id={"id_card"} onChange={this.formOnChange}/>
-                                    </div>
-                                    <div class="col">
-                                        <label>Telefonszám</label>
-                                        <input type="phone" class="form-control" name={"phone"} id={"phone"} onChange={this.formOnChange}/>
+
+                            <div className="form-group">
+                                <h4>Vendég e-mail címe:</h4>
+                                <div className="row">
+
+                                    <div className="col col-min">
+                                        <input type="name" className="form-control" name={"email"} id={"email"} onChange={this.formOnChange}/>
                                     </div>
                                 </div>
                             </div>
 
                             <br/>
-                                <button type="submit" class="btn btn-primary" onClick={() =>{
+                                <button type="submit" className="btn btn-primary" onClick={() =>{
                                     // TODO
                                 }}>Foglal</button><br/><br/><br/>
                     </form>
