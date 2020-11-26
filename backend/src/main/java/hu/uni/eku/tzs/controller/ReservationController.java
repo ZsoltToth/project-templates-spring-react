@@ -2,6 +2,7 @@ package hu.uni.eku.tzs.controller;
 
 import hu.uni.eku.tzs.controller.dto.BillDto;
 import hu.uni.eku.tzs.controller.dto.ReservationDto;
+import hu.uni.eku.tzs.controller.dto.ReservationPayRequestDto;
 import hu.uni.eku.tzs.controller.dto.ReservationRecordRequestDto;
 import hu.uni.eku.tzs.model.*;
 import hu.uni.eku.tzs.service.CustomerService;
@@ -112,7 +113,9 @@ public class ReservationController {
             );
         }
     }
-    @PutMapping("/pay/{id}")
-    public void reservationPay(@ResponseBody ReservationPay reservationPay)
+    @PutMapping("/pay")
+    public void reservationPay(@RequestBody ReservationPayRequestDto reservationPayRequestDto){
+        service.payReservation(new ReservationPay(reservationPayRequestDto.getReservationId()));
+    }
 
 }

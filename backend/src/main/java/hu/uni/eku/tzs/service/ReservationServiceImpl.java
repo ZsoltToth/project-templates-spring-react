@@ -85,6 +85,10 @@ public class ReservationServiceImpl implements ReservationService{
         }
     }
 
+    public void payReservation(ReservationPay reservationPay){
+        reservationDao.payReservation(reservationPay.getReservationId());
+    }
+
 }
 
 

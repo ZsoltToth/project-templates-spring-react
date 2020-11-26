@@ -17,4 +17,6 @@ public interface ReservationDao {
     Expenses queryExpenses(int id);
 
     boolean existsById(int id);
+
+    void payReservation(int reservationId);
 }

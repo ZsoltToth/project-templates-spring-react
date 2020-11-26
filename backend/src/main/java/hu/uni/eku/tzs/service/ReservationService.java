@@ -1,9 +1,6 @@
 package hu.uni.eku.tzs.service;
 
-import hu.uni.eku.tzs.model.Bill;
-import hu.uni.eku.tzs.model.Expenses;
-import hu.uni.eku.tzs.model.Reservation;
-import hu.uni.eku.tzs.model.TryReservation;
+import hu.uni.eku.tzs.model.*;
 import hu.uni.eku.tzs.service.exceptions.CampingSlotALreadyReservedException;
 import hu.uni.eku.tzs.service.exceptions.CustomerNotExistsException;
 import hu.uni.eku.tzs.service.exceptions.ReservationAlreadyExistsException;
@@ -20,4 +17,6 @@ public interface ReservationService {
     Collection<Reservation> readAll();
 
     Bill queryExpenses(int id) throws ReservationNotExistsException;
+
+    void payReservation(ReservationPay reservationPay);
 }
