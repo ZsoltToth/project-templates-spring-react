@@ -5,12 +5,12 @@ class BookingForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            slot: 0,
+            slotID: 0,
+            start: "2010-12-12",
+            end : "2012-12-12",
             electricity: false,
-            name: "",
-            address: "",
-            id_card: "",
-            phone:""
+            caravan: false,
+           email:"g@g.hu"
 
         };
         this.formOnChange = this.formOnChange.bind(this);
@@ -49,7 +49,7 @@ class BookingForm extends React.Component {
                                 <input className="form-check-input" type="radio" name={"tent_caravan"} id={"tent"}
                                        value={"option1"} checked onChange={this.formOnChange}/>
                                 <label className="form-check-label" htmlFor="tent">
-                                    Sátor
+                                    Sátor  Ez egy komment ez nem kell ide. csak karavan
                                 </label>
                             </div>
                             <div className="form-check">
