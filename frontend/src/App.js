@@ -2,8 +2,9 @@ import React from 'react';
 import './App.scss';
 
 import SlotQueryForm from "./component/SlotQueryForm";
-import CampingMap from "./component/CampingMap";
 import BookingForm from "./component/BookingForm";
+import CampingMap from "./component/CampingMap";
+import GuestAddForm from "./component/GuestAddForm";
 
 function App() {
   return (
@@ -16,11 +17,13 @@ function App() {
                         <SlotQueryForm/>
                 </div>
                 <div className={"col col-center"}>
-                        <CampingMap/>
+                        <GuestAddForm/>
+                    <CampingMap/>
                 </div>
                 <div className={"col col-right"}>
                         <BookingForm/>
                 </div>
+
 
             </div>
 

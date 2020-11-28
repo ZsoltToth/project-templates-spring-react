@@ -1,27 +1,69 @@
-import React from "react";
+import React, {forwardRef} from "react";
 import ErrorMessageWell from "./ErrorMessageWell";
+import store from "../store/CampingMapStore";
+import {fetchReservedSlots} from "../action/CampingMapActions";
 
 class CampingMap extends React.Component {
 
 
-   getIds(){
+ getIds() {
+
         let idArray = [];
-        let tds = document.getElementsByClassName("slot");
-        for(let i=0;i<tds.length;i++)
-        {
-                idArray.push(tds[i].id);
+        let slots = document.getElementsByClassName("slot");
+        console.log(slots[0]);
+     console.log(slots[85]);
+        //let proba = store._reservedSlots;
+        for (let i = 1; i < 170; i++) {
+           // idArray.push(slots[i].id);
+
+            let contains = false;
+            for (let j = 0; j < this.state.reservedSlots.length; j++) {
+
+                if (this.state.reservedSlots[j].id === i) {
+                    contains = true;
+                }
+
+            }
+            if (contains) {
+                document.getElementById(i.toString()).className = "cell slot free";
+            }
+            else{
+                document.getElementById(i.toString()).className = "cell slot taken";
+            }
         }
-        console.log(idArray);
+        //console.log(idArray);
+
         return idArray;
     }
 
-    appendIds(idArray) {
+    constructor(props) {
+        super(props);
+        this.state = {reservedSlots: []};
+        this._updateState = this._updateState.bind(this);
+
+    }
+
+    componentDidMount() {
+        store.addChangeListener(this._updateState);
+
 
     }
 
 
+    componentWillUnmount() {
+        store.removeChangeListener(this._updateState);
+    }
+
+    _updateState() {
+        this.setState({reservedSlots: store._reservedSlots},
+            ()=>this.getIds())
+
+
+    }
+
 
     render() {
+
         return (
             <div>
                 <ErrorMessageWell/>
@@ -37,10 +79,10 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="6">6</td>
                         <td className="cell slot" id="7">7</td>
                         <td className="cell slot" id="8">8</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"/>
+                        <td className="cell building"/>
+                        <td className="cell building"></td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="17">17</td>
                         <td className="cell slot" id="18">18</td>
                         <td className="cell slot" id="19">19</td>
@@ -60,10 +102,10 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="14">14</td>
                         <td className="cell slot" id="15">15</td>
                         <td className="cell slot" id="16">16</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="25">25</td>
                         <td className="cell slot" id="26">26</td>
                         <td className="cell slot" id="27">27</td>
@@ -75,26 +117,26 @@ class CampingMap extends React.Component {
                     </tr>
 
                     <tr className="myrow row3">
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
                     </tr>
 
 
@@ -107,10 +149,10 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="38">38</td>
                         <td className="cell slot" id="39">39</td>
                         <td className="cell slot" id="40">40</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="49">49</td>
                         <td className="cell slot" id="50">50</td>
                         <td className="cell slot" id="51">51</td>
@@ -131,10 +173,10 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="46">46</td>
                         <td className="cell slot" id="47">47</td>
                         <td className="cell slot" id="48">48</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="57">57</td>
                         <td className="cell slot" id="58">58</td>
                         <td className="cell slot" id="59">59</td>
@@ -146,167 +188,167 @@ class CampingMap extends React.Component {
                     </tr>
 
                     <tr className="myrow row6">
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
                     </tr>
 
                     <tr className="myrow row7">
                         <td colSpan="2" className="cell slot" id="65">65</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="72">72</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="76">76</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="80">80</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="87">87</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="94">94</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="101">101</td>
                     </tr>
 
                     <tr className="myrow row8">
                         <td colSpan="2" className="cell slot" id="66">66</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="73">73</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="77">77</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="81">81</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="88">88</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="95">95</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="102">102</td>
                     </tr>
 
                     <tr className="myrow row9">
                         <td colSpan="2" className="cell slot" id="67">67</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="74">74</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="78">78</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="82">82</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="89">89</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="96">96</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="103">103</td>
                     </tr>
 
                     <tr className="myrow row10">
                         <td colSpan="2" className="cell slot" id="68">68</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="75">75</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="79">79</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="83">83</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="90">90</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="97">97</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="104">104</td>
                     </tr>
 
                     <tr className="myrow row11">
                         <td colSpan="2" className="cell slot" id="69">69</td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="84">84</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="91">91</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="98">98</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="105">105</td>
                     </tr>
 
                     <tr className="myrow row12">
                         <td colSpan="2" className="cell slot" id="70">70</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="85">85</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="92">92</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="99">99</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="106">106</td>
                     </tr>
 
                     <tr className="myrow row13">
                         <td colSpan="2" className="cell slot" id="71">71</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="86">86</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="93">93</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="100">100</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td colSpan="2" className="cell slot" id="107">107</td>
                     </tr>
 
                     <tr className="myrow row14">
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
                     </tr>
 
                     <tr className="myrow row15">
@@ -318,10 +360,10 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="113">113</td>
                         <td className="cell slot" id="114">114</td>
                         <td className="cell slot" id="115">115</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="140">140</td>
                         <td className="cell slot" id="141">141</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="150">150</td>
                         <td className="cell slot" id="151">151</td>
                         <td className="cell slot" id="152">152</td>
@@ -341,10 +383,10 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="121">121</td>
                         <td className="cell slot" id="122">122</td>
                         <td className="cell slot" id="123">123</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="142">142</td>
                         <td className="cell slot" id="143">143</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="158">158</td>
                         <td className="cell slot" id="159">159</td>
                         <td className="cell slot" id="160">160</td>
@@ -356,26 +398,26 @@ class CampingMap extends React.Component {
                     </tr>
 
                     <tr className="myrow row17">
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="144">144</td>
                         <td className="cell slot" id="145">145</td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
+                        <td className="cell street"></td>
                     </tr>
 
                     <tr className="myrow row18">
@@ -387,18 +429,18 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="129">129</td>
                         <td className="cell slot" id="130">130</td>
                         <td className="cell slot" id="131">131</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="146">146</td>
                         <td className="cell slot" id="147">147</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="166">166</td>
                         <td className="cell slot" id="167">167</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
                     </tr>
 
                     <tr className="myrow row19">
@@ -410,31 +452,29 @@ class CampingMap extends React.Component {
                         <td className="cell slot" id="137">137</td>
                         <td className="cell slot" id="138">138</td>
                         <td className="cell slot" id="139">139</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="148">148</td>
                         <td className="cell slot" id="149">149</td>
-                        <td className="cell street"> </td>
+                        <td className="cell street"></td>
                         <td className="cell slot" id="168">168</td>
                         <td className="cell slot" id="169">169</td>
-                        <td className="cell street"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
-                        <td className="cell building"> </td>
+                        <td className="cell street"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
+                        <td className="cell building"></td>
                     </tr>
 
                     </tbody>
                 </table>
 
-                <button type="submit" className="btn btn-primary" onClick={() =>{
+                {/*<button type="submit" className="btn btn-primary" onClick={() => {
 
                     this.getIds();
 
-                }}>list ids</button>
-
-
-
+                }}>list ids
+                </button>*/}
 
             </div>
         )
@@ -442,4 +482,5 @@ class CampingMap extends React.Component {
 
 
 }
+
 export default CampingMap;

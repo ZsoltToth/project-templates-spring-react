@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 
@@ -38,5 +39,11 @@ public class CampingSlotServiceImpl implements CampingSlotService {
     @Override
     public Collection<CampingSlot>readAll(){
         return dao.readAll();
+    }
+
+    @Override
+    public Collection<CampingSlot> readReserved(LocalDate start, LocalDate end) {
+
+        return dao.readReserved(start, end);
     }
 }

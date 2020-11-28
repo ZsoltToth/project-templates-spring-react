@@ -1,15 +1,15 @@
 import React from "react";
-//import * as actions from "../action/SlotActions"; //TODO
+import * as actions from "../action/CampingMapActions";
 import ErrorMessageWell from "./ErrorMessageWell";
-import CampingMap from "./CampingMap"; //campingmap mert ebben a mappában van
+
 
 class SlotQueryForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tent_caravan: "option1",
-            startDate: "2021-05-01",
-            endDate: "2021-05-07"
+
+            from: 0,
+            to: 0
         };
         this.formOnChange = this.formOnChange.bind(this);
     }
@@ -17,8 +17,8 @@ class SlotQueryForm extends React.Component {
     formOnChange(event) {
         const {name, value} = event.target;
         this.setState({[name]: value}, () => {
-            if (this.state.startDate !== 0 && this.state.endDate !== 0) {
-               // actions.fetchFreeSlots(this.state) //TODO - ez az action nekünk még nincs
+            if (this.state.from !== 0 && this.state.to !== 0) {
+               actions.fetchReservedSlots(this.state.from, this.state.to)
 
             }
         });
@@ -44,14 +44,14 @@ class SlotQueryForm extends React.Component {
 
                                 <h4>Kezdés dátuma:</h4><br/>
                                 <input type="date" id={"from1"} name={"from"}
-                                       value={this.state.startDate}
+                                       value={this.state.from}
                                        min="2020-01-01"
                                        onChange={this.formOnChange}/>
                                 <br/><br/><br/>
 
                                 <h4>Befejezés dátuma:</h4><br/>
                                 <input type="date" id={"to1"} name={"to"}
-                                       value={this.state.endDate}
+                                       value={this.state.to}
                                        min="2020-01-01"
                                        onChange={this.formOnChange}/>
                                 <br/>
@@ -61,11 +61,6 @@ class SlotQueryForm extends React.Component {
 
                     <br/><br/><br/><br/>
 
-                    <button type="submit" className="btn btn-primary" onClick={() => {
-                        CampingMap.getIds();
-
-                    }}>Elküld
-                    </button>
                 </form>
             </div>
 

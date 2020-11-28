@@ -1,16 +1,18 @@
 import React from "react";
 import ErrorMessageWell from "./ErrorMessageWell";
 
+import * as actions from "../action/BookingAction";
+
 class BookingForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             slotID: 0,
-            start: "2010-12-12",
-            end : "2012-12-12",
-            electricity: false,
             caravan: false,
-           email:"g@g.hu"
+            electricity: false,
+            start: "2021-05-01",
+            end : "2021-05-07",
+            email:"g@g.hu"
 
         };
         this.formOnChange = this.formOnChange.bind(this);
@@ -36,7 +38,18 @@ class BookingForm extends React.Component {
                             <div className={"row"}>
                                 <div className={"col"}>
                                     <h4>Férőhely száma:</h4>
-                                    <input type="id_card" className={"form-control"} name={"slot"} id={"slot"} onChange={this.formOnChange}/>
+                                    <input
+                                        type="id_card"
+                                        className={"form-control"}
+                                        name={"slotID"}
+                                        id={"slotID"}
+                                        value={this.state.slotID}
+
+                                        onChange={(e)=>{
+                                            let st = this.state;
+                                            st.slotID = e.target.value;
+                                            this.setState(st);}}
+                                    />
                                 </div>
                                 <div className="col">
                                 </div>
@@ -45,16 +58,24 @@ class BookingForm extends React.Component {
                         <br/>
                         <div>
                             <h4>Sátor / karaván?</h4>
+
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name={"tent_caravan"} id={"tent"}
-                                       value={"option1"} checked onChange={this.formOnChange}/>
+                                       value={this.state.caravan="false"} onChange={(e)=>{
+                                    let st = this.state;
+                                    st.caravan = e.target.value;
+                                    this.setState(st);}}/>
                                 <label className="form-check-label" htmlFor="tent">
-                                    Sátor  Ez egy komment ez nem kell ide. csak karavan
+                                    Sátor
                                 </label>
                             </div>
                             <div className="form-check">
                                 <input className="form-check-input" type="radio" name={"tent_caravan"} id={"caravan"}
-                                       value={"option2"} onChange={this.formOnChange}/>
+                                       value={this.state.caravan="true"}
+                                       onChange={(e)=>{
+                                           let st = this.state;
+                                           st.caravan = e.target.value;
+                                           this.setState(st);}}/>
                                 <label className="form-check-label" htmlFor="caravan">
                                     Karaván
                                 </label>
@@ -66,13 +87,23 @@ class BookingForm extends React.Component {
                                     <div className="col">
                                         <h4>Szükséges elektromosság?</h4>
                                         <div className="form-check">
-                                            <input className="form-check-input" type="radio" name={"elektricity"} id={"elektr-i"} value={"option1"} checked onChange={this.formOnChange}/>
+                                            <input className="form-check-input" type="radio" name={"electricity"} id={"elektr-i"}
+                                                   value={this.state.electricity="true"}
+                                                   onChange={(e)=>{
+                                                       let st = this.state;
+                                                       st.electricity = e.target.value;
+                                                       this.setState(st);}}/>
                                                 <label className="form-check-label">
                                                     Igen
                                                 </label>
                                         </div>
                                         <div className="form-check">
-                                            <input className="form-check-input" type="radio" name={"elektricity"} id={"elektr-n"} value={"option2"} onChange={this.formOnChange}/>
+                                            <input className="form-check-input" type="radio" name={"electricity"} id={"elektr-n"}
+                                                   value={this.state.electricity="false"}
+                                                   onChange={(e)=>{
+                                                       let st = this.state;
+                                                       st.electricity = e.target.value;
+                                                       this.setState(st);}}/>
                                                 <label className="form-check-label">
                                                     Nem
                                                 </label>
@@ -82,22 +113,55 @@ class BookingForm extends React.Component {
                                 </div>
                             </div>
 
+                        <h4>Kempingezés ideje:</h4><br/>
+                        <div className="form-group">
+                            <div className="row">
+                                <div className="col">
 
+                                    <h4>Kezdés dátuma:</h4><br/>
+                                    <input type="date" id={"start"} name={"start"}
+                                           value={this.state.start}
+                                           min="2020-01-01"
+                                           onChange={(e)=>{
+                                               let st = this.state;
+                                               st.start= e.target.value;
+                                               this.setState(st);}}/>
+                                    <br/><br/><br/>
+
+                                    <h4>Befejezés dátuma:</h4><br/>
+                                    <input type="date" id={"end"} name={"end"}
+                                           value={this.state.end}
+                                           min="2020-01-01"
+                                           onChange={(e)=>{
+                                               let st = this.state;
+                                               st.end = e.target.value;
+                                               this.setState(st);}}/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
 
                             <div className="form-group">
                                 <h4>Vendég e-mail címe:</h4>
                                 <div className="row">
 
                                     <div className="col col-min">
-                                        <input type="name" className="form-control" name={"email"} id={"email"} onChange={this.formOnChange}/>
+                                        <input type="name" className="form-control" name={"email"} id={"email"}
+                                               value={this.state.email}
+                                            onChange={(e)=>{
+                                            let st = this.state;
+                                            st.email = e.target.value;
+                                            this.setState(st);
+                                        }}/>
                                     </div>
                                 </div>
                             </div>
 
                             <br/>
-                                <button type="submit" className="btn btn-primary" onClick={() =>{
-                                    // TODO
-                                }}>Foglal</button><br/><br/><br/>
+                                <button type="submit" className="btn btn-primary"
+                                    onClick={()=>{actions.recordBooking(this.state)
+                                }}>Foglal
+                    </button><br/><br/><br/>
                     </form>
             </div>
         );

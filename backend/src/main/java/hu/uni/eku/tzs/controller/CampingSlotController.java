@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -26,26 +27,30 @@ public class CampingSlotController {
 
     private final CampingSlotService service;
 
-    @PostMapping(value="/record")
-    public void record(@RequestBody CampingSlotRecordRequestDto request){
-        log.info("Recording of Camping Slot ({},{})",request.getId());
+    @PostMapping(value = "/record")
+    public void record(@RequestBody CampingSlotRecordRequestDto request) {
+        log.info("Recording of Camping Slot ({})", request.getId());
         try {
-            service.record(new CampingSlot(request.getId(),request.getCoordinateX(),
-                    request.getCoordinateY(),request.getPrice(),request.getStatus(),
+            service.record(new CampingSlot(request.getId(), request.getCoordinateX(),
+                    request.getCoordinateY(), request.getPrice(), request.getStatus(),
                     request.getDescription()));
-        }catch (CampingSlotAlreadyExistsException exception){
-            log.info("Camping Slot ({}) already exists. Message:{}",request.getId(),exception.getMessage());
+        } catch (CampingSlotAlreadyExistsException exception) {
+            log.info("Camping Slot ({}) already exists. Message:{}", request.getId(), exception.getMessage());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     exception.getMessage()
             );
         }
     }
-    @GetMapping(value = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
+
+
+
+    @GetMapping(value = {"/{from}&{to}"}, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ApiOperation(value = "Query Camping Slot")
-    public Collection<CampingSlotDto>query(){
-        return service.readAll().stream().map(model ->
+    public Collection<CampingSlotDto> query(@PathVariable String from, @PathVariable String to) {
+        //Collection<CampingSlot> slots = service.readReserved(start, end);
+        return service.readReserved(LocalDate.parse(from), LocalDate.parse(to)).stream().map(model ->
                 CampingSlotDto.builder()
                         .id(model.getId())
                         .coordinateX(model.getCoordinateX())
@@ -54,7 +59,7 @@ public class CampingSlotController {
                         .status(model.getStatus())
                         .description(model.getDescription())
                         .build()
-                ).collect(Collectors.toList());
+        ).collect(Collectors.toList());
     }
 
 }
