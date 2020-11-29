@@ -185,3 +185,13 @@ INSERT INTO camping_slot VALUES (166,0,0,'slot',300, true);
 INSERT INTO camping_slot VALUES (167,0,0,'slot',300, true);
 INSERT INTO camping_slot VALUES (168,0,0,'slot',300, true);
 INSERT INTO camping_slot VALUES (169,0,0,'slot',300, true);
+
+INSERT INTO customer VALUES (1,'Kossuth út 7','t@t.hu','Teszt Elek','123456789');
+INSERT INTO customer VALUES (2,'Jókai út 7','vmi@vmi.hu','Valaki Valami','123465789');
+INSERT INTO customer VALUES (3,'Alma út 5','alma@fa.hu','Alma Fa','223462782');
+INSERT INTO customer VALUES (4,'Valahol','bry@style.hu','BryStyle','223432783');
+
+INSERT INTO reservation VALUES (1,true,false,'2021-05-07',false,'2021-05-01',3,1);
+INSERT INTO reservation VALUES (2,true,true,'2021-06-17',false,'2021-06-11',16,2);
+INSERT INTO reservation VALUES (3,false,false,'2021-07-27',false,'2021-07-21',69,3);
+INSERT INTO reservation VALUES (4,true,true,'2021-05-15',false,'2021-05-11',42,4);
