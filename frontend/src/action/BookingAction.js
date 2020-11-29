@@ -17,14 +17,17 @@ export const recordBooking = ({slotID, start, end, electricity, caravan, email})
             dispatcher.dispatch({action: actionConstants.clearError});
         })
         .catch((err) => {
+            alert("Reservation failed!");
             dispatcher.dispatch({
                 action: actionConstants.showError,
                 payload: `${err.response.status}-${err.response.statusText}: ${err.response.data.message}`
+
             });
 
         });
+
 }
-export const fetchGuests = () => {
+export const fetchBooking = () => {
 
     axios.get('/reservation/').then((resp) => {
         dispatcher.dispatch({

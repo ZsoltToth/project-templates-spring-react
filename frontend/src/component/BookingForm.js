@@ -159,7 +159,8 @@ class BookingForm extends React.Component {
 
                             <br/>
                                 <button type="submit" className="btn btn-primary"
-                                    onClick={()=>{actions.recordBooking(this.state)
+                                    onClick={()=>{actions.recordBooking(this.state);
+
                                 }}>Foglal
                     </button><br/><br/><br/>
                     </form>

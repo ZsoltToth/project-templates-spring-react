@@ -75,7 +75,8 @@ class GuestAddForm extends React.Component {
                             colSpan={2}>
                             <button
                                 className="btn btn-info"
-                                onClick={()=>{actions.recordGuest(this.state)}}
+                                onClick={()=>{actions.recordGuest(this.state)
+                               }}
                             >Létrehoz
                             </button>
                         </td>
