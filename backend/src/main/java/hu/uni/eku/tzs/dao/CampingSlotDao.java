@@ -2,6 +2,7 @@ package hu.uni.eku.tzs.dao;
 
 import hu.uni.eku.tzs.model.CampingSlot;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 public interface CampingSlotDao {
@@ -18,4 +19,5 @@ public interface CampingSlotDao {
 
     void freeCampingSlot(int id);
 
+    Collection<CampingSlot> readReserved(LocalDate start, LocalDate end);
 }

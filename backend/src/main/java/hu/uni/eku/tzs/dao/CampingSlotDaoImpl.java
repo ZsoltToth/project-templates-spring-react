@@ -3,8 +3,8 @@ package hu.uni.eku.tzs.dao;
 import hu.uni.eku.tzs.model.CampingSlot;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import hu.uni.eku.tzs.dao.CampingSlotRepository;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -25,12 +25,12 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
     @Override
     public Collection<CampingSlot> readAll() {
         return StreamSupport.stream(repository.findAll().spliterator(),false)
-                .map(entity -> CampingSlotModelEntityConverter.entity2model(entity))
+                .map(CampingSlotModelEntityConverter::entity2model)
                 .collect(Collectors.toList());
     }
     @Override
     public boolean campingSlotAvailable(int id){
-        return repository.existsByIdAndAndStatusIsTrue(id);
+        return repository.existsByIdAndStatusIsTrue(id);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
     @Override
     public void reserveCampingSlot(int id){
         campingSlot = readById(id);
-        campingSlot.setStatus(false);
+       // campingSlot.setStatus(false);  // ez volt a hiba
         repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
     }
     @Override
@@ -51,6 +51,14 @@ public class CampingSlotDaoImpl implements CampingSlotDao{
         repository.save(CampingSlotModelEntityConverter.model2Entity(campingSlot));
     }
 
+    @Override
+    public Collection<CampingSlot> readReserved(LocalDate start, LocalDate end) {
+
+
+        return repository.getReserved(start, end).stream()
+                .map(CampingSlotModelEntityConverter::entity2model)
+                .collect(Collectors.toList());
+    }
 
 
     public static class CampingSlotModelEntityConverter{

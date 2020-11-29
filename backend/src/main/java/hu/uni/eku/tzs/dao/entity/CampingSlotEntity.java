@@ -14,7 +14,6 @@ import java.util.Collection;
 @Table(name="camping_slot")
 public class CampingSlotEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private int coordinateX;

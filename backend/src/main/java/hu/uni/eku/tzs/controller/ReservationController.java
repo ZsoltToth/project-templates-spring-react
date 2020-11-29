@@ -37,9 +37,9 @@ public class ReservationController {
     public void record(@RequestBody ReservationRecordRequestDto request){
         log.info("Recording of Reservation ({})",request);
         try {
-            service.record(new TryReservation(request.getCustomerEmail()
-                            ,request.getSlotId(),request.getStart(),request.getEnd(),request.isElectricity(),request.isCaravan()
-                            ));
+            TryReservation tryReservation = new TryReservation(request.getCustomerEmail()
+                    ,request.getSlotId(),request.getStart(),request.getEnd(),request.isElectricity(),request.isCaravan());
+            service.record(tryReservation);
         }catch (CustomerNotExistsException exception){
             log.info("Customer does not exists with this email:{}",request.getCustomerEmail());
             throw new ResponseStatusException(
