@@ -1,6 +1,6 @@
 import {EventEmitter} from 'events'
 import dispatcher from "../dispatcher/Dispatcher";
-import {refresh} from '../dispatcher/BookingActionConstants';
+import {refresh} from '../dispatcher/GuestActionConstants';
 
 class GuestStore extends EventEmitter{
 
