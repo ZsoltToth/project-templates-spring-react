@@ -10,6 +10,20 @@ export const recordGuest = ({GuestName,GuestPhone,GuestEmail,GuestAddress}) =>{
             email: GuestEmail,
             phone : GuestPhone,
             address : GuestAddress
+        })
+
+        .then(() => {
+
+            dispatcher.dispatch({action: actionConstants.clearError});
+        })
+        .catch((err) => {
+            alert("Saving guest information failed!");
+            dispatcher.dispatch({
+                action: actionConstants.showError,
+                payload: `${err.response.status}-${err.response.statusText}: ${err.response.data.message}`
+
+            });
+
         });
 }
 export const fetchGuests = () =>{

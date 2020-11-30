@@ -8,26 +8,28 @@ import GuestAddForm from "./component/GuestAddForm";
 
 function App() {
   return (
-    <div className={["App","container"]}>
+    <div className={"App"}>
+        <div className={"container"}>
+            <div className={"bg"}></div>
 
-        <div className={["myframe", "col-md-offset-1"]}>
             <div className={"row"}>
 
-                <div className={"col col-left"}>
-                        <SlotQueryForm/>
+                <div className={"col col-3 col-left full-height"}>
+                    <SlotQueryForm/>
+                    <GuestAddForm/>
                 </div>
-                <div className={"col col-center"}>
-                        <GuestAddForm/>
+                <div className={"col  col-center full-height"}>
+
                     <CampingMap/>
                 </div>
-                <div className={"col col-right"}>
+                <div className={"col col-3 col-right full-height"}>
                         <BookingForm/>
                 </div>
 
 
             </div>
-
         </div>
+
     </div>
   );
 }

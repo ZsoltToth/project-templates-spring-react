@@ -7,7 +7,6 @@ class SlotQueryForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
             from: 0,
             to: 0
         };
@@ -18,7 +17,7 @@ class SlotQueryForm extends React.Component {
         const {name, value} = event.target;
         this.setState({[name]: value}, () => {
             if (this.state.from !== 0 && this.state.to !== 0) {
-               actions.fetchReservedSlots(this.state.from, this.state.to)
+                actions.fetchReservedSlots(this.state.from, this.state.to)
 
             }
         });
@@ -28,29 +27,22 @@ class SlotQueryForm extends React.Component {
         return (
             <div>
                 <ErrorMessageWell/>
-            <h2>Férőhelyek lekérdezése</h2><hr/>
+                <h2>Férőhelyek lekérdezése</h2>
+                <hr/>
                 <form className="myform">
                     <div className="form-group">
-                        <div className="row">
-                            <div className="col">
+                        <div className="d-flex justify-content-md-end">
+                            <div className="p-2">
 
-                            </div>
-                        </div>
-                    </div>
-                    <h4>Kempingezés ideje:</h4><br/>
-                    <div className="form-group">
-                        <div className="row">
-                            <div className="col">
-
-                                <h4>Kezdés dátuma:</h4><br/>
-                                <input type="date" id={"from1"} name={"from"}
+                                <h4>Kezdés dátuma:</h4>
+                                <input className={"form-control myinput"} type="date" id={"from1"} name={"from"}
                                        value={this.state.from}
                                        min="2020-01-01"
                                        onChange={this.formOnChange}/>
-                                <br/><br/><br/>
+                            </div>
 
-                                <h4>Befejezés dátuma:</h4><br/>
-                                <input type="date" id={"to1"} name={"to"}
+                            <div className="p-2"><h4>Befejezés dátuma:</h4>
+                                <input className={"form-control myinput"} type="date" id={"to1"} name={"to"}
                                        value={this.state.to}
                                        min="2020-01-01"
                                        onChange={this.formOnChange}/>
@@ -64,7 +56,7 @@ class SlotQueryForm extends React.Component {
                 </form>
             </div>
 
-            );
+        );
     }
 }
 

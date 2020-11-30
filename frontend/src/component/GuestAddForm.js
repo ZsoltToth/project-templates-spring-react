@@ -1,6 +1,7 @@
 import React from "react";
 import * as actions from '../action/GuestAction';
 import ErrorMessageWell from "./ErrorMessageWell";
+
 class GuestAddForm extends React.Component {
     constructor(props) {
         super(props);
@@ -8,83 +9,98 @@ class GuestAddForm extends React.Component {
             GuestName: 'Béla',
             GuestEmail: 'example@example.com',
             GuestPhone: '123456789',
-            GuestAddress: 'Jokai ut 2'
+            GuestAddress: 'Jókai út 2'
         };
         this.formOnChange = this.formOnChange.bind(this);
     }
+
     formOnChange(event) {
         const {name, value} = event.target;
         this.setState({[name]: value});
     }
 
- render() {
-    return(
-        <div className="insertForm mx-auto mt-5">
-            <h3 className="text-center">Vendég létrehozása</h3>
-            <div className="table-responsive">
+    render() {
+        return (
+            <div>
                 <ErrorMessageWell/>
-                <table className="table borderless">
-                    <tbody>
-                    <tr>
-                        <td>Név</td>
-                        <td><input
-                            type={"text"}
-                            value={this.state.GuestName}
-                            onChange={(e)=>{
-                                let st = this.state;
-                                st.GuestName = e.target.value;
-                                this.setState(st);}}
-                        /></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type={"text"}
-                                   value={this.state.GuestEmail}
-                                   onChange={(e)=>{
-                                       let st = this.state;
-                                       st.GuestEmail = e.target.value;
-                                       this.setState(st);
-                                   }}
-                        /></td>
-                    </tr>
-                    <tr>
-                        <td>Telefonszám</td>
-                        <td><input type={"string"}
-                                   value={this.state.GuestPhone}
-                                   onChange={(e)=>{
-                                       let st = this.state;
-                                       st.GuestPhone = e.target.value;
-                                       this.setState(st);
-                                   }}
-                        /></td>
-                    </tr>
-                    <tr>
-                        <td>Lakcím</td>
-                        <td><input type={"string"}
-                                   value={this.state.GuestAddress}
-                                   onChange={(e)=>{
-                                       let st = this.state;
-                                       st.GuestAddress = e.target.value;
-                                       this.setState(st);
-                                   }}
-                        /></td>
-                    </tr>
+                <h2>Vendég létrehozása</h2>
+                <hr/>
+                <form className="myform">
+                    <div className="form-group">
 
-                    <tr>
-                        <td
-                            colSpan={2}>
-                            <button
-                                className="btn btn-info"
-                                onClick={()=>{actions.recordGuest(this.state)}}
+                            <div className="d-flex justify-content-md-end">
+                                <div className="p-2">
+                                    <h4>Név:</h4>
+                                    <input className={"form-control myinput"}
+                                        type={"text"}
+                                        value={this.state.GuestName}
+                                        onChange={(e) => {
+                                            let st = this.state;
+                                            st.GuestName = e.target.value;
+                                            this.setState(st);
+                                        }}
+                                    />
+                                </div>
+                                <div className="p-2"><h4>Email:</h4>
+                                    <input className={"form-control myinput"}
+                                           type={"text"}
+                                           value={this.state.GuestEmail}
+                                           onChange={(e) => {
+                                               let st = this.state;
+                                               st.GuestEmail = e.target.value;
+                                               this.setState(st);
+                                           }}
+                                    /></div>
+                            </div>
+
+                    </div>
+
+                    <div className="form-group">
+                        <div className="d-flex justify-content-end">
+                            <div className="p-2">
+                                <h4>Telefonszám:</h4>
+                                <input className={"form-control myinput"} type={"string"}
+                                       value={this.state.GuestPhone}
+                                       onChange={(e) => {
+                                           let st = this.state;
+                                           st.GuestPhone = e.target.value;
+                                           this.setState(st);
+                                       }}
+                                />
+                            </div>
+                            <div className="p-2">
+                                <h4>Lakcím:</h4>
+                                <input className={"form-control myinput"} type={"string"}
+                                       value={this.state.GuestAddress}
+                                       onChange={(e) => {
+                                           let st = this.state;
+                                           st.GuestAddress = e.target.value;
+                                           this.setState(st);
+                                       }}/>
+                                <br/>
+
+                            </div>
+
+                        </div>
+                        <div className="p-2">
+                            <br/><br/><br/><br/>
+                            <button type={"submit"}
+                                    className="btn btn-info"
+                                    onClick={() => {
+                                        actions.recordGuest(this.state)
+                                    }}
                             >Létrehoz
                             </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                        </div>
+                    </div>
+                    <br/>
+
+                </form>
+
+
             </div>
-        </div>
-         )
+        )
     }
 }
+
 export default GuestAddForm
