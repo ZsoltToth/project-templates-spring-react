@@ -44,6 +44,8 @@ A recepciósa következőket tudja kezelni a rendszeren belül :
 
 **Megfeleltetés , hogyan fedik le a használati esetek a követelményeket**
  A recepciós feladatkör ellátja az adminisztrátor feladatát. Az weboldal megnyitásakor megnyílik a főoldalunk, ahol található a Lekérdezés ,amellyel letudjuk kérdezni mely férőhelyek szabadak illetve foglaltak adott intervallumon. Ez alatt található a vendég felvétele. A weboldal középső részén találjuk a a férőhelyeket amelyeket a lekérdezésben megadott intervallumon lefoglalt időpontban megjeleníti a foglalt kemping helyeket pirossal ,a szabad helyeket zölddel és a kemping szám. A jobb oldalon pedig letudjuk foglalni , férőhely száma alapján a mezők kitöltésével.
-
+**Képernyő tervek**
+A képernyő tervek a véglegesítés előtt a következő linken érhetőek el:
+https://media.discordapp.net/attachments/757619777828159620/782839532084264990/unknown.png?width=1173&height=660
 
 
