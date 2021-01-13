@@ -85,3 +85,14 @@ A megrendelő számára a legkézenfekvőbb megoldás a vendégek adatainak ille
 > Minden vendég lefoglalhatja a számára legjobb parcellát.
 > A rendszernek számon kell tartania az adott időközben foglalt parcellákat, ezekre ne engedjen több foglalást amíg az adott fogallás ideje le nem jár.
 > A számlát a vendég távozásakor kapja meg és fizeti ki.
+
+##8. Követelmény lista
+
+| modul| id | név | verzió | kifejtés | 
+| --- | ---: | --- | --- | --- |
+| funkció| K1 | Férőhelyek-lekérdezése |1.0| A recepciós lekérdezi a kemping férőhelyek adatait a megadott időre vonatkozóan. |
+| funkció| K2| Foglalás |1.0| Amikor a Recepciós lefoglalja a Vendégnek az adott kempinghelyet, a foglalás saját azonosítót kap.|
+| funkció| K3| Számla generálása |1.0| A vendég foglaláskor számlát kap.| 
+| modifikáció | K4| Módosítás |1.0| A foglalás időtartama és a számla módosul. |
+| funkció| K5| Távozás |1.0| A kemping rendszer kilépteti a vendéget távozáskor. |
+| funkció| K6| Lemondás|1.0| A vendég bármikor lemondhatja a foglalást jelen időpontra vonatkozólag. |
