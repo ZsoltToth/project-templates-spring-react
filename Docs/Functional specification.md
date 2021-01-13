@@ -3,11 +3,11 @@
 Egy olyan  rendszert fejlesztünk, ami egy kemping gyorsabb, áttekinthetőbb rendszerét szeretné létrehozni , ezzel meg könnyítve a kemping recepciósának munkáját. A rendszer az egyszerűségre alapoz ,hogy minél könnyebben és egyszerűbben megtanulható és átláthatóbb legyen a recepciós számára.A projekt netes böngészőből indítható lesz így akármilyen platformon elérhető , nem létfontosságú , hogy a munkatárs egy irodai környezetben legyen.Akár egy tabletről is le tudjuk foglalni a megfelelő férőhelyet. A rendszerünk nyilvántartja a szabad és foglalt férőhelyeket, illetve egy grafikus felületen is láthatóak ezek (A megfelelő intervallumok között). Ha az ügyfél szeretne a kempingben egy férőhelyet lefoglalni , akkor előbb regisztrálásra lesz szüksége ahol meg kell adni a személyes adatait ami arra szolgál ,hogy letudjuk foglalni a kemping helyet az adott adatokra. Ha ez megtörtént le is foglalhatjuk a helyet. Ha véletlenül a vendég valamilyen okból leszeretné mondani a foglalását akkor ezt megteheti.A távozás előtt a fizetéskor a rendszer egy nyugtát hozlétre és nyomtatt ki.ű
 **Jelenlegi helyzet**
 
-- Lassú papír alapú könyvelés
+ - Lassú papír alapú könyvelés
 
-- Nagyobb a hibalehetőségek kockázata
+ - Nagyobb a hibalehetőségek kockázata
 
-- Sok vendég esetén nehéz az áttekinthetőség
+ - Sok vendég esetén nehéz az áttekinthetőség
 
 **Követelmény lista**
 | modul| id | név | verzió | kifejtés | 
@@ -43,9 +43,27 @@ A recepciósa következőket tudja kezelni a rendszeren belül :
 >foglalásokat törölni
 
 **Megfeleltetés , hogyan fedik le a használati esetek a követelményeket**
- A recepciós feladatkör ellátja az adminisztrátor feladatát. Az weboldal megnyitásakor megnyílik a főoldalunk, ahol található a Lekérdezés ,amellyel letudjuk kérdezni mely férőhelyek szabadak illetve foglaltak adott intervallumon. Ez alatt található a vendég felvétele. A weboldal középső részén találjuk a a férőhelyeket amelyeket a lekérdezésben megadott intervallumon lefoglalt időpontban megjeleníti a foglalt kemping helyeket pirossal ,a szabad helyeket zölddel és a kemping szám. A jobb oldalon pedig letudjuk foglalni , férőhely száma alapján a mezők kitöltésével.
+ A recepciós feladatkör ellátja az adminisztrátor feladatát.A vendég nincsen közvetlen kapcsolatban a rendszerünk, de közvetett módon a recepciós által kerül kapcsolatba a rendszerrel. Az weboldal megnyitásakor megnyílik a főoldalunk, ahol található a Lekérdezés ,amellyel letudjuk kérdezni mely férőhelyek szabadak illetve foglaltak adott intervallumon. Ez alatt található a vendég felvétele. A weboldal középső részén találjuk a a férőhelyeket amelyeket a lekérdezésben megadott intervallumon lefoglalt időpontban megjeleníti a foglalt kemping helyeket pirossal ,a szabad helyeket zölddel és a kemping szám.Ezt a térképet a vendég egy nagy képernyőn tekintheti meg. A jobb oldalon pedig letudjuk foglalni , férőhely száma alapján a mezők kitöltésével.
+ 
 **Képernyő tervek**
-A képernyő tervek a véglegesítés előtt a következő linken érhetőek el:
+A képernyő terv a véglegesítés előtt a következő linken érhetőek el:![enter image description here](https://media.discordapp.net/attachments/757619777828159620/782839532084264990/unknown.png?width=1173&height=660)
 https://media.discordapp.net/attachments/757619777828159620/782839532084264990/unknown.png?width=1173&height=660
+
+**Forgatókönyv**
+
+ - Webes felület
+ >Kemping helyek lekérdezése:
+ >>Itt tudjuk lekérdezni a férőhelyeket a megadott intervallumon belül. Ezt a Térképen látjuk.
+ >
+ >Vendég létrehozása:
+ >> Itt kell a vendég adait meg adnunk a nevét, email címét, lakcímét és a telefon számát majd a  Létrehoz gombra kattintva máris létre is hoztuk a vendégünk adatlapját.
+>
+>Térkép:
+>>Itt találjuk a Kemping helyek lekérdezésénél megadott intervallumon belüli helyeket. Amelyeket egy szám jelöl , és egy szín. A piros a foglaltat jelzi , a zöld a szabadot , az az le lehet foglalni.
+>
+>Foglalás:
+>>Itt tudjuk lefoglalni férőhely szám alapján (Térképen jelölt szám alapján). Itt meg kell adnunk sátor vagy karavánnal szeretnénk-e a kemping helyen tartózkodni. Kitudjuk választani akarunk-e elektromosságot a kemping helyre.Kiválasztjuk az intervallumot mikortól és meddig szeretnénk az adott férőhelyen tartózkodni és megadjuk a vendég email címét. Ha végeztünk az adatok feltöltésével akkor a Foglal gombra kattintunk , amely lefoglalja az adott helyet ha létezik ilyen email cím az adatbázisban.
+
+
 
 
