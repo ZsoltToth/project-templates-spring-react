@@ -32,4 +32,30 @@ Az eddigiekben használt offline rendszert szeretnénk modernizálni. Ezentúl a
 
 **Menü hierarchiák**
 
+*Férőhelyek lekérdezése:*
+- Kezdés dátuma
+- Befejezés dátuma
+- Sátor/Karaván ?
+  - Sátor
+  - Karaván
+
+*Vendég létrehozása:*
+
+- Név
+- Email
+- Telefonszám
+- Lakcím
+    > Létrehoz
+
+*Foglalás:*
+
+- Férőhely száma
+- Szükséges elektromosság ?
+     -  Igen
+     - Nem
+- Kezdés dátuma
+- Befejezés dátuma 
+- Vendég email címe
+	 >Foglal
+
 
