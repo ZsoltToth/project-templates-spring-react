@@ -1,7 +1,9 @@
 @startuml
 actor Receptionist
+actor Guest
 
 rectangle Camping-system {
+Guest -- Receptionist
 
 Receptionist -- (query)
 (query) <|-- (query free slots) 
