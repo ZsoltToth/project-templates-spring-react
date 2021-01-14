@@ -16,3 +16,4 @@ Az eddigiekben használt offline rendszert szeretnénk modernizálni. Ezentúl a
 -   Frontend: Guti Adrián, Majoros Norbert
 -   Backend: Csattos Bence
 
+![A projekt use-case modellje](https://cdn.discordapp.com/attachments/757619777828159620/799225167204974592/Use-case.jpg)
