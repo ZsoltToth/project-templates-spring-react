@@ -124,3 +124,60 @@ Technológiák:
 A szerver HTTP protokollon keresztül használható
 ![enter image description here](https://cdn.discordapp.com/attachments/757619777828159620/799256606432296990/unknown.png)
 
+**2. Frontend**
+
+•	felhasználói felületet adja
+•	backenddel kommunikál.
+•	A böngésző a felhasználói felület, ami mindent kirenderel és kontroller elemeket ad a felhaszánlónak. A backend HTTPvel érhető el
+
+A frontend megkülönbözteti a
+>	komponenseket,
+>	actionoket,
+>	store-okat
+miközben a Dispatchert Axiost és kívülálló eszközöket használ	
+
+Komponensek a React framework fő elemei, böngészőben renderelődnek. Az alkalmazás kinézete
+>	gombok, formok, felhasználói interakciókat kezelnek, eveteket továbbitanak a megfelelő actionöknek
+	>Action-ök elválasztják az event kezelését a vizualizációtól.
+>	Implementálják a Command Desicn Patternt
+>	ujrafelhasználhatók
+>	AJAX kéréseketvégeznek Axiossal. Az AJAX kérések legyenek az Action-ökben!
+
+Action szó kétértelmű, mert utalhat
+>	az Actionra ami felhasználói eventeket kezel a Command/Action Design Pattern alapján.
+>	Utalhat a Flux Dispatcherének dispatchelt actioneire
+>	
+>	Dispatcher a Flux középső eleme.
+
+>	A Dispatcher továbbitja az összes üzenetet.
+>	Ez az üzenetküldési minta hasonlit a
+Message Queue és Publish/Subscribe modelekhez	Store-k tárolják a komponensek megosztott állapotát (state).
+ Storek implementálják aaz event emittereket az Observer Design Pattern-t
+ 
+>A Storek dolgozzák fel az Actionöket és Dispatchert
+	Komponensek a React framework fő elemei, böngészőben renderelődnek. 
+	
+>Az alkalmazás kinézetegombok, formok, felhasználói interakciókat kezelnek, eveteket továbbitanak a megfelelő actionöknek
+>	Action-ök elválasztják az event kezelését a vizualizációtól.
+>	Implementálják a Command Desicn Patternt
+>	ujrafelhasználhatók
+>
+>	AJAX kéréseketvégeznek Axiossal. Az AJAX kérések legyenek az Action-ökben!
+
+Action szó kétértelmű, mert utalhat
+>	az Actionra ami felhasználói eventeket kezel a Command/Action Design Pattern alapján.
+>	Utalhat a Flux Dispatcherének dispatchelt actioneire
+>	
+>	Dispatcher a Flux középső eleme.
+>	Action-ök eventeket akciókat hoznak létre a Dispatchernek, amit a Store-k dolgoznak fel.
+>
+>	A Dispatcher továbbitja az összes üzenetet.
+>
+>	Ez az üzenetküldési minta hasonlit aMessage Queue és Publish/Subscribe modelekhez	Store-k tárolják a komponensek megosztott állapotát (state). Storek implementálják a
+>>	az event emittereket
+>>	az Observer Design Pattern-t
+A Storek dolgozzák fel az Actionöket és Dispatchert
+
+
+![enter image description here](https://cdn.discordapp.com/attachments/757619777828159620/799261457233608734/unknown.png)
+
