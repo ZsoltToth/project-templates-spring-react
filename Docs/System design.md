@@ -181,3 +181,44 @@ A Storek dolgozzák fel az Actionöket és Dispatchert
 
 ![enter image description here](https://cdn.discordapp.com/attachments/757619777828159620/799261457233608734/unknown.png)
 
+**9. Adatbázis terv**
+
+Táblák:
+
+	Camping_slot:
+	
+		 - id (int) PRIMARY KEY
+		 - coordinatex (int)
+		 - coordinatey (int)
+		 - description (varchar(255))
+		 - price (int)
+		 - status (bit(1))
+		
+	camping_slot_reservations:
+		 -camping_slot_entity_id (int)
+		 -reservation_id (int) UK
+		 -FK (reservation_id ->reservation(id))
+		 -FK (camping_slot_entity_id -> campingslot(id))
+	customer:
+		 -id (int) PRIMARY KEY
+		 -address (varchar(255))
+		 -email (varchar(255))
+		 -name (varchar(255))
+		 -phone_number (varchar(255))
+	customer_reservations:
+		 -customer_entity_id(int)
+		 -reservation_id (int) UK
+		 -FK (reservation_id -> reservation(id))
+		 -FK (costumer_entity_id -> costumer(id))
+	reservation:
+		 -id (int) PRIMARY KEY
+		 -caravan (bit(1))
+		 -electricity (bit(1))
+		 -end (date)
+		 -paid (int)
+		 -start (date)
+		 -camping_slot_id (int)
+		 -costumer_id (int)
+		 -FK (costumer_id -> costumer(id))
+		 -FK (camping_slot_id -> campingslot(id))
+	
