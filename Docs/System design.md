@@ -81,5 +81,28 @@ A recepciós feladatkör ellátja az adminisztrátor feladatát. A vendég nincs
 - Befejezés dátuma 
 - Vendég email címe
 	 >Foglal
+	 
+##6. Fizikai követelmény
 
+ **Fejlesztői környezet:**
+ (Az alábbi konfiguráció szükséges a fejlesztéshez)
+
+ - Linux, bash, screen, curl 
+ - Java, Maven, ItelliJ IDEA
+ - Node, npm, WebStorm
+ - Docker, docker-compose, Dockstation
+ - Postman
+ - git (Github account)
+ -  React
+ - Spring framework
+
+Kiindulási pontunk a Tóth Zsolt által megadott projekt. amely az alábbi linken érhető el: [Projekt Templates Spring React](https://github.com/ZsoltToth/project-templates-spring-react)
+
+**Futtatási környezet:**
+
+A rendszer egy webalkalmazás amely első sorban elérhető számítógépen, telefonon és tableten eszközön. 
+
+Az alábbi hardvereszközök szükségesek a program működtetéséhez:
+
+A recepciósnak szüksége van egy számítógépre, melyhez két monitor tartozik. A recepciós egy kisebb 30" monitorral dolgozik. A másik, nagyméretű fali monitor a látogató számára mutatja a térképet, a szabad és foglalt helyeket. Az adatbázis és a backend a kemping szervergépén fut.
 
