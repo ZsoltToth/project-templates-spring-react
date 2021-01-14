@@ -19,6 +19,16 @@ Az eddigiekben használt offline rendszert szeretnénk modernizálni. Ezentúl a
 ![A projekt use-case modellje](https://cdn.discordapp.com/attachments/757619777828159620/799225167204974592/Use-case.jpg)
 
 ## 3. Üzleti folyamatok modellje
+## 4. Követelmények
+
+| modul| id | név | verzió | kifejtés | 
+| --- | ---: | --- | --- | --- |
+| funkció| K1 | Férőhelyek-lekérdezése |1.0| A recepciós lekérdezi a kemping férőhelyek adatait a megadott időre vonatkozóan. |
+| funkció| K2| Foglalás |1.0| Amikor a Recepciós lefoglalja a Vendégnek az adott kempinghelyet, a foglalás saját azonosítót kap.|
+| funkció| K3| Számla generálása |1.0| A vendég foglaláskor számlát kap.| 
+| modifikáció | K4| Módosítás |1.0| A foglalás időtartama és a számla módosul. |
+| funkció| K5| Távozás |1.0| A kemping rendszer kilépteti a vendéget távozáskor. |
+| funkció| K6| Lemondás|1.0| A vendég bármikor lemondhatja a foglalást jelen időpontra vonatkozólag. |
 
 ## 5. Funkcionális terv
 **A recepciós, mint a rendszer felhasználója**
