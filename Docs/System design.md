@@ -106,3 +106,78 @@ Az alábbi hardvereszközök szükségesek a program működtetéséhez:
 
 A recepciósnak szüksége van egy számítógépre, melyhez két monitor tartozik. A recepciós egy kisebb 30" monitorral dolgozik. A másik, nagyméretű fali monitor a látogató számára mutatja a térképet, a szabad és foglalt helyeket. Az adatbázis és a backend a kemping szervergépén fut.
 
+##7. Architekturális terv
+
+**1. Backend **
+
+A web app szerveroldali komponensei Java-t és Spring Frameworköt használnak MySQL-lel és Hibernate-tel.
+
+Technológiák:
+    • Maven: függőség vezérlés(depencency management) és építés
+    • JUni5 & Jupiter: tesztelés
+    • Lombok: konstruktor és getter/setter generáció @annitációkkal
+    • SLF4J: naplózás (logging), a Lombokkal jön (injected with Lombok)
+    • Hibernate: adatelérés (data access) és Object relational mapping
+    • Spring Boot: függőség injection és Web kontrollerek
+
+
+A szerver HTTP protokollon keresztül használható
+![enter image description here](https://cdn.discordapp.com/attachments/757619777828159620/799256606432296990/unknown.png)
+
+**2. Frontend**
+
+•	felhasználói felületet adja
+•	backenddel kommunikál.
+•	A böngésző a felhasználói felület, ami mindent kirenderel és kontroller elemeket ad a felhaszánlónak. A backend HTTPvel érhető el
+
+A frontend megkülönbözteti a
+>	komponenseket,
+>	actionoket,
+>	store-okat
+miközben a Dispatchert Axiost és kívülálló eszközöket használ	
+
+Komponensek a React framework fő elemei, böngészőben renderelődnek. Az alkalmazás kinézete
+>	gombok, formok, felhasználói interakciókat kezelnek, eveteket továbbitanak a megfelelő actionöknek
+	>Action-ök elválasztják az event kezelését a vizualizációtól.
+>	Implementálják a Command Desicn Patternt
+>	ujrafelhasználhatók
+>	AJAX kéréseketvégeznek Axiossal. Az AJAX kérések legyenek az Action-ökben!
+
+Action szó kétértelmű, mert utalhat
+>	az Actionra ami felhasználói eventeket kezel a Command/Action Design Pattern alapján.
+>	Utalhat a Flux Dispatcherének dispatchelt actioneire
+>	
+>	Dispatcher a Flux középső eleme.
+
+>	A Dispatcher továbbitja az összes üzenetet.
+>	Ez az üzenetküldési minta hasonlit a
+Message Queue és Publish/Subscribe modelekhez	Store-k tárolják a komponensek megosztott állapotát (state).
+ Storek implementálják aaz event emittereket az Observer Design Pattern-t
+ 
+>A Storek dolgozzák fel az Actionöket és Dispatchert
+	Komponensek a React framework fő elemei, böngészőben renderelődnek. 
+	
+>Az alkalmazás kinézetegombok, formok, felhasználói interakciókat kezelnek, eveteket továbbitanak a megfelelő actionöknek
+>	Action-ök elválasztják az event kezelését a vizualizációtól.
+>	Implementálják a Command Desicn Patternt
+>	ujrafelhasználhatók
+>
+>	AJAX kéréseketvégeznek Axiossal. Az AJAX kérések legyenek az Action-ökben!
+
+Action szó kétértelmű, mert utalhat
+>	az Actionra ami felhasználói eventeket kezel a Command/Action Design Pattern alapján.
+>	Utalhat a Flux Dispatcherének dispatchelt actioneire
+>	
+>	Dispatcher a Flux középső eleme.
+>	Action-ök eventeket akciókat hoznak létre a Dispatchernek, amit a Store-k dolgoznak fel.
+>
+>	A Dispatcher továbbitja az összes üzenetet.
+>
+>	Ez az üzenetküldési minta hasonlit aMessage Queue és Publish/Subscribe modelekhez	Store-k tárolják a komponensek megosztott állapotát (state). Storek implementálják a
+>>	az event emittereket
+>>	az Observer Design Pattern-t
+A Storek dolgozzák fel az Actionöket és Dispatchert
+
+
+![enter image description here](https://cdn.discordapp.com/attachments/757619777828159620/799261457233608734/unknown.png)
+
