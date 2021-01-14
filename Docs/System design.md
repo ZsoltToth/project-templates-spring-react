@@ -106,3 +106,21 @@ Az alábbi hardvereszközök szükségesek a program működtetéséhez:
 
 A recepciósnak szüksége van egy számítógépre, melyhez két monitor tartozik. A recepciós egy kisebb 30" monitorral dolgozik. A másik, nagyméretű fali monitor a látogató számára mutatja a térképet, a szabad és foglalt helyeket. Az adatbázis és a backend a kemping szervergépén fut.
 
+##7. Architekturális terv
+
+**1. Backend **
+
+A web app szerveroldali komponensei Java-t és Spring Frameworköt használnak MySQL-lel és Hibernate-tel.
+
+Technológiák:
+    • Maven: függőség vezérlés(depencency management) és építés
+    • JUni5 & Jupiter: tesztelés
+    • Lombok: konstruktor és getter/setter generáció @annitációkkal
+    • SLF4J: naplózás (logging), a Lombokkal jön (injected with Lombok)
+    • Hibernate: adatelérés (data access) és Object relational mapping
+    • Spring Boot: függőség injection és Web kontrollerek
+
+
+A szerver HTTP protokollon keresztül használható
+![enter image description here](https://cdn.discordapp.com/attachments/757619777828159620/799256606432296990/unknown.png)
+
