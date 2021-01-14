@@ -17,3 +17,19 @@ Az eddigiekben használt offline rendszert szeretnénk modernizálni. Ezentúl a
 -   Backend: Csattos Bence
 
 ![A projekt use-case modellje](https://cdn.discordapp.com/attachments/757619777828159620/799225167204974592/Use-case.jpg)
+
+## 3. Üzleti folyamatok modellje
+
+## 5. Funkcionális terv
+**A recepciós, mint a rendszer felhasználója**
+
+- Lekérdezheti a szabad férőhelyeket egy adott időközre a vendég kérése szerint.
+- Betáplálhatja a rendszerbe a kérést miszerint a vendég sátorral, vagy karavánkocsival szeretne a kempingbe tartózkodni, szüksége van-e áramra, illetve mettől meddig marad a kempingben.
+- Betáplálhatja a vendég adatait a rendszerbe a foglaláshoz.
+- Le tudja foglalni a vendég számára a megfelelő helyet.
+- A vendég kérésére megszüntetheti illetve módosíthatja a foglalást.
+- A rendszer segítségével ki tudja nyomtatni a bizonylatot.
+
+**Menü hierarchiák**
+
+
