@@ -1,0 +1,20 @@
+@startuml
+actor Receptionist
+actor Guest
+
+rectangle Camping-system {
+Guest -- Receptionist
+
+Receptionist -- (query)
+(query) <|-- (query free slots) 
+(query) <|-- (query for qenerating invoice)
+
+(query free slots) <.. (book slots) : <<extend>>
+
+
+Receptionist -- (make slots free)
+(make slots free) <|-- (delete future booking)
+(make slots free) <|-- (stop current booking)
+
+}
+@enduml
