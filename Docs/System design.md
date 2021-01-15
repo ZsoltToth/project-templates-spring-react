@@ -230,6 +230,12 @@ A Webes felület főként HTML, CSS, és Javascript nyelven fog készülni. Ezek
  Képes lesz felhasználni a Backend részen futó REST szolgáltatás metódusait, ezáltal tud felvinni és lekérdezni adatokat az adatbázisból. 
 
 **11. Tesztterv**
+| Sorszám | Funkció neve | Vizsgálat módja/eszköze, részletes leírása | Elvárt eredmény| Eredmény
+|--|--|--|--|--|
+| T1 | Férőhelyek lekérdezése  | A webes felületen a kezdő dátum és záró dátum meg adása a férő helyek megjelenítéséhez|férőhelyek pirossal a foglaltat , zölddel a szabad helyek való megjelenítése adott intervallumon| lefoglalt helyek pirossal való jelzése míg a szabad helyek zölddel való megjelenítése a térképen
+|T2|Vendég létre hozása|A név, email, lakcím, telefonszám kitöltése után a létrehoz gombra kattintva felvisszük az adatbázisba|a felvett vendég adatbázisba való létre jötte|Az adatbázisban megtalálható a felvett vendég
+|T3|Foglalás|Férőhely számának megadása, sátor vagy karaván kiválasztása, elektromosság igénylése, kempingezés kezdés és befejezés dátumának megadása, vendég email címe amely csak olyan vendéget fogad el amely már szerepel az adatbázisban,  majd a foglalás gombbal lefoglaljuk a helyet megadott idő intervallumra| Foglalás létrejötte az adatbázisban| Lefoglalta az adatbázisban a megadott időközre a kemping helyet
+
 
 **12. Telepítési terv**
 A rendszer beüzemelésekor ajánlott egy hozzá szakértő emberre bízni a beüzemelést mivel a szerver elindításához szükség van némi hozzáértéshez. Így elkerülve esetleges nem kívánatos hibák létre jöttét.
