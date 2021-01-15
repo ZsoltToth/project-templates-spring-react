@@ -229,8 +229,18 @@ A Webes felület főként HTML, CSS, és Javascript nyelven fog készülni. Ezek
 
  Képes lesz felhasználni a Backend részen futó REST szolgáltatás metódusait, ezáltal tud felvinni és lekérdezni adatokat az adatbázisból. 
 
-
 **11. Tesztterv**
 
 **12. Telepítési terv**
-A rendszer beüzemelésekor ajánlott egy hozzá szakértő emberre bízni a beüzemelést mivel a szerver elindításához szükség van némi hozzáértéshez. Így elkerülve esetleges nem kívánatos hib
+A rendszer beüzemelésekor ajánlott egy hozzá szakértő emberre bízni a beüzemelést mivel a szerver elindításához szükség van némi hozzáértéshez. Így elkerülve esetleges nem kívánatos hibák létre jöttét.
+
+**13. Üzemeltetési terv**
+Az üzemeltetés a rendszergazda feladata. A rendszergazda lehet a megrendelő munkatársa, vagy külső munkaerő is. Az üzemeltetés során elvárás:
+
+-   a rendszeres biztonsági mentés
+-   meghibásodás esetén az utolsó konzisztens állapot visszaállítása
+-   a rendszer frissítése
+-   az általános átvizsgálás során észlelt hibák javítása
+-   bejelentések során érkezett hibák javítása
+-   a munkatársak igényeinek folyamatos figyelése és felmérése
+-   biztonsági beállítások folyamatos felülvizsgálata és szükség esetén korrigálásuk.
