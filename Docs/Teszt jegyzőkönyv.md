@@ -1,0 +1,3 @@
+| Sorszám |Dátum| Funkció leírása| Vizsgálat módja/eszköze, részletes leírása | Elvárt eredmény| Eredmény
+|--|--|--|--|--|--|
+|T1|2021.01.15 11:58|Vendég felvétele adatbázisba|A vendég létrehozás formba felvettük az adatokat.|Adatbázisban való megjelenés|  Az adatbázist intelij-ben kérdeztük le. Az ID-t automatikus generálja. Lakcím, email és név adatait bekerültek az adatbázisba a telefonszámot nem sikerült adatbázisba felvenni
