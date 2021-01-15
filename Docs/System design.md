@@ -222,3 +222,9 @@ Táblák:
 		 -FK (costumer_id -> costumer(id))
 		 -FK (camping_slot_id -> campingslot(id))
 	
+
+**10. Implementációs terv:**
+	
+A Webes felület főként HTML, CSS, és Javascript nyelven fog készülni. Ezeket a technológiákat amennyire csak lehet külön fájlokba írva készítjük, és úgy fogjuk egymáshoz csatolni a jobb átláthatóság, könnyebb változtathatóság, és könnyebb bővítés érdekében.
+
+ Képes lesz felhasználni a Backend részen futó REST szolgáltatás metódusait, ezáltal tud felvinni és lekérdezni adatokat az adatbázisból. 
