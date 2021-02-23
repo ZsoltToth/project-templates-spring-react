@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class ComplexNumberRecordRequestDto {
 
     private double real;
+
     private double imag;
 }

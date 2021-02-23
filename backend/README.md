@@ -153,7 +153,8 @@ If you modify the init SQL script then container has to be removed.
 
 ## Definition of Done
  - Pull Request is reviewed.
- - All Change Requests are performed and comments are answered.
+ - All Change Requests are performed and comments are 
+ answered.
  
  
  # Known Issues
