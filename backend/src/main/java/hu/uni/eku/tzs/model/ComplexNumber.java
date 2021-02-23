@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class ComplexNumber {
 
     private double real;
+
     private double imaginary;
 
 }
