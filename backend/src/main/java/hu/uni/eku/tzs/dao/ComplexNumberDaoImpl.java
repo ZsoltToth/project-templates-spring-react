@@ -5,8 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.Spliterator;
-import java.util.Spliterators;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -23,7 +21,7 @@ public class ComplexNumberDaoImpl implements ComplexNumberDao {
 
     @Override
     public Collection<ComplexNumber> readAll() {
-        return StreamSupport.stream(repository.findAll().spliterator(),false)
+        return StreamSupport.stream(repository.findAll().spliterator(), false)
                 .map(entity -> ComplexNumberEntityModelConverter.entity2model(entity))
                 .collect(Collectors.toList());
     }
@@ -38,16 +36,16 @@ public class ComplexNumberDaoImpl implements ComplexNumberDao {
 
     }
 
-    private static class ComplexNumberEntityModelConverter{
+    private static class ComplexNumberEntityModelConverter {
 
-        private static ComplexNumber entity2model(hu.uni.eku.tzs.dao.entity.ComplexNumber entity){
+        private static ComplexNumber entity2model(hu.uni.eku.tzs.dao.entity.ComplexNumber entity) {
             return new ComplexNumber(
                     entity.getRealPart(),
                     entity.getImaginaryPart()
             );
         }
 
-        private static hu.uni.eku.tzs.dao.entity.ComplexNumber model2entity(ComplexNumber model){
+        private static hu.uni.eku.tzs.dao.entity.ComplexNumber model2entity(ComplexNumber model) {
             return hu.uni.eku.tzs.dao.entity.ComplexNumber.builder()
                     .realPart(model.getReal())
                     .imaginaryPart(model.getImaginary())

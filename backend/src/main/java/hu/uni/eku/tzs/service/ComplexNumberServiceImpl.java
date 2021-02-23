@@ -20,11 +20,11 @@ public class ComplexNumberServiceImpl implements ComplexNumberService {
     public void record(ComplexNumber complexNumber) throws ComplexNumberAlreadyExistsException {
         final boolean isAlreadyRecorded = dao.readAll()
                 .stream()
-                .anyMatch( cn ->
-                                cn.getReal() == complexNumber.getReal()
+                .anyMatch(cn ->
+                        cn.getReal() == complexNumber.getReal()
                                 &&
                                 cn.getImaginary() == complexNumber.getImaginary());
-        if(isAlreadyRecorded){
+        if (isAlreadyRecorded) {
             log.info("Complex Number {} is already recorded!", complexNumber);
             throw new ComplexNumberAlreadyExistsException(String.format("Complex Number (%s) already exists!", complexNumber.toString()));
 

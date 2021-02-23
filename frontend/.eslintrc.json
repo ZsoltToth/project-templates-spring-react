@@ -21,6 +21,8 @@
         "react"
     ],
     "rules": {
+	    "semi" : [2, "always"],
+	    "no-undef": [0, "always"]
     },
     "overrides": [
         {

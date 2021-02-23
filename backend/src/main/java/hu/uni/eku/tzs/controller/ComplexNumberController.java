@@ -7,7 +7,6 @@ import hu.uni.eku.tzs.service.ComplexNumberService;
 import hu.uni.eku.tzs.service.exceptions.ComplexNumberAlreadyExistsException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -31,13 +30,13 @@ public class ComplexNumberController {
     @ApiOperation(value = "Record")
     public void record(
             @RequestBody
-            ComplexNumberRecordRequestDto request
-    ){
-        log.info("Recording of Complex Number ({},{})",request.getReal(),request.getImag());
+                    ComplexNumberRecordRequestDto request
+    ) {
+        log.info("Recording of Complex Number ({},{})", request.getReal(), request.getImag());
         try {
-            service.record(new ComplexNumber(request.getReal(),request.getImag()));
+            service.record(new ComplexNumber(request.getReal(), request.getImag()));
         } catch (ComplexNumberAlreadyExistsException e) {
-            log.info("Complex number ({},{}) is already exists! Message: {}", request.getReal(),request.getImag(), e.getMessage());
+            log.info("Complex number ({},{}) is already exists! Message: {}", request.getReal(), request.getImag(), e.getMessage());
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     e.getMessage()
@@ -47,13 +46,13 @@ public class ComplexNumberController {
 
     @GetMapping(value = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    @ApiOperation(value= "Query Complex Numbers")
-    public Collection<ComplexNumberDto> query(){
+    @ApiOperation(value = "Query Complex Numbers")
+    public Collection<ComplexNumberDto> query() {
         return service.readAll().stream().map(model ->
                 ComplexNumberDto.builder()
-                .real(model.getReal())
-                .imaginary(model.getImaginary())
-                .build()
+                        .real(model.getReal())
+                        .imaginary(model.getImaginary())
+                        .build()
         ).collect(Collectors.toList());
     }
 
